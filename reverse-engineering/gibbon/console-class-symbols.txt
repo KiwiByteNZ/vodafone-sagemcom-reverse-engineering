@@ -1,0 +1,210 @@
+002a13ac W AnimationsCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+002b05ac W BenchmarkCommand::invoke(netflix::Console::Command::Arguments const&) const
+008b8084 W CPUThiefCommand::invoke(netflix::Console::Command::Arguments const&) const
+002a8db0 W CacheCommand::invoke(netflix::Console::Command::Arguments const&) const
+008b18e8 W CatCommand::invoke(netflix::Console::Command::Arguments const&) const
+008b1f20 W ColorCommand::invoke(netflix::Console::Command::Arguments const&) const
+008b2b48 W CommandLineCommand::invoke(netflix::Console::Command::Arguments const&) const
+002a5b14 W CookiesCommand::invoke(netflix::Console::Command::Arguments const&) const
+002a42e0 W CrashCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+00539034 W DNSCommand::invoke(netflix::Console::Command::Arguments const&) const
+0053e4e8 W DataCommand::invoke(netflix::Console::Command::Arguments const&) const
+002a8758 W DebugCommand::invoke(netflix::Console::Command::Arguments const&) const
+0053b238 W DiskStoreCommand::invoke(netflix::Console::Command::Arguments const&) const
+002d51d0 W DisplayListCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+008b1df4 W EnvCommand::invoke(netflix::Console::Command::Arguments const&) const
+002aad44 W EventLoopCheckerCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+002a1f64 W FontsCommand::invoke(netflix::Console::Command::Arguments const&) const
+002a1068 W FooCommand::invoke(netflix::Console::Command::Arguments const&) const
+002b9418 W GCCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+002ba888 W GibbonPostedCommand::invoke(netflix::Console::Command::Arguments const&) const
+002ba5b0 W GibbonPostedCommand::invokeOnThread(GibbonPostedCommand::DesiredThread, netflix::Console::Command::Arguments const&) const
+002b6c7c W GrabCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+00a30500 V GrabCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const::serial
+008bdc08 W GrepCommand::invoke(netflix::Console::Command::Arguments const&) const
+0053b02c W HelpCommand::invoke(netflix::Console::Command::Arguments const&) const
+00545094 W InstrumentationCommand::invoke(netflix::Console::Command::Arguments const&) const
+002c680c W KeyCommand::invoke(netflix::Console::Command::Arguments const&) const
+002b5e24 W KillCommand::invoke(netflix::Console::Command::Arguments const&) const
+002a881c W LayoutCommand::invoke(netflix::Console::Command::Arguments const&) const
+008bbd9c W LocksCommand::invoke(netflix::Console::Command::Arguments const&) const
+008b9c38 W LogFileCommand::invoke(netflix::Console::Command::Arguments const&) const
+0053c1b8 W NetworkCommand::invoke(netflix::Console::Command::Arguments const&) const
+002a328c W OpenGLShadersCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+002c9fe4 W OverlayCommand::invoke(netflix::Console::Command::Arguments const&) const
+002cae84 W PlayersCommand::invoke(netflix::Console::Command::Arguments const&) const
+002c9c48 W PointerEventCommand::invoke(netflix::Console::Command::Arguments const&) const
+00a131e8 V PointerEventCommand::invoke(netflix::Console::Command::Arguments const&) const::mappings
+002a89c8 W ProfileCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+002b9538 W PurgeCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+005363ac W QuitCommand::invoke(netflix::Console::Command::Arguments const&) const
+002a8c0c W RawCommand::invoke(netflix::Console::Command::Arguments const&) const
+002add60 W ReloadCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+002b13f8 W RenderCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+0053f8e0 W ResourcesCommand::invoke(netflix::Console::Command::Arguments const&) const
+002aeaf4 W ScriptEngineCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+002bc238 W ScriptHashCommand::invoke(netflix::Console::Command::Arguments const&) const
+008b606c W SeparatorCommand::invoke(netflix::Console::Command::Arguments const&) const
+002cf460 W SetCommand::invoke(netflix::Console::Command::Arguments const&) const
+008b1a30 W SingleCoreCommand::invoke(netflix::Console::Command::Arguments const&) const
+002b8bd0 W SizeContentCommand::invoke(netflix::Console::Command::Arguments const&) const
+002bab08 W SleepCommand::invoke(netflix::Console::Command::Arguments const&) const
+002a14f0 W SleepCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+002ba024 W SourceCommand::invoke(netflix::Console::Command::Arguments const&) const
+002ba8d8 W StatsCommand::invoke(netflix::Console::Command::Arguments const&) const
+002c48e0 W StatsCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+002ae04c W SurfaceCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+002a5a24 W TasksCommand::invoke(netflix::Console::Command::Arguments const&) const
+002cdad4 W TextCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+008b1d0c W ThreadsCommand::invoke(netflix::Console::Command::Arguments const&) const
+008b1aac W TimeCommand::invoke(netflix::Console::Command::Arguments const&) const
+008b38ac W TimersCommand::invoke(netflix::Console::Command::Arguments const&) const
+0053aec4 W TraceCommand::invoke(netflix::Console::Command::Arguments const&) const
+00544dcc W TrustStoreCommand::invoke(netflix::Console::Command::Arguments const&) const
+008b94d8 W UlimitCommand::invoke(netflix::Console::Command::Arguments const&) const
+002c8a7c W UpdateCommand::invoke(netflix::Console::Command::Arguments const&) const
+002a1ae8 W ValgrindCommand::invoke(netflix::Console::Command::Arguments const&) const
+002d1098 W VersionsCommand::invoke(netflix::Console::Command::Arguments const&) const
+002c9174 W ViewsCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+002c8514 W ViewsCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const::RecurseCheck::process(std::shared_ptr<netflix::gibbon::Widget> const&, netflix::gibbon::Rect const&)
+002c7e80 W ViewsCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const::RecurseCheck::~RecurseCheck()
+002c7e80 W ViewsCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const::RecurseCheck::~RecurseCheck()
+002c7eec W ViewsCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const::RecurseCheck::~RecurseCheck()
+002cd4c0 W WidgetCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const
+00542a80 W WriteLimiterCommand::invoke(netflix::Console::Command::Arguments const&) const
+002a8618 W executeDebugCommand(netflix::Console::Command::Arguments const&, unsigned int)
+00881ed0 T netflix::Application::executed(netflix::Console::Command::Arguments const&)
+002ae958 W netflix::Console::Command::Arguments::Arguments(netflix::Console::Command::Arguments const&)
+002ae958 W netflix::Console::Command::Arguments::Arguments(netflix::Console::Command::Arguments const&)
+008a6214 T netflix::Console::Command::Arguments::parse(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+002a9ad0 W netflix::Console::Command::Arguments::~Arguments()
+002a9ad0 W netflix::Console::Command::Arguments::~Arguments()
+008b5e90 W netflix::Console::Command::Command(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, netflix::Flags<netflix::Console::Command::Flag>)
+008b5e90 W netflix::Console::Command::Command(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, netflix::Flags<netflix::Console::Command::Flag>)
+002bc628 W netflix::Console::Command::Help::Help(netflix::Console::Command::Help const&)
+002bc628 W netflix::Console::Command::Help::Help(netflix::Console::Command::Help const&)
+002a2f30 W netflix::Console::Command::Help::Help(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+002a2f30 W netflix::Console::Command::Help::Help(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+002a2fd8 W netflix::Console::Command::Help::Help(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+002a2fd8 W netflix::Console::Command::Help::Help(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+002a4ad8 W netflix::Console::Command::Help::~Help()
+002a4ad8 W netflix::Console::Command::Help::~Help()
+00299f5c W netflix::Console::Command::createCompletion() const
+00299fac W netflix::Console::Command::help() const
+008a6f98 T netflix::Console::Command::staticCompletions(netflix::Variant const&)
+002a5c10 W netflix::Console::Command::~Command()
+002a5c10 W netflix::Console::Command::~Command()
+002a5cfc W netflix::Console::Command::~Command()
+008aebcc W netflix::Console::Completion::dump(_IO_FILE*, int) const
+008b2260 W netflix::Console::Completion::~Completion()
+008b2260 W netflix::Console::Completion::~Completion()
+008b2328 W netflix::Console::Completion::~Completion()
+008ac1ac T netflix::Console::Console()
+008ac1ac T netflix::Console::Console()
+008aeb74 W netflix::Console::Filter::describe() const
+008aeb20 W netflix::Console::Filter::finish()
+008aeac8 W netflix::Console::Filter::~Filter()
+008aeac8 W netflix::Console::Filter::~Filter()
+008b03dc W netflix::Console::Filter::~Filter()
+008be1c8 W netflix::Console::Filters::Scope::~Scope()
+008be1c8 W netflix::Console::Filters::Scope::~Scope()
+008b6484 W netflix::Console::Filters::begin(std::shared_ptr<netflix::Console> const&)
+002d65c8 W netflix::Console::Filters::end(std::shared_ptr<netflix::Console> const&)
+008a4158 T netflix::Console::Filters::filter(std::shared_ptr<netflix::LogSink> const&, netflix::LogSink::Format&) const
+008b50a4 W netflix::Console::Filters::~Filters()
+008b50a4 W netflix::Console::Filters::~Filters()
+008a65f0 T netflix::Console::StaticCompletion::StaticCompletion(netflix::Variant const&)
+008a65f0 T netflix::Console::StaticCompletion::StaticCompletion(netflix::Variant const&)
+008a5c80 T netflix::Console::StaticCompletion::alternatives(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const
+008a3fb4 T netflix::Console::StaticCompletion::dump(_IO_FILE*, int) const
+008a4630 T netflix::Console::StaticCompletion::match(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const
+008b83b0 W netflix::Console::StaticCompletion::~StaticCompletion()
+008b83b0 W netflix::Console::StaticCompletion::~StaticCompletion()
+008b8494 W netflix::Console::StaticCompletion::~StaticCompletion()
+002afd04 W netflix::Console::addCommand(std::shared_ptr<netflix::Console::Command> const&)
+008a4ad4 T netflix::Console::createFilter(__gnu_cxx::__normal_iterator<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, __gnu_cxx::__normal_iterator<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >)
+008a4244 T netflix::Console::dump(netflix::Console::Command::Arguments const&, std::vector<netflix::Console::Command::Help, std::allocator<netflix::Console::Command::Help> > const&, int)
+008a58b4 T netflix::Console::findCommands(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const
+008ae0d8 T netflix::Console::handleCommand(netflix::Console::Command::Arguments const&, netflix::Flags<netflix::Console::Flag>)
+008ade38 T netflix::Console::handleHelp(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+008aec10 W netflix::Console::handleSequence(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+008a5570 T netflix::Console::parseFilters(__gnu_cxx::__normal_iterator<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, __gnu_cxx::__normal_iterator<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >)
+008a5d48 T netflix::Console::shellTokenize(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+008a49dc T netflix::Console::stop()
+008aec58 W netflix::Console::updateCompletions()
+002af4ec W netflix::Console::~Console()
+002af4ec W netflix::Console::~Console()
+002af5c0 W netflix::Console::~Console()
+0029600c T netflix::gibbon::GibbonConsole::handleCommand(netflix::Console::Command::Arguments const&, netflix::Flags<netflix::Console::Flag>)
+002af868 W netflix::gibbon::GibbonConsoleCommandEvent::GibbonConsoleCommandEvent(std::shared_ptr<netflix::Console::Command const> const&, netflix::Console::Command::Arguments const&)
+002af868 W netflix::gibbon::GibbonConsoleCommandEvent::GibbonConsoleCommandEvent(std::shared_ptr<netflix::Console::Command const> const&, netflix::Console::Command::Arguments const&)
+0029639c T non-virtual thunk to netflix::gibbon::GibbonConsole::handleCommand(netflix::Console::Command::Arguments const&, netflix::Flags<netflix::Console::Flag>)
+008b8318 W std::_Rb_tree<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> >, std::_Select1st<std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> > >, std::less<std::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> > > >::_M_erase(std::_Rb_tree_node<std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> > >*)
+008bae78 W std::_Rb_tree<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> >, std::_Select1st<std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> > >, std::less<std::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> > > >::_M_get_insert_unique_pos(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+002af464 W std::_Rb_tree<std::shared_ptr<netflix::Console::Filters>, std::shared_ptr<netflix::Console::Filters>, std::_Identity<std::shared_ptr<netflix::Console::Filters> >, std::less<std::shared_ptr<netflix::Console::Filters> >, std::allocator<std::shared_ptr<netflix::Console::Filters> > >::_M_erase(std::_Rb_tree_node<std::shared_ptr<netflix::Console::Filters> >*)
+008baf84 W std::_Rb_tree_iterator<std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> > > std::_Rb_tree<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> >, std::_Select1st<std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> > >, std::less<std::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> > > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> > >, std::piecewise_construct_t const&, std::tuple<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>&&, std::tuple<>&&)
+008baf84 W std::_Rb_tree_iterator<std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> > > std::_Rb_tree<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> >, std::_Select1st<std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> > >, std::less<std::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> > > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<netflix::Console::Completion> > >, std::piecewise_construct_t const&, std::tuple<std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>&&, std::tuple<>&&)
+008b160c W std::_Sp_counted_ptr<netflix::Console::Filters*, (__gnu_cxx::_Lock_policy)2>::_M_destroy()
+008b5330 W std::_Sp_counted_ptr<netflix::Console::Filters*, (__gnu_cxx::_Lock_policy)2>::_M_dispose()
+008b02e0 W std::_Sp_counted_ptr<netflix::Console::Filters*, (__gnu_cxx::_Lock_policy)2>::_M_get_deleter(std::type_info const&)
+008af4d4 W std::_Sp_counted_ptr<netflix::Console::Filters*, (__gnu_cxx::_Lock_policy)2>::~_Sp_counted_ptr()
+008af4d4 W std::_Sp_counted_ptr<netflix::Console::Filters*, (__gnu_cxx::_Lock_policy)2>::~_Sp_counted_ptr()
+008b15a8 W std::_Sp_counted_ptr<netflix::Console::Filters*, (__gnu_cxx::_Lock_policy)2>::~_Sp_counted_ptr()
+00535cd4 W std::_Sp_counted_ptr<netflix::Console::StaticCompletion*, (__gnu_cxx::_Lock_policy)2>::_M_destroy()
+005340d4 W std::_Sp_counted_ptr<netflix::Console::StaticCompletion*, (__gnu_cxx::_Lock_policy)2>::_M_dispose()
+00534140 W std::_Sp_counted_ptr<netflix::Console::StaticCompletion*, (__gnu_cxx::_Lock_policy)2>::_M_get_deleter(std::type_info const&)
+00532b68 W std::_Sp_counted_ptr<netflix::Console::StaticCompletion*, (__gnu_cxx::_Lock_policy)2>::~_Sp_counted_ptr()
+00532b68 W std::_Sp_counted_ptr<netflix::Console::StaticCompletion*, (__gnu_cxx::_Lock_policy)2>::~_Sp_counted_ptr()
+00535c70 W std::_Sp_counted_ptr<netflix::Console::StaticCompletion*, (__gnu_cxx::_Lock_policy)2>::~_Sp_counted_ptr()
+0053d91c W std::__shared_ptr<netflix::Console::Completion, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<netflix::Console::StaticCompletion>(netflix::Console::StaticCompletion*)
+0053d91c W std::__shared_ptr<netflix::Console::Completion, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<netflix::Console::StaticCompletion>(netflix::Console::StaticCompletion*)
+002af69c W std::pair<std::_Rb_tree_iterator<std::shared_ptr<netflix::Console::Filters> >, bool> std::_Rb_tree<std::shared_ptr<netflix::Console::Filters>, std::shared_ptr<netflix::Console::Filters>, std::_Identity<std::shared_ptr<netflix::Console::Filters> >, std::less<std::shared_ptr<netflix::Console::Filters> >, std::allocator<std::shared_ptr<netflix::Console::Filters> > >::_M_insert_unique<std::shared_ptr<netflix::Console::Filters> const&>(std::shared_ptr<netflix::Console::Filters> const&)
+00537188 W std::shared_ptr<netflix::Console::Completion>::~shared_ptr()
+00537188 W std::shared_ptr<netflix::Console::Completion>::~shared_ptr()
+002bcab4 W std::vector<netflix::Console::Command::Help, std::allocator<netflix::Console::Command::Help> >::push_back(netflix::Console::Command::Help const&)
+002a4a54 W std::vector<netflix::Console::Command::Help, std::allocator<netflix::Console::Command::Help> >::~vector()
+002a4a54 W std::vector<netflix::Console::Command::Help, std::allocator<netflix::Console::Command::Help> >::~vector()
+008b5468 W std::vector<std::shared_ptr<netflix::Console::Command>, std::allocator<std::shared_ptr<netflix::Console::Command> > >::operator=(std::vector<std::shared_ptr<netflix::Console::Command>, std::allocator<std::shared_ptr<netflix::Console::Command> > > const&)
+005392fc W std::vector<std::shared_ptr<netflix::Console::Command>, std::allocator<std::shared_ptr<netflix::Console::Command> > >::~vector()
+005392fc W std::vector<std::shared_ptr<netflix::Console::Command>, std::allocator<std::shared_ptr<netflix::Console::Command> > >::~vector()
+008b500c W std::vector<std::shared_ptr<netflix::Console::Filter>, std::allocator<std::shared_ptr<netflix::Console::Filter> > >::~vector()
+008b500c W std::vector<std::shared_ptr<netflix::Console::Filter>, std::allocator<std::shared_ptr<netflix::Console::Filter> > >::~vector()
+00a146b4 V typeinfo for ViewsCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const::RecurseCheck
+00a143e8 V typeinfo for netflix::Console::Command
+00a26140 V typeinfo for netflix::Console::Completion
+00a26138 V typeinfo for netflix::Console::Filter
+00a26870 D typeinfo for netflix::Console::StaticCompletion
+00a26248 V typeinfo for std::_Sp_counted_ptr<netflix::Console::Filters*, (__gnu_cxx::_Lock_policy)2>
+00a1c3c4 V typeinfo for std::_Sp_counted_ptr<netflix::Console::StaticCompletion*, (__gnu_cxx::_Lock_policy)2>
+00a143c0 V typeinfo for std::enable_shared_from_this<netflix::Console::Command>
+00a26128 V typeinfo for std::enable_shared_from_this<netflix::Console::Completion>
+00942d18 V typeinfo name for ViewsCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const::RecurseCheck
+00942708 V typeinfo name for netflix::Console::Command
+00999a88 V typeinfo name for netflix::Console::Completion
+00999a6c V typeinfo name for netflix::Console::Filter
+0099a1b4 R typeinfo name for netflix::Console::StaticCompletion
+00999c50 V typeinfo name for std::_Sp_counted_ptr<netflix::Console::Filters*, (__gnu_cxx::_Lock_policy)2>
+00960b60 V typeinfo name for std::_Sp_counted_ptr<netflix::Console::StaticCompletion*, (__gnu_cxx::_Lock_policy)2>
+009425e4 V typeinfo name for std::enable_shared_from_this<netflix::Console::Command>
+00999a00 V typeinfo name for std::enable_shared_from_this<netflix::Console::Completion>
+008bd970 W void std::__adjust_heap<__gnu_cxx::__normal_iterator<std::shared_ptr<netflix::Console::Command>*, std::vector<std::shared_ptr<netflix::Console::Command>, std::allocator<std::shared_ptr<netflix::Console::Command> > > >, int, std::shared_ptr<netflix::Console::Command>, pred>(__gnu_cxx::__normal_iterator<std::shared_ptr<netflix::Console::Command>*, std::vector<std::shared_ptr<netflix::Console::Command>, std::allocator<std::shared_ptr<netflix::Console::Command> > > >, int, int, std::shared_ptr<netflix::Console::Command>, pred)
+008bc5e8 W void std::__insertion_sort<__gnu_cxx::__normal_iterator<std::shared_ptr<netflix::Console::Command>*, std::vector<std::shared_ptr<netflix::Console::Command>, std::allocator<std::shared_ptr<netflix::Console::Command> > > >, pred>(__gnu_cxx::__normal_iterator<std::shared_ptr<netflix::Console::Command>*, std::vector<std::shared_ptr<netflix::Console::Command>, std::allocator<std::shared_ptr<netflix::Console::Command> > > >, __gnu_cxx::__normal_iterator<std::shared_ptr<netflix::Console::Command>*, std::vector<std::shared_ptr<netflix::Console::Command>, std::allocator<std::shared_ptr<netflix::Console::Command> > > >, pred)
+008b51b8 W void std::__shared_ptr<netflix::Console::Filters, (__gnu_cxx::_Lock_policy)2>::reset<netflix::Console::Filters>(netflix::Console::Filters*)
+008bc4b4 W void std::__unguarded_linear_insert<__gnu_cxx::__normal_iterator<std::shared_ptr<netflix::Console::Command>*, std::vector<std::shared_ptr<netflix::Console::Command>, std::allocator<std::shared_ptr<netflix::Console::Command> > > >, pred>(__gnu_cxx::__normal_iterator<std::shared_ptr<netflix::Console::Command>*, std::vector<std::shared_ptr<netflix::Console::Command>, std::allocator<std::shared_ptr<netflix::Console::Command> > > >, pred)
+002bc7c0 W void std::vector<netflix::Console::Command::Help, std::allocator<netflix::Console::Command::Help> >::_M_emplace_back_aux<netflix::Console::Command::Help const&>(netflix::Console::Command::Help const&)
+002bc7c0 W void std::vector<netflix::Console::Command::Help, std::allocator<netflix::Console::Command::Help> >::_M_emplace_back_aux<netflix::Console::Command::Help const&>(netflix::Console::Command::Help const&)
+00477108 W void std::vector<netflix::Console::Command::Help, std::allocator<netflix::Console::Command::Help> >::_M_emplace_back_aux<netflix::Console::Command::Help>(netflix::Console::Command::Help&&)
+00477108 W void std::vector<netflix::Console::Command::Help, std::allocator<netflix::Console::Command::Help> >::_M_emplace_back_aux<netflix::Console::Command::Help>(netflix::Console::Command::Help&&)
+002b18d8 W void std::vector<netflix::Console::Command::Help, std::allocator<netflix::Console::Command::Help> >::emplace_back<netflix::Console::Command::Help>(netflix::Console::Command::Help&&)
+002b18d8 W void std::vector<netflix::Console::Command::Help, std::allocator<netflix::Console::Command::Help> >::emplace_back<netflix::Console::Command::Help>(netflix::Console::Command::Help&&)
+002afb5c W void std::vector<std::shared_ptr<netflix::Console::Command>, std::allocator<std::shared_ptr<netflix::Console::Command> > >::_M_emplace_back_aux<std::shared_ptr<netflix::Console::Command> const&>(std::shared_ptr<netflix::Console::Command> const&)
+002afb5c W void std::vector<std::shared_ptr<netflix::Console::Command>, std::allocator<std::shared_ptr<netflix::Console::Command> > >::_M_emplace_back_aux<std::shared_ptr<netflix::Console::Command> const&>(std::shared_ptr<netflix::Console::Command> const&)
+008b62a0 W void std::vector<std::shared_ptr<netflix::Console::Filter>, std::allocator<std::shared_ptr<netflix::Console::Filter> > >::_M_emplace_back_aux<std::shared_ptr<netflix::Console::Filter> const&>(std::shared_ptr<netflix::Console::Filter> const&)
+008b62a0 W void std::vector<std::shared_ptr<netflix::Console::Filter>, std::allocator<std::shared_ptr<netflix::Console::Filter> > >::_M_emplace_back_aux<std::shared_ptr<netflix::Console::Filter> const&>(std::shared_ptr<netflix::Console::Filter> const&)
+00a15110 V vtable for ViewsCommand::invokeOnCurrentThread(netflix::Console::Command::Arguments const&) const::RecurseCheck
+00a14a50 V vtable for netflix::Console::Command
+00a26358 V vtable for netflix::Console::Completion
+00a26338 V vtable for netflix::Console::Filter
+00a26898 D vtable for netflix::Console::StaticCompletion
+00a265f0 V vtable for std::_Sp_counted_ptr<netflix::Console::Filters*, (__gnu_cxx::_Lock_policy)2>
+00a1c8e0 V vtable for std::_Sp_counted_ptr<netflix::Console::StaticCompletion*, (__gnu_cxx::_Lock_policy)2>

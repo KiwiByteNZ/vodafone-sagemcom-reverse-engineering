@@ -1,0 +1,362 @@
+
+vodafone-custom-page/uploads/libnetproto_api_jsx.so.2.2:     file format elf32-littlearm
+
+
+Disassembly of section .init:
+
+000005cc <_init@@Base>:
+ 5cc:	e92d4008 	push	{r3, lr}
+ 5d0:	eb000023 	bl	664 <JSX_Add@plt+0xc>
+ 5d4:	e8bd8008 	pop	{r3, pc}
+
+Disassembly of section .plt:
+
+000005d8 <__cxa_finalize@plt-0x14>:
+ 5d8:	e52de004 	push	{lr}		@ (str lr, [sp, #-4]!)
+ 5dc:	e59fe004 	ldr	lr, [pc, #4]	@ 5e8 <_init@@Base+0x1c>
+ 5e0:	e08fe00e 	add	lr, pc, lr
+ 5e4:	e5bef008 	ldr	pc, [lr, #8]!
+ 5e8:	000109cc 	andeq	r0, r1, ip, asr #19
+
+000005ec <__cxa_finalize@plt>:
+ 5ec:	e28fc600 	add	ip, pc, #0, 12
+ 5f0:	e28cca10 	add	ip, ip, #16, 20	@ 0x10000
+ 5f4:	e5bcf9cc 	ldr	pc, [ip, #2508]!	@ 0x9cc
+
+000005f8 <strtol@plt>:
+ 5f8:	e28fc600 	add	ip, pc, #0, 12
+ 5fc:	e28cca10 	add	ip, ip, #16, 20	@ 0x10000
+ 600:	e5bcf9c4 	ldr	pc, [ip, #2500]!	@ 0x9c4
+
+00000604 <__stack_chk_fail@plt>:
+ 604:	e28fc600 	add	ip, pc, #0, 12
+ 608:	e28cca10 	add	ip, ip, #16, 20	@ 0x10000
+ 60c:	e5bcf9bc 	ldr	pc, [ip, #2492]!	@ 0x9bc
+
+00000610 <strcasecmp@plt>:
+ 610:	e28fc600 	add	ip, pc, #0, 12
+ 614:	e28cca10 	add	ip, ip, #16, 20	@ 0x10000
+ 618:	e5bcf9b4 	ldr	pc, [ip, #2484]!	@ 0x9b4
+
+0000061c <HLS_LimitBandwidth@plt>:
+ 61c:	e28fc600 	add	ip, pc, #0, 12
+ 620:	e28cca10 	add	ip, ip, #16, 20	@ 0x10000
+ 624:	e5bcf9ac 	ldr	pc, [ip, #2476]!	@ 0x9ac
+
+00000628 <__gmon_start__@plt>:
+ 628:	e28fc600 	add	ip, pc, #0, 12
+ 62c:	e28cca10 	add	ip, ip, #16, 20	@ 0x10000
+ 630:	e5bcf9a4 	ldr	pc, [ip, #2468]!	@ 0x9a4
+
+00000634 <HTTP_SetDebug@plt>:
+ 634:	e28fc600 	add	ip, pc, #0, 12
+ 638:	e28cca10 	add	ip, ip, #16, 20	@ 0x10000
+ 63c:	e5bcf99c 	ldr	pc, [ip, #2460]!	@ 0x99c
+
+00000640 <__sprintf_chk@plt>:
+ 640:	e28fc600 	add	ip, pc, #0, 12
+ 644:	e28cca10 	add	ip, ip, #16, 20	@ 0x10000
+ 648:	e5bcf994 	ldr	pc, [ip, #2452]!	@ 0x994
+
+0000064c <HLS_AvgBandwidth@plt>:
+ 64c:	e28fc600 	add	ip, pc, #0, 12
+ 650:	e28cca10 	add	ip, ip, #16, 20	@ 0x10000
+ 654:	e5bcf98c 	ldr	pc, [ip, #2444]!	@ 0x98c
+
+00000658 <JSX_Add@plt>:
+ 658:	e28fc600 	add	ip, pc, #0, 12
+ 65c:	e28cca10 	add	ip, ip, #16, 20	@ 0x10000
+ 660:	e5bcf984 	ldr	pc, [ip, #2436]!	@ 0x984
+
+Disassembly of section .text:
+
+00000664 <netproto_api_jsx_init@@Base-0x324>:
+ 664:	e59f3014 	ldr	r3, [pc, #20]	@ 680 <JSX_Add@plt+0x28>
+ 668:	e59f2014 	ldr	r2, [pc, #20]	@ 684 <JSX_Add@plt+0x2c>
+ 66c:	e08f3003 	add	r3, pc, r3
+ 670:	e7932002 	ldr	r2, [r3, r2]
+ 674:	e3520000 	cmp	r2, #0
+ 678:	012fff1e 	bxeq	lr
+ 67c:	eaffffe9 	b	628 <__gmon_start__@plt>
+ 680:	00010940 	andeq	r0, r1, r0, asr #18
+ 684:	00000040 	andeq	r0, r0, r0, asr #32
+ 688:	48084a07 	stmdami	r8, {r0, r1, r2, r9, fp, lr}
+ 68c:	4b08447a 	blmi	21187c <__bss_end__@@Base+0x200874>
+ 690:	32034478 	andcc	r4, r3, #120, 8	@ 0x78000000
+ 694:	447b1a12 	ldrbtmi	r1, [fp], #-2578	@ 0xfffff5ee
+ 698:	d9032a06 	stmdble	r3, {r1, r2, r9, fp, sp}
+ 69c:	589b4a05 	ldmpl	fp, {r0, r2, r9, fp, lr}
+ 6a0:	4718b103 	ldrmi	fp, [r8, -r3, lsl #2]
+ 6a4:	bf004770 	svclt	0x00004770
+ 6a8:	00010974 	andeq	r0, r1, r4, ror r9
+ 6ac:	00010970 	andeq	r0, r1, r0, ror r9
+ 6b0:	0001091a 	andeq	r0, r1, sl, lsl r9
+ 6b4:	00000038 	andeq	r0, r0, r8, lsr r0
+ 6b8:	49094808 	stmdbmi	r9, {r3, fp, lr}
+ 6bc:	4b094478 	blmi	2518a4 <__bss_end__@@Base+0x24089c>
+ 6c0:	1a094479 	bne	2518ac <__bss_end__@@Base+0x2408a4>
+ 6c4:	1089447b 	addne	r4, r9, fp, ror r4
+ 6c8:	71d1eb01 	bicsvc	lr, r1, r1, lsl #22
+ 6cc:	d0031049 	andle	r1, r3, r9, asr #32
+ 6d0:	589b4a05 	ldmpl	fp, {r0, r2, r9, fp, lr}
+ 6d4:	4718b103 	ldrmi	fp, [r8, -r3, lsl #2]
+ 6d8:	bf004770 	svclt	0x00004770
+ 6dc:	00010944 	andeq	r0, r1, r4, asr #18
+ 6e0:	00010940 	andeq	r0, r1, r0, asr #18
+ 6e4:	000108ec 	andeq	r0, r1, ip, ror #17
+ 6e8:	00000048 	andeq	r0, r0, r8, asr #32
+ 6ec:	b5084a0a 	strlt	r4, [r8, #-2570]	@ 0xfffff5f6
+ 6f0:	4b0a447a 	blmi	2918e0 <__bss_end__@@Base+0x2808d8>
+ 6f4:	447b7812 	ldrbtmi	r7, [fp], #-2066	@ 0xfffff7ee
+ 6f8:	4a09b96a 	bmi	26eca8 <__bss_end__@@Base+0x25dca0>
+ 6fc:	b123589b 			@ <UNDEFINED> instruction: 0xb123589b
+ 700:	447b4b08 	ldrbtmi	r4, [fp], #-2824	@ 0xfffff4f8
+ 704:	f7ff6818 			@ <UNDEFINED> instruction: 0xf7ff6818
+ 708:	f7ffef72 			@ <UNDEFINED> instruction: 0xf7ffef72
+ 70c:	4b06ffbd 	blmi	1c0608 <__bss_end__@@Base+0x1af600>
+ 710:	447b2201 	ldrbtmi	r2, [fp], #-513	@ 0xfffffdff
+ 714:	bd08701a 	stclt	0, cr7, [r8, #-104]	@ 0xffffff98
+ 718:	00010910 	andeq	r0, r1, r0, lsl r9
+ 71c:	000108ba 			@ <UNDEFINED> instruction: 0x000108ba
+ 720:	00000034 	andeq	r0, r0, r4, lsr r0
+ 724:	000108fa 	strdeq	r0, [r1], -sl
+ 728:	000108ee 	andeq	r0, r1, lr, ror #17
+ 72c:	b5084806 	strlt	r4, [r8, #-2054]	@ 0xfffff7fa
+ 730:	4b064478 	blmi	191918 <__bss_end__@@Base+0x180910>
+ 734:	447b6802 	ldrbtmi	r6, [fp], #-2050	@ 0xfffff7fe
+ 738:	4a05b11a 	bmi	16cba8 <__bss_end__@@Base+0x15bba0>
+ 73c:	b103589b 			@ <UNDEFINED> instruction: 0xb103589b
+ 740:	e8bd4798 	pop	{r3, r4, r7, r8, r9, sl, lr}
+ 744:	e7b74008 	ldr	r4, [r7, r8]!
+ 748:	0001077c 	andeq	r0, r1, ip, ror r7
+ 74c:	0001087a 	andeq	r0, r1, sl, ror r8
+ 750:	00000044 	andeq	r0, r0, r4, asr #32
+ 754:	e59f3068 	ldr	r3, [pc, #104]	@ 7c4 <JSX_Add@plt+0x16c>
+ 758:	e16d40fc 	strd	r4, [sp, #-12]!
+ 75c:	e1a05002 	mov	r5, r2
+ 760:	e59f2060 	ldr	r2, [pc, #96]	@ 7c8 <JSX_Add@plt+0x170>
+ 764:	e58de008 	str	lr, [sp, #8]
+ 768:	e24dd014 	sub	sp, sp, #20
+ 76c:	e08f3003 	add	r3, pc, r3
+ 770:	e7934002 	ldr	r4, [r3, r2]
+ 774:	e5943000 	ldr	r3, [r4]
+ 778:	e58d300c 	str	r3, [sp, #12]
+ 77c:	ebffffb2 	bl	64c <HLS_AvgBandwidth@plt>
+ 780:	e59f3044 	ldr	r3, [pc, #68]	@ 7cc <JSX_Add@plt+0x174>
+ 784:	e1a0c180 	lsl	ip, r0, #3
+ 788:	e3e02000 	mvn	r2, #0
+ 78c:	e3a01001 	mov	r1, #1
+ 790:	e1a00005 	mov	r0, r5
+ 794:	e58dc000 	str	ip, [sp]
+ 798:	e08f3003 	add	r3, pc, r3
+ 79c:	ebffffa7 	bl	640 <__sprintf_chk@plt>
+ 7a0:	e59d200c 	ldr	r2, [sp, #12]
+ 7a4:	e5943000 	ldr	r3, [r4]
+ 7a8:	e1520003 	cmp	r2, r3
+ 7ac:	1a000003 	bne	7c0 <JSX_Add@plt+0x168>
+ 7b0:	e28dd014 	add	sp, sp, #20
+ 7b4:	e1cd40d0 	ldrd	r4, [sp]
+ 7b8:	e28dd008 	add	sp, sp, #8
+ 7bc:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+ 7c0:	ebffff8f 	bl	604 <__stack_chk_fail@plt>
+ 7c4:	00010840 	andeq	r0, r1, r0, asr #16
+ 7c8:	0000003c 	andeq	r0, r0, ip, lsr r0
+ 7cc:	00000330 	andeq	r0, r0, r0, lsr r3
+ 7d0:	e59f309c 	ldr	r3, [pc, #156]	@ 874 <JSX_Add@plt+0x21c>
+ 7d4:	e3500000 	cmp	r0, #0
+ 7d8:	e16d40fc 	strd	r4, [sp, #-12]!
+ 7dc:	e59f0094 	ldr	r0, [pc, #148]	@ 878 <JSX_Add@plt+0x220>
+ 7e0:	e58de008 	str	lr, [sp, #8]
+ 7e4:	e24dd00c 	sub	sp, sp, #12
+ 7e8:	e1a05002 	mov	r5, r2
+ 7ec:	e08f3003 	add	r3, pc, r3
+ 7f0:	e7934000 	ldr	r4, [r3, r0]
+ 7f4:	e5943000 	ldr	r3, [r4]
+ 7f8:	e58d3004 	str	r3, [sp, #4]
+ 7fc:	1a00000d 	bne	838 <JSX_Add@plt+0x1e0>
+ 800:	e59f3074 	ldr	r3, [pc, #116]	@ 87c <JSX_Add@plt+0x224>
+ 804:	e08f3003 	add	r3, pc, r3
+ 808:	e1d320b0 	ldrh	r2, [r3]
+ 80c:	e5d33002 	ldrb	r3, [r3, #2]
+ 810:	e1c520b0 	strh	r2, [r5]
+ 814:	e5c53002 	strb	r3, [r5, #2]
+ 818:	e59d2004 	ldr	r2, [sp, #4]
+ 81c:	e5943000 	ldr	r3, [r4]
+ 820:	e1520003 	cmp	r2, r3
+ 824:	1a000011 	bne	870 <JSX_Add@plt+0x218>
+ 828:	e28dd00c 	add	sp, sp, #12
+ 82c:	e1cd40d0 	ldrd	r4, [sp]
+ 830:	e28dd008 	add	sp, sp, #8
+ 834:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+ 838:	e5910000 	ldr	r0, [r1]
+ 83c:	e3a0200a 	mov	r2, #10
+ 840:	e3a01000 	mov	r1, #0
+ 844:	ebffff6b 	bl	5f8 <strtol@plt>
+ 848:	e2803007 	add	r3, r0, #7
+ 84c:	e3500000 	cmp	r0, #0
+ 850:	b1a00003 	movlt	r0, r3
+ 854:	e1a001c0 	asr	r0, r0, #3
+ 858:	ebffff6f 	bl	61c <HLS_LimitBandwidth@plt>
+ 85c:	e59f301c 	ldr	r3, [pc, #28]	@ 880 <JSX_Add@plt+0x228>
+ 860:	e08f3003 	add	r3, pc, r3
+ 864:	e1d330b0 	ldrh	r3, [r3]
+ 868:	e1c530b0 	strh	r3, [r5]
+ 86c:	eaffffe9 	b	818 <JSX_Add@plt+0x1c0>
+ 870:	ebffff63 	bl	604 <__stack_chk_fail@plt>
+ 874:	000107c0 	andeq	r0, r1, r0, asr #15
+ 878:	0000003c 	andeq	r0, r0, ip, lsr r0
+ 87c:	000002cc 	andeq	r0, r0, ip, asr #5
+ 880:	0000026c 	andeq	r0, r0, ip, ror #4
+ 884:	e59f30e4 	ldr	r3, [pc, #228]	@ 970 <JSX_Add@plt+0x318>
+ 888:	e3500000 	cmp	r0, #0
+ 88c:	e16d41f0 	strd	r4, [sp, #-16]!
+ 890:	e59f00dc 	ldr	r0, [pc, #220]	@ 974 <JSX_Add@plt+0x31c>
+ 894:	e58d6008 	str	r6, [sp, #8]
+ 898:	e1a05002 	mov	r5, r2
+ 89c:	e58de00c 	str	lr, [sp, #12]
+ 8a0:	e24dd008 	sub	sp, sp, #8
+ 8a4:	e08f3003 	add	r3, pc, r3
+ 8a8:	e7934000 	ldr	r4, [r3, r0]
+ 8ac:	e5943000 	ldr	r3, [r4]
+ 8b0:	e58d3004 	str	r3, [sp, #4]
+ 8b4:	0a00000a 	beq	8e4 <JSX_Add@plt+0x28c>
+ 8b8:	e5916000 	ldr	r6, [r1]
+ 8bc:	e59f10b4 	ldr	r1, [pc, #180]	@ 978 <JSX_Add@plt+0x320>
+ 8c0:	e1a00006 	mov	r0, r6
+ 8c4:	e08f1001 	add	r1, pc, r1
+ 8c8:	ebffff50 	bl	610 <strcasecmp@plt>
+ 8cc:	e3500000 	cmp	r0, #0
+ 8d0:	1a000012 	bne	920 <JSX_Add@plt+0x2c8>
+ 8d4:	e3a00001 	mov	r0, #1
+ 8d8:	ebffff55 	bl	634 <HTTP_SetDebug@plt>
+ 8dc:	e3500000 	cmp	r0, #0
+ 8e0:	0a00001c 	beq	958 <JSX_Add@plt+0x300>
+ 8e4:	e59f3090 	ldr	r3, [pc, #144]	@ 97c <JSX_Add@plt+0x324>
+ 8e8:	e08f3003 	add	r3, pc, r3
+ 8ec:	e1d320b0 	ldrh	r2, [r3]
+ 8f0:	e5d33002 	ldrb	r3, [r3, #2]
+ 8f4:	e1c520b0 	strh	r2, [r5]
+ 8f8:	e5c53002 	strb	r3, [r5, #2]
+ 8fc:	e59d2004 	ldr	r2, [sp, #4]
+ 900:	e5943000 	ldr	r3, [r4]
+ 904:	e1520003 	cmp	r2, r3
+ 908:	1a000017 	bne	96c <JSX_Add@plt+0x314>
+ 90c:	e28dd008 	add	sp, sp, #8
+ 910:	e1cd40d0 	ldrd	r4, [sp]
+ 914:	e59d6008 	ldr	r6, [sp, #8]
+ 918:	e28dd00c 	add	sp, sp, #12
+ 91c:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+ 920:	e59f1058 	ldr	r1, [pc, #88]	@ 980 <JSX_Add@plt+0x328>
+ 924:	e1a00006 	mov	r0, r6
+ 928:	e08f1001 	add	r1, pc, r1
+ 92c:	ebffff37 	bl	610 <strcasecmp@plt>
+ 930:	e3500000 	cmp	r0, #0
+ 934:	0affffe6 	beq	8d4 <JSX_Add@plt+0x27c>
+ 938:	e5d63000 	ldrb	r3, [r6]
+ 93c:	e3530031 	cmp	r3, #49	@ 0x31
+ 940:	13a00000 	movne	r0, #0
+ 944:	1affffe3 	bne	8d8 <JSX_Add@plt+0x280>
+ 948:	e5d60001 	ldrb	r0, [r6, #1]
+ 94c:	e16f0f10 	clz	r0, r0
+ 950:	e1a002a0 	lsr	r0, r0, #5
+ 954:	eaffffdf 	b	8d8 <JSX_Add@plt+0x280>
+ 958:	e59f3024 	ldr	r3, [pc, #36]	@ 984 <JSX_Add@plt+0x32c>
+ 95c:	e08f3003 	add	r3, pc, r3
+ 960:	e1d330b0 	ldrh	r3, [r3]
+ 964:	e1c530b0 	strh	r3, [r5]
+ 968:	eaffffe3 	b	8fc <JSX_Add@plt+0x2a4>
+ 96c:	ebffff24 	bl	604 <__stack_chk_fail@plt>
+ 970:	00010708 	andeq	r0, r1, r8, lsl #14
+ 974:	0000003c 	andeq	r0, r0, ip, lsr r0
+ 978:	00000210 	andeq	r0, r0, r0, lsl r2
+ 97c:	000001e8 	andeq	r0, r0, r8, ror #3
+ 980:	000001b4 			@ <UNDEFINED> instruction: 0x000001b4
+ 984:	00000170 	andeq	r0, r0, r0, ror r1
+
+00000988 <netproto_api_jsx_init@@Base>:
+ 988:	e59f3108 	ldr	r3, [pc, #264]	@ a98 <netproto_api_jsx_init@@Base+0x110>
+ 98c:	e16d41f8 	strd	r4, [sp, #-24]!	@ 0xffffffe8
+ 990:	e3a02003 	mov	r2, #3
+ 994:	e59f1100 	ldr	r1, [pc, #256]	@ a9c <netproto_api_jsx_init@@Base+0x114>
+ 998:	e58d8010 	str	r8, [sp, #16]
+ 99c:	e3a00000 	mov	r0, #0
+ 9a0:	e59f80f8 	ldr	r8, [pc, #248]	@ aa0 <netproto_api_jsx_init@@Base+0x118>
+ 9a4:	e1cd60f8 	strd	r6, [sp, #8]
+ 9a8:	e58de014 	str	lr, [sp, #20]
+ 9ac:	e59fe0f0 	ldr	lr, [pc, #240]	@ aa4 <netproto_api_jsx_init@@Base+0x11c>
+ 9b0:	e24dd010 	sub	sp, sp, #16
+ 9b4:	e08f3003 	add	r3, pc, r3
+ 9b8:	e59f70e8 	ldr	r7, [pc, #232]	@ aa8 <netproto_api_jsx_init@@Base+0x120>
+ 9bc:	e7935001 	ldr	r5, [r3, r1]
+ 9c0:	e08f8008 	add	r8, pc, r8
+ 9c4:	e59f40e0 	ldr	r4, [pc, #224]	@ aac <netproto_api_jsx_init@@Base+0x124>
+ 9c8:	e08fe00e 	add	lr, pc, lr
+ 9cc:	e59f60dc 	ldr	r6, [pc, #220]	@ ab0 <netproto_api_jsx_init@@Base+0x128>
+ 9d0:	e58d8000 	str	r8, [sp]
+ 9d4:	e08f7007 	add	r7, pc, r7
+ 9d8:	e595c000 	ldr	ip, [r5]
+ 9dc:	e1a01007 	mov	r1, r7
+ 9e0:	e58de004 	str	lr, [sp, #4]
+ 9e4:	e08f4004 	add	r4, pc, r4
+ 9e8:	e1a03004 	mov	r3, r4
+ 9ec:	e08f6006 	add	r6, pc, r6
+ 9f0:	e58dc00c 	str	ip, [sp, #12]
+ 9f4:	ebffff17 	bl	658 <JSX_Add@plt>
+ 9f8:	e59fc0b4 	ldr	ip, [pc, #180]	@ ab4 <netproto_api_jsx_init@@Base+0x12c>
+ 9fc:	e1a01007 	mov	r1, r7
+ a00:	e1a03004 	mov	r3, r4
+ a04:	e3a02003 	mov	r2, #3
+ a08:	e58d8000 	str	r8, [sp]
+ a0c:	e3a00000 	mov	r0, #0
+ a10:	e08fc00c 	add	ip, pc, ip
+ a14:	e58dc004 	str	ip, [sp, #4]
+ a18:	ebffff0e 	bl	658 <JSX_Add@plt>
+ a1c:	e59fc094 	ldr	ip, [pc, #148]	@ ab8 <netproto_api_jsx_init@@Base+0x130>
+ a20:	e1a03004 	mov	r3, r4
+ a24:	e3a02003 	mov	r2, #3
+ a28:	e59f108c 	ldr	r1, [pc, #140]	@ abc <netproto_api_jsx_init@@Base+0x134>
+ a2c:	e58d6000 	str	r6, [sp]
+ a30:	e3a00000 	mov	r0, #0
+ a34:	e08fc00c 	add	ip, pc, ip
+ a38:	e08f1001 	add	r1, pc, r1
+ a3c:	e58dc004 	str	ip, [sp, #4]
+ a40:	ebffff04 	bl	658 <JSX_Add@plt>
+ a44:	e59fc074 	ldr	ip, [pc, #116]	@ ac0 <netproto_api_jsx_init@@Base+0x138>
+ a48:	e1a03004 	mov	r3, r4
+ a4c:	e3a02003 	mov	r2, #3
+ a50:	e59f006c 	ldr	r0, [pc, #108]	@ ac4 <netproto_api_jsx_init@@Base+0x13c>
+ a54:	e58d6000 	str	r6, [sp]
+ a58:	e3a01000 	mov	r1, #0
+ a5c:	e08fc00c 	add	ip, pc, ip
+ a60:	e08f0000 	add	r0, pc, r0
+ a64:	e58dc004 	str	ip, [sp, #4]
+ a68:	ebfffefa 	bl	658 <JSX_Add@plt>
+ a6c:	e59d200c 	ldr	r2, [sp, #12]
+ a70:	e5953000 	ldr	r3, [r5]
+ a74:	e1520003 	cmp	r2, r3
+ a78:	1a000005 	bne	a94 <netproto_api_jsx_init@@Base+0x10c>
+ a7c:	e28dd010 	add	sp, sp, #16
+ a80:	e1cd40d0 	ldrd	r4, [sp]
+ a84:	e1cd60d8 	ldrd	r6, [sp, #8]
+ a88:	e59d8010 	ldr	r8, [sp, #16]
+ a8c:	e28dd014 	add	sp, sp, #20
+ a90:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+ a94:	ebfffeda 	bl	604 <__stack_chk_fail@plt>
+ a98:	000105f8 	strdeq	r0, [r1], -r8
+ a9c:	0000003c 	andeq	r0, r0, ip, lsr r0
+ aa0:	00000130 	andeq	r0, r0, r0, lsr r1
+ aa4:	00000130 	andeq	r0, r0, r0, lsr r1
+ aa8:	fffffea8 			@ <UNDEFINED> instruction: 0xfffffea8
+ aac:	00000100 	andeq	r0, r0, r0, lsl #2
+ ab0:	00000120 	andeq	r0, r0, r0, lsr #2
+ ab4:	000000f0 	strdeq	r0, [r0], -r0	@ <UNPREDICTABLE>
+ ab8:	000000dc 	ldrdeq	r0, [r0], -ip
+ abc:	fffffd90 			@ <UNDEFINED> instruction: 0xfffffd90
+ ac0:	000000b8 	strheq	r0, [r0], -r8
+ ac4:	fffffcec 			@ <UNDEFINED> instruction: 0xfffffcec
+
+Disassembly of section .fini:
+
+00000ac8 <_fini@@Base>:
+ ac8:	e92d4008 	push	{r3, lr}
+ acc:	e8bd8008 	pop	{r3, pc}

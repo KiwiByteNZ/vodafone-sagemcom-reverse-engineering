@@ -1,0 +1,98 @@
+      1 ELF
+    33d __gmon_start__
+    34c _fini
+    352 _ITM_deregisterTMCloneTable
+    36e _ITM_registerTMCloneTable
+    388 __cxa_finalize
+    397 _Jv_RegisterClasses
+    3ab Rsm_GetSessionInfo
+    3be puts
+    3c3 __printf_chk
+    3d0 putchar
+    3d8 strlen
+    3df Rsm_FreeSessionInfo
+    3f3 __stack_chk_fail
+    404 __stack_chk_guard
+    416 rsm_api_jsx_init
+    427 JSX_Add
+    42f libc.so.6
+    439 ld-linux-armhf.so.3
+    44d _edata
+    454 __bss_start
+    460 __bss_start__
+    46e __bss_end__
+    47a __end__
+    482 _end
+    487 librsm_api_jsx.so.2.3
+    49d GLIBC_2.4
+    677 HzD
+    67b KxD
+    68f GpG
+    6a5 H	IxD	KyD	
+    6c3 GpG
+    6e1 x{Dj
+    6ed K{D
+    6fd "{D
+    721 h{D
+    db4 RSM_OK    
+    dc0 UNKNOW !! 
+    dcc RSM_BUSY  
+    dd8 RSM_ENODEV
+    de4 RSM_ERROR 
+    df0 AUD         
+    e00 UNKNOW !!   
+    e10 AUDENC      
+    e20 AVOS        
+    e30 DMX         
+    e40 HTTP        
+    e50 FEDTT       
+    e60 FECAB       
+    e70 FESAT       
+    e80 FEIP        
+    e90 HDD         
+    ea0 MMAP        
+    eb0 MUX         
+    ec0 STC         
+    ed0 UDP         
+    ee0 VID         
+    ef0 LIB         
+    f00 VIDENC      
+    f10 VIDPRIM     
+    f20 OTHER       
+    f30 none
+    f3c Invalid number of arguments
+    f58 Can't get session info
+    f70 -----------------------------------------------------------------------------------------
+    fcc | Session Id | Priority | resources | status     | plugin       | extra infos            
+   1028 |     --     |    --    |    --     |     --     |      --      |     --                 
+   1088 | %03d        | %03d      | %-37s | %s
+   10b0 |            |          
+   10cc | %s
+   10d8  ERROR     
+   10e4 | %s | %s | %s
+   10f4 Can't free session info
+   110c RSM
+   1110 STATUS
+   2009 aeabi
+   2015 7-A
+   203e .shstrtab
+   2048 .hash
+   204e .dynsym
+   2056 .dynstr
+   205e .gnu.version
+   206b .gnu.version_r
+   207a .rel.dyn
+   2083 .rel.plt
+   208c .init
+   2092 .text
+   2098 .fini
+   209e .rodata
+   20a6 .eh_frame
+   20b0 .init_array
+   20bc .fini_array
+   20c8 .jcr
+   20cd .dynamic
+   20d6 .got
+   20db .data
+   20e1 .bss
+   20e6 .ARM.attributes

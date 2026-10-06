@@ -1,0 +1,9 @@
+{
+  "serial": "REPLACE_WITH_DEVICE_SERIAL",
+  "udid": "REPLACE_WITH_DEVICE_UDID",
+  "tokens": {
+    "refresh": {
+      "token": "REPLACE_WITH_REFRESH_TOKEN"
+    }
+  }
+}

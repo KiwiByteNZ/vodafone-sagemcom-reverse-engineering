@@ -1,0 +1,40 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Portal middleware probe</title>
+<pre id="out">probing</pre>
+<script>
+(function () {
+  var lines = [];
+  function walk(label, object) {
+    var seen = [];
+    for (var current = object; current; current = Object.getPrototypeOf(current)) {
+      Object.getOwnPropertyNames(current).forEach(function (name) {
+        if (seen.indexOf(name) !== -1) return;
+        seen.push(name);
+        var value;
+        try { value = object[name]; } catch (error) { value = 'THREW:' + error; }
+        lines.push(label + '.' + name + '=' + typeof value);
+      });
+    }
+  }
+  try {
+    lines.push('location=' + location.href);
+    lines.push('uid-context=portal');
+    lines.push('typeof.wtv=' + typeof wtv);
+    if (typeof wtv !== 'undefined') {
+      walk('wtv', wtv);
+      if (wtv.jsonRpcMiddlewareManager) {
+        walk('wtv.jsonRpcMiddlewareManager', wtv.jsonRpcMiddlewareManager);
+      }
+    }
+  } catch (error) {
+    lines.push('fatal=' + error + '\n' + (error.stack || ''));
+  }
+  var body = lines.join('\n');
+  document.getElementById('out').textContent = body;
+  fetch('/upload?name=portal-methods.txt', {method: 'POST', body: body})
+    .catch(function (error) {
+      document.getElementById('out').textContent += '\nupload=' + error;
+    });
+}());
+</script>

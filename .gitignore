@@ -1,0 +1,34 @@
+# Credentials and private material
+*.key
+*.crt
+*.pem
+vodafone-reference-private.json
+*config*.bin
+
+# Captures, logs, and generated output
+*.pcap
+*.pcapng
+*.log
+*.gnmap
+*.nmap
+*.xml
+*.stderr
+*full-disassembly*
+
+# Compiled or recovered artifacts
+*.a
+*.o
+*.so
+*.elf
+*.bin
+*.b64
+*.mp4
+*.mpd
+
+# Local build/cache state
+__pycache__/
+*.pyc
+corpus/
+findings/
+uploads/
+.venv/

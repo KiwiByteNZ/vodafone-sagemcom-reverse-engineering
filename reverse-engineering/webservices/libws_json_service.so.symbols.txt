@@ -1,0 +1,80 @@
+
+Symbol table '.dynsym' contains 77 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00001080     0 SECTION LOCAL  DEFAULT    8 .init
+     2: 00012dfc     0 SECTION LOCAL  DEFAULT   16 .jcr
+     3: 00000000     0 FUNC    GLOBAL DEFAULT  UND pthread_mutex_unlock@GLIBC_2.4 (2)
+     4: 00000000     0 FUNC    GLOBAL DEFAULT  UND calloc@GLIBC_2.4 (2)
+     5: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_get_status
+     6: 00000000     0 FUNC    GLOBAL DEFAULT  UND lws_get_context
+     7: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_get_size
+     8: 00000000     0 FUNC    GLOBAL DEFAULT  UND lws_is_final_fragment
+     9: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND pthread_mutexattr_settype
+    10: 00000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.4 (2)
+    11: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+    12: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_get_params
+    13: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_print_response
+    14: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_response_get_size
+    15: 00013004     0 NOTYPE  GLOBAL DEFAULT   20 __bss_start__
+    16: 00000000     0 FUNC    GLOBAL DEFAULT  UND pthread_mutex_destroy@GLIBC_2.4 (2)
+    17: 00000000     0 FUNC    GLOBAL DEFAULT  UND free@GLIBC_2.4 (2)
+    18: 00000000     0 FUNC    GLOBAL DEFAULT  UND lws_client_connect_via_info
+    19: 00000000     0 FUNC    GLOBAL DEFAULT  UND pthread_mutex_lock@GLIBC_2.4 (2)
+    20: 00000000     0 OBJECT  GLOBAL DEFAULT  UND __stack_chk_guard@GLIBC_2.4 (3)
+    21: 00000000     0 FUNC    GLOBAL DEFAULT  UND memcpy@GLIBC_2.4 (2)
+    22: 00013008     0 NOTYPE  GLOBAL DEFAULT   20 _bss_end__
+    23: 00013004     0 NOTYPE  GLOBAL DEFAULT   19 _edata
+    24: 00000000     0 FUNC    GLOBAL DEFAULT  UND lws_callback_on_writable
+    25: 00000000     0 FUNC    GLOBAL DEFAULT  UND pthread_mutex_init@GLIBC_2.4 (2)
+    26: 00000000     0 FUNC    GLOBAL DEFAULT  UND lws_canonical_hostname
+    27: 0000283c     0 FUNC    GLOBAL DEFAULT   11 _fini
+    28: 00013008     0 NOTYPE  GLOBAL DEFAULT   20 __bss_end__
+    29: 00000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (2)
+    30: 000025c8   112 FUNC    GLOBAL DEFAULT   10 ws_json_client_init
+    31: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_get_method
+    32: 00000000     0 FUNC    GLOBAL DEFAULT  UND realloc@GLIBC_2.4 (2)
+    33: 00000000     0 FUNC    GLOBAL DEFAULT  UND lws_remaining_packet_payload
+    34: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_parse
+    35: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_build_error
+    36: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_set_error
+    37: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_response_get_id
+    38: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_response_get_result
+    39: 00000000     0 FUNC    GLOBAL DEFAULT  UND malloc@GLIBC_2.4 (2)
+    40: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_response_get_status
+    41: 00002580    72 FUNC    GLOBAL DEFAULT   10 ws_json_get_user_data
+    42: 00000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    43: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_value_free
+    44: 00000000     0 FUNC    GLOBAL DEFAULT  UND strlen@GLIBC_2.4 (2)
+    45: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_attach_result
+    46: 00000000     0 FUNC    GLOBAL DEFAULT  UND lws_context_user
+    47: 00000000     0 FUNC    GLOBAL DEFAULT  UND __strdup@GLIBC_2.4 (2)
+    48: 00000000     0 FUNC    GLOBAL DEFAULT  UND memset@GLIBC_2.4 (2)
+    49: 00013008     0 NOTYPE  GLOBAL DEFAULT   20 _end
+    50: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_get_id
+    51: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_response_parse
+    52: 00002408   168 FUNC    GLOBAL DEFAULT   10 ws_json_service
+    53: 00000000     0 FUNC    GLOBAL DEFAULT  UND __printf_chk@GLIBC_2.4 (2)
+    54: 00013008     0 NOTYPE  GLOBAL DEFAULT   20 __end__
+    55: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_is_notification
+    56: 00013004     0 NOTYPE  GLOBAL DEFAULT   20 __bss_start
+    57: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_response_get_error_message
+    58: 00001f48   460 FUNC    GLOBAL DEFAULT   10 ws_json_service_init_secure
+    59: 00000000     0 FUNC    GLOBAL DEFAULT  UND lws_service
+    60: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_response_get_error_code
+    61: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_delete
+    62: 00002114   396 FUNC    GLOBAL DEFAULT   10 ws_json_service_init
+    63: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _Jv_RegisterClasses
+    64: 000026b8   148 FUNC    GLOBAL DEFAULT   10 ws_json_client_init2_secure
+    65: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND pthread_mutexattr_init
+    66: 00000000     0 FUNC    GLOBAL DEFAULT  UND sprintf@GLIBC_2.4 (2)
+    67: 0000274c   240 FUNC    GLOBAL DEFAULT   10 ws_json_client_send
+    68: 00002638   128 FUNC    GLOBAL DEFAULT   10 ws_json_client_init2
+    69: 00000000     0 FUNC    GLOBAL DEFAULT  UND lws_write
+    70: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    71: 000024b0   208 FUNC    GLOBAL DEFAULT   10 ws_json_service_term
+    72: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_jsonrpc_response_delete
+    73: 00000000     0 FUNC    GLOBAL DEFAULT  UND lws_create_context
+    74: 00000000     0 FUNC    GLOBAL DEFAULT  UND lws_context_destroy
+    75: 00001080     0 FUNC    GLOBAL DEFAULT    8 _init
+    76: 000022a0   360 FUNC    GLOBAL DEFAULT   10 ws_json_service_send

@@ -1,0 +1,1662 @@
+
+vodafone-custom-page/uploads/libws_json_service.so:     file format elf32-littlearm
+
+
+Disassembly of section .init:
+
+00001080 <_init@@Base>:
+    1080:	e92d4008 	push	{r3, lr}
+    1084:	eb00009e 	bl	1304 <lws_context_destroy@plt+0xc>
+    1088:	e8bd8008 	pop	{r3, pc}
+
+Disassembly of section .plt:
+
+0000108c <pthread_mutex_unlock@plt-0x14>:
+    108c:	e52de004 	push	{lr}		@ (str lr, [sp, #-4]!)
+    1090:	e59fe004 	ldr	lr, [pc, #4]	@ 109c <_init@@Base+0x1c>
+    1094:	e08fe00e 	add	lr, pc, lr
+    1098:	e5bef008 	ldr	pc, [lr, #8]!
+    109c:	00011e74 	andeq	r1, r1, r4, ror lr
+
+000010a0 <pthread_mutex_unlock@plt>:
+    10a0:	e28fc600 	add	ip, pc, #0, 12
+    10a4:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    10a8:	e5bcfe74 	ldr	pc, [ip, #3700]!	@ 0xe74
+
+000010ac <calloc@plt>:
+    10ac:	e28fc600 	add	ip, pc, #0, 12
+    10b0:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    10b4:	e5bcfe6c 	ldr	pc, [ip, #3692]!	@ 0xe6c
+
+000010b8 <cson_jsonrpc_get_status@plt>:
+    10b8:	e28fc600 	add	ip, pc, #0, 12
+    10bc:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    10c0:	e5bcfe64 	ldr	pc, [ip, #3684]!	@ 0xe64
+
+000010c4 <lws_get_context@plt>:
+    10c4:	e28fc600 	add	ip, pc, #0, 12
+    10c8:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    10cc:	e5bcfe5c 	ldr	pc, [ip, #3676]!	@ 0xe5c
+
+000010d0 <cson_jsonrpc_get_size@plt>:
+    10d0:	e28fc600 	add	ip, pc, #0, 12
+    10d4:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    10d8:	e5bcfe54 	ldr	pc, [ip, #3668]!	@ 0xe54
+
+000010dc <lws_is_final_fragment@plt>:
+    10dc:	e28fc600 	add	ip, pc, #0, 12
+    10e0:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    10e4:	e5bcfe4c 	ldr	pc, [ip, #3660]!	@ 0xe4c
+
+000010e8 <pthread_mutexattr_settype@plt>:
+    10e8:	e28fc600 	add	ip, pc, #0, 12
+    10ec:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    10f0:	e5bcfe44 	ldr	pc, [ip, #3652]!	@ 0xe44
+
+000010f4 <__cxa_finalize@plt>:
+    10f4:	e28fc600 	add	ip, pc, #0, 12
+    10f8:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    10fc:	e5bcfe3c 	ldr	pc, [ip, #3644]!	@ 0xe3c
+
+00001100 <cson_jsonrpc_get_params@plt>:
+    1100:	e28fc600 	add	ip, pc, #0, 12
+    1104:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1108:	e5bcfe34 	ldr	pc, [ip, #3636]!	@ 0xe34
+
+0000110c <cson_jsonrpc_print_response@plt>:
+    110c:	e28fc600 	add	ip, pc, #0, 12
+    1110:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1114:	e5bcfe2c 	ldr	pc, [ip, #3628]!	@ 0xe2c
+
+00001118 <cson_jsonrpc_response_get_size@plt>:
+    1118:	e28fc600 	add	ip, pc, #0, 12
+    111c:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1120:	e5bcfe24 	ldr	pc, [ip, #3620]!	@ 0xe24
+
+00001124 <pthread_mutex_destroy@plt>:
+    1124:	e28fc600 	add	ip, pc, #0, 12
+    1128:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    112c:	e5bcfe1c 	ldr	pc, [ip, #3612]!	@ 0xe1c
+
+00001130 <free@plt>:
+    1130:	e28fc600 	add	ip, pc, #0, 12
+    1134:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1138:	e5bcfe14 	ldr	pc, [ip, #3604]!	@ 0xe14
+
+0000113c <lws_client_connect_via_info@plt>:
+    113c:	e28fc600 	add	ip, pc, #0, 12
+    1140:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1144:	e5bcfe0c 	ldr	pc, [ip, #3596]!	@ 0xe0c
+
+00001148 <pthread_mutex_lock@plt>:
+    1148:	e28fc600 	add	ip, pc, #0, 12
+    114c:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1150:	e5bcfe04 	ldr	pc, [ip, #3588]!	@ 0xe04
+
+00001154 <memcpy@plt>:
+    1154:	e28fc600 	add	ip, pc, #0, 12
+    1158:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    115c:	e5bcfdfc 	ldr	pc, [ip, #3580]!	@ 0xdfc
+
+00001160 <lws_callback_on_writable@plt>:
+    1160:	e28fc600 	add	ip, pc, #0, 12
+    1164:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1168:	e5bcfdf4 	ldr	pc, [ip, #3572]!	@ 0xdf4
+
+0000116c <pthread_mutex_init@plt>:
+    116c:	e28fc600 	add	ip, pc, #0, 12
+    1170:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1174:	e5bcfdec 	ldr	pc, [ip, #3564]!	@ 0xdec
+
+00001178 <lws_canonical_hostname@plt>:
+    1178:	e28fc600 	add	ip, pc, #0, 12
+    117c:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1180:	e5bcfde4 	ldr	pc, [ip, #3556]!	@ 0xde4
+
+00001184 <__stack_chk_fail@plt>:
+    1184:	e28fc600 	add	ip, pc, #0, 12
+    1188:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    118c:	e5bcfddc 	ldr	pc, [ip, #3548]!	@ 0xddc
+
+00001190 <cson_jsonrpc_get_method@plt>:
+    1190:	e28fc600 	add	ip, pc, #0, 12
+    1194:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1198:	e5bcfdd4 	ldr	pc, [ip, #3540]!	@ 0xdd4
+
+0000119c <realloc@plt>:
+    119c:	e28fc600 	add	ip, pc, #0, 12
+    11a0:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    11a4:	e5bcfdcc 	ldr	pc, [ip, #3532]!	@ 0xdcc
+
+000011a8 <lws_remaining_packet_payload@plt>:
+    11a8:	e28fc600 	add	ip, pc, #0, 12
+    11ac:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    11b0:	e5bcfdc4 	ldr	pc, [ip, #3524]!	@ 0xdc4
+
+000011b4 <cson_jsonrpc_parse@plt>:
+    11b4:	e28fc600 	add	ip, pc, #0, 12
+    11b8:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    11bc:	e5bcfdbc 	ldr	pc, [ip, #3516]!	@ 0xdbc
+
+000011c0 <cson_jsonrpc_build_error@plt>:
+    11c0:	e28fc600 	add	ip, pc, #0, 12
+    11c4:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    11c8:	e5bcfdb4 	ldr	pc, [ip, #3508]!	@ 0xdb4
+
+000011cc <cson_jsonrpc_set_error@plt>:
+    11cc:	e28fc600 	add	ip, pc, #0, 12
+    11d0:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    11d4:	e5bcfdac 	ldr	pc, [ip, #3500]!	@ 0xdac
+
+000011d8 <cson_jsonrpc_response_get_id@plt>:
+    11d8:	e28fc600 	add	ip, pc, #0, 12
+    11dc:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    11e0:	e5bcfda4 	ldr	pc, [ip, #3492]!	@ 0xda4
+
+000011e4 <cson_jsonrpc_response_get_result@plt>:
+    11e4:	e28fc600 	add	ip, pc, #0, 12
+    11e8:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    11ec:	e5bcfd9c 	ldr	pc, [ip, #3484]!	@ 0xd9c
+
+000011f0 <malloc@plt>:
+    11f0:	e28fc600 	add	ip, pc, #0, 12
+    11f4:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    11f8:	e5bcfd94 	ldr	pc, [ip, #3476]!	@ 0xd94
+
+000011fc <cson_jsonrpc_response_get_status@plt>:
+    11fc:	e28fc600 	add	ip, pc, #0, 12
+    1200:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1204:	e5bcfd8c 	ldr	pc, [ip, #3468]!	@ 0xd8c
+
+00001208 <__gmon_start__@plt>:
+    1208:	e28fc600 	add	ip, pc, #0, 12
+    120c:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1210:	e5bcfd84 	ldr	pc, [ip, #3460]!	@ 0xd84
+
+00001214 <cson_value_free@plt>:
+    1214:	e28fc600 	add	ip, pc, #0, 12
+    1218:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    121c:	e5bcfd7c 	ldr	pc, [ip, #3452]!	@ 0xd7c
+
+00001220 <strlen@plt>:
+    1220:	e28fc600 	add	ip, pc, #0, 12
+    1224:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1228:	e5bcfd74 	ldr	pc, [ip, #3444]!	@ 0xd74
+
+0000122c <cson_jsonrpc_attach_result@plt>:
+    122c:	e28fc600 	add	ip, pc, #0, 12
+    1230:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1234:	e5bcfd6c 	ldr	pc, [ip, #3436]!	@ 0xd6c
+
+00001238 <lws_context_user@plt>:
+    1238:	e28fc600 	add	ip, pc, #0, 12
+    123c:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1240:	e5bcfd64 	ldr	pc, [ip, #3428]!	@ 0xd64
+
+00001244 <__strdup@plt>:
+    1244:	e28fc600 	add	ip, pc, #0, 12
+    1248:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    124c:	e5bcfd5c 	ldr	pc, [ip, #3420]!	@ 0xd5c
+
+00001250 <memset@plt>:
+    1250:	e28fc600 	add	ip, pc, #0, 12
+    1254:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1258:	e5bcfd54 	ldr	pc, [ip, #3412]!	@ 0xd54
+
+0000125c <cson_jsonrpc_get_id@plt>:
+    125c:	e28fc600 	add	ip, pc, #0, 12
+    1260:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1264:	e5bcfd4c 	ldr	pc, [ip, #3404]!	@ 0xd4c
+
+00001268 <cson_jsonrpc_response_parse@plt>:
+    1268:	e28fc600 	add	ip, pc, #0, 12
+    126c:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1270:	e5bcfd44 	ldr	pc, [ip, #3396]!	@ 0xd44
+
+00001274 <__printf_chk@plt>:
+    1274:	e28fc600 	add	ip, pc, #0, 12
+    1278:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    127c:	e5bcfd3c 	ldr	pc, [ip, #3388]!	@ 0xd3c
+
+00001280 <cson_jsonrpc_is_notification@plt>:
+    1280:	e28fc600 	add	ip, pc, #0, 12
+    1284:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1288:	e5bcfd34 	ldr	pc, [ip, #3380]!	@ 0xd34
+
+0000128c <cson_jsonrpc_response_get_error_message@plt>:
+    128c:	e28fc600 	add	ip, pc, #0, 12
+    1290:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1294:	e5bcfd2c 	ldr	pc, [ip, #3372]!	@ 0xd2c
+
+00001298 <lws_service@plt>:
+    1298:	e28fc600 	add	ip, pc, #0, 12
+    129c:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    12a0:	e5bcfd24 	ldr	pc, [ip, #3364]!	@ 0xd24
+
+000012a4 <cson_jsonrpc_response_get_error_code@plt>:
+    12a4:	e28fc600 	add	ip, pc, #0, 12
+    12a8:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    12ac:	e5bcfd1c 	ldr	pc, [ip, #3356]!	@ 0xd1c
+
+000012b0 <cson_jsonrpc_delete@plt>:
+    12b0:	e28fc600 	add	ip, pc, #0, 12
+    12b4:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    12b8:	e5bcfd14 	ldr	pc, [ip, #3348]!	@ 0xd14
+
+000012bc <pthread_mutexattr_init@plt>:
+    12bc:	e28fc600 	add	ip, pc, #0, 12
+    12c0:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    12c4:	e5bcfd0c 	ldr	pc, [ip, #3340]!	@ 0xd0c
+
+000012c8 <sprintf@plt>:
+    12c8:	e28fc600 	add	ip, pc, #0, 12
+    12cc:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    12d0:	e5bcfd04 	ldr	pc, [ip, #3332]!	@ 0xd04
+
+000012d4 <lws_write@plt>:
+    12d4:	e28fc600 	add	ip, pc, #0, 12
+    12d8:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    12dc:	e5bcfcfc 	ldr	pc, [ip, #3324]!	@ 0xcfc
+
+000012e0 <cson_jsonrpc_response_delete@plt>:
+    12e0:	e28fc600 	add	ip, pc, #0, 12
+    12e4:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    12e8:	e5bcfcf4 	ldr	pc, [ip, #3316]!	@ 0xcf4
+
+000012ec <lws_create_context@plt>:
+    12ec:	e28fc600 	add	ip, pc, #0, 12
+    12f0:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    12f4:	e5bcfcec 	ldr	pc, [ip, #3308]!	@ 0xcec
+
+000012f8 <lws_context_destroy@plt>:
+    12f8:	e28fc600 	add	ip, pc, #0, 12
+    12fc:	e28cca11 	add	ip, ip, #69632	@ 0x11000
+    1300:	e5bcfce4 	ldr	pc, [ip, #3300]!	@ 0xce4
+
+Disassembly of section .text:
+
+00001304 <ws_json_service_init_secure@@Base-0xc44>:
+    1304:	e59f3014 	ldr	r3, [pc, #20]	@ 1320 <lws_context_destroy@plt+0x28>
+    1308:	e59f2014 	ldr	r2, [pc, #20]	@ 1324 <lws_context_destroy@plt+0x2c>
+    130c:	e08f3003 	add	r3, pc, r3
+    1310:	e7932002 	ldr	r2, [r3, r2]
+    1314:	e3520000 	cmp	r2, #0
+    1318:	012fff1e 	bxeq	lr
+    131c:	eaffffb9 	b	1208 <__gmon_start__@plt>
+    1320:	00011bfc 	strdeq	r1, [r1], -ip
+    1324:	000000e4 	andeq	r0, r0, r4, ror #1
+    1328:	48084a07 	stmdami	r8, {r0, r1, r2, r9, fp, lr}
+    132c:	4b08447a 	blmi	21251c <__bss_end__@@Base+0x1ff514>
+    1330:	32034478 	andcc	r4, r3, #120, 8	@ 0x78000000
+    1334:	447b1a12 	ldrbtmi	r1, [fp], #-2578	@ 0xfffff5ee
+    1338:	d9032a06 	stmdble	r3, {r1, r2, r9, fp, sp}
+    133c:	589b4a05 	ldmpl	fp, {r0, r2, r9, fp, lr}
+    1340:	4718b103 	ldrmi	fp, [r8, -r3, lsl #2]
+    1344:	bf004770 	svclt	0x00004770
+    1348:	00011cd4 	ldrdeq	r1, [r1], -r4
+    134c:	00011cd0 	ldrdeq	r1, [r1], -r0
+    1350:	00011bd6 	ldrdeq	r1, [r1], -r6
+    1354:	000000dc 	ldrdeq	r0, [r0], -ip
+    1358:	49094808 	stmdbmi	r9, {r3, fp, lr}
+    135c:	4b094478 	blmi	252544 <__bss_end__@@Base+0x23f53c>
+    1360:	1a094479 	bne	25254c <__bss_end__@@Base+0x23f544>
+    1364:	1089447b 	addne	r4, r9, fp, ror r4
+    1368:	71d1eb01 	bicsvc	lr, r1, r1, lsl #22
+    136c:	d0031049 	andle	r1, r3, r9, asr #32
+    1370:	589b4a05 	ldmpl	fp, {r0, r2, r9, fp, lr}
+    1374:	4718b103 	ldrmi	fp, [r8, -r3, lsl #2]
+    1378:	bf004770 	svclt	0x00004770
+    137c:	00011ca4 	andeq	r1, r1, r4, lsr #25
+    1380:	00011ca0 	andeq	r1, r1, r0, lsr #25
+    1384:	00011ba8 	andeq	r1, r1, r8, lsr #23
+    1388:	000000ec 	andeq	r0, r0, ip, ror #1
+    138c:	b5084a0a 	strlt	r4, [r8, #-2570]	@ 0xfffff5f6
+    1390:	4b0a447a 	blmi	292580 <__bss_end__@@Base+0x27f578>
+    1394:	447b7812 	ldrbtmi	r7, [fp], #-2066	@ 0xfffff7ee
+    1398:	4a09b96a 	bmi	26f948 <__bss_end__@@Base+0x25c940>
+    139c:	b123589b 			@ <UNDEFINED> instruction: 0xb123589b
+    13a0:	447b4b08 	ldrbtmi	r4, [fp], #-2824	@ 0xfffff4f8
+    13a4:	f7ff6818 			@ <UNDEFINED> instruction: 0xf7ff6818
+    13a8:	f7ffeea6 			@ <UNDEFINED> instruction: 0xf7ffeea6
+    13ac:	4b06ffbd 	blmi	1c12a8 <__bss_end__@@Base+0x1ae2a0>
+    13b0:	447b2201 	ldrbtmi	r2, [fp], #-513	@ 0xfffffdff
+    13b4:	bd08701a 	stclt	0, cr7, [r8, #-104]	@ 0xffffff98
+    13b8:	00011c70 	andeq	r1, r1, r0, ror ip
+    13bc:	00011b76 	andeq	r1, r1, r6, ror fp
+    13c0:	000000d8 	ldrdeq	r0, [r0], -r8
+    13c4:	00011c5a 	andeq	r1, r1, sl, asr ip
+    13c8:	00011c4e 	andeq	r1, r1, lr, asr #24
+    13cc:	b5084806 	strlt	r4, [r8, #-2054]	@ 0xfffff7fa
+    13d0:	4b064478 	blmi	1925b8 <__bss_end__@@Base+0x17f5b0>
+    13d4:	447b6802 	ldrbtmi	r6, [fp], #-2050	@ 0xfffff7fe
+    13d8:	4a05b11a 	bmi	16d848 <__bss_end__@@Base+0x15a840>
+    13dc:	b103589b 			@ <UNDEFINED> instruction: 0xb103589b
+    13e0:	e8bd4798 	pop	{r3, r4, r7, r8, r9, sl, lr}
+    13e4:	e7b74008 	ldr	r4, [r7, r8]!
+    13e8:	00011a28 	andeq	r1, r1, r8, lsr #20
+    13ec:	00011b36 	andeq	r1, r1, r6, lsr fp
+    13f0:	000000e8 	andeq	r0, r0, r8, ror #1
+    13f4:	e59fc4b8 	ldr	ip, [pc, #1208]	@ 18b4 <lws_context_destroy@plt+0x5bc>
+    13f8:	e16d42f4 	strd	r4, [sp, #-36]!	@ 0xffffffdc
+    13fc:	e1a04002 	mov	r4, r2
+    1400:	e59f24b0 	ldr	r2, [pc, #1200]	@ 18b8 <lws_context_destroy@plt+0x5c0>
+    1404:	e1cd81f0 	strd	r8, [sp, #16]
+    1408:	e1a08000 	mov	r8, r0
+    140c:	e1cda1f8 	strd	sl, [sp, #24]
+    1410:	e1a0a003 	mov	sl, r3
+    1414:	e3a0b000 	mov	fp, #0
+    1418:	e1cd60f8 	strd	r6, [sp, #8]
+    141c:	e1a07001 	mov	r7, r1
+    1420:	e08fc00c 	add	ip, pc, ip
+    1424:	e58de020 	str	lr, [sp, #32]
+    1428:	e24dd044 	sub	sp, sp, #68	@ 0x44
+    142c:	e79c6002 	ldr	r6, [ip, r2]
+    1430:	e1a0300c 	mov	r3, ip
+    1434:	e59d9068 	ldr	r9, [sp, #104]	@ 0x68
+    1438:	e5963000 	ldr	r3, [r6]
+    143c:	e58d303c 	str	r3, [sp, #60]	@ 0x3c
+    1440:	ebffff1f 	bl	10c4 <lws_get_context@plt>
+    1444:	ebffff7b 	bl	1238 <lws_context_user@plt>
+    1448:	e154000b 	cmp	r4, fp
+    144c:	e58db024 	str	fp, [sp, #36]	@ 0x24
+    1450:	e58db028 	str	fp, [sp, #40]	@ 0x28
+    1454:	0a000008 	beq	147c <lws_context_destroy@plt+0x184>
+    1458:	e157000b 	cmp	r7, fp
+    145c:	e1a05000 	mov	r5, r0
+    1460:	0a000011 	beq	14ac <lws_context_destroy@plt+0x1b4>
+    1464:	e3570004 	cmp	r7, #4
+    1468:	0a0000a5 	beq	1704 <lws_context_destroy@plt+0x40c>
+    146c:	e3570006 	cmp	r7, #6
+    1470:	0a000040 	beq	1578 <lws_context_destroy@plt+0x280>
+    1474:	e357000b 	cmp	r7, #11
+    1478:	0a000025 	beq	1514 <lws_context_destroy@plt+0x21c>
+    147c:	e59d203c 	ldr	r2, [sp, #60]	@ 0x3c
+    1480:	e3a00000 	mov	r0, #0
+    1484:	e5963000 	ldr	r3, [r6]
+    1488:	e1520003 	cmp	r2, r3
+    148c:	1a000107 	bne	18b0 <lws_context_destroy@plt+0x5b8>
+    1490:	e28dd044 	add	sp, sp, #68	@ 0x44
+    1494:	e1cd40d0 	ldrd	r4, [sp]
+    1498:	e1cd60d8 	ldrd	r6, [sp, #8]
+    149c:	e1cd81d0 	ldrd	r8, [sp, #16]
+    14a0:	e1cda1d8 	ldrd	sl, [sp, #24]
+    14a4:	e28dd020 	add	sp, sp, #32
+    14a8:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+    14ac:	e1a01007 	mov	r1, r7
+    14b0:	e1a00004 	mov	r0, r4
+    14b4:	e3a02020 	mov	r2, #32
+    14b8:	ebffff64 	bl	1250 <memset@plt>
+    14bc:	e59530f4 	ldr	r3, [r5, #244]	@ 0xf4
+    14c0:	e5848008 	str	r8, [r4, #8]
+    14c4:	e153000b 	cmp	r3, fp
+    14c8:	0a000002 	beq	14d8 <lws_context_destroy@plt+0x1e0>
+    14cc:	e1a00005 	mov	r0, r5
+    14d0:	e1a01004 	mov	r1, r4
+    14d4:	e12fff33 	blx	r3
+    14d8:	e1a00005 	mov	r0, r5
+    14dc:	ebffff19 	bl	1148 <pthread_mutex_lock@plt>
+    14e0:	e5953114 	ldr	r3, [r5, #276]	@ 0x114
+    14e4:	e1a00005 	mov	r0, r5
+    14e8:	e3530000 	cmp	r3, #0
+    14ec:	15843004 	strne	r3, [r4, #4]
+    14f0:	15834000 	strne	r4, [r3]
+    14f4:	e3a03000 	mov	r3, #0
+    14f8:	e5843018 	str	r3, [r4, #24]
+    14fc:	e584301c 	str	r3, [r4, #28]
+    1500:	e5854114 	str	r4, [r5, #276]	@ 0x114
+    1504:	ebfffee5 	bl	10a0 <pthread_mutex_unlock@plt>
+    1508:	e1a00008 	mov	r0, r8
+    150c:	ebffff13 	bl	1160 <lws_callback_on_writable@plt>
+    1510:	eaffffd9 	b	147c <lws_context_destroy@plt+0x184>
+    1514:	ebffff0b 	bl	1148 <pthread_mutex_lock@plt>
+    1518:	e594700c 	ldr	r7, [r4, #12]
+    151c:	e3570000 	cmp	r7, #0
+    1520:	0a000011 	beq	156c <lws_context_destroy@plt+0x274>
+    1524:	e597900c 	ldr	r9, [r7, #12]
+    1528:	e1a0300b 	mov	r3, fp
+    152c:	e1a00008 	mov	r0, r8
+    1530:	e5971008 	ldr	r1, [r7, #8]
+    1534:	e1a02009 	mov	r2, r9
+    1538:	ebffff65 	bl	12d4 <lws_write@plt>
+    153c:	e1500009 	cmp	r0, r9
+    1540:	0a00008e 	beq	1780 <lws_context_destroy@plt+0x488>
+    1544:	e1c720d8 	ldrd	r2, [r7, #8]
+    1548:	e0603003 	rsb	r3, r0, r3
+    154c:	e0820000 	add	r0, r2, r0
+    1550:	e587300c 	str	r3, [r7, #12]
+    1554:	e5870008 	str	r0, [r7, #8]
+    1558:	e594300c 	ldr	r3, [r4, #12]
+    155c:	e3530000 	cmp	r3, #0
+    1560:	0a000001 	beq	156c <lws_context_destroy@plt+0x274>
+    1564:	e1a00008 	mov	r0, r8
+    1568:	ebfffefc 	bl	1160 <lws_callback_on_writable@plt>
+    156c:	e1a00005 	mov	r0, r5
+    1570:	ebfffeca 	bl	10a0 <pthread_mutex_unlock@plt>
+    1574:	eaffffc0 	b	147c <lws_context_destroy@plt+0x184>
+    1578:	e1a00008 	mov	r0, r8
+    157c:	ebffff09 	bl	11a8 <lws_remaining_packet_payload@plt>
+    1580:	e5943018 	ldr	r3, [r4, #24]
+    1584:	e1a07000 	mov	r7, r0
+    1588:	e3530000 	cmp	r3, #0
+    158c:	0a000089 	beq	17b8 <lws_context_destroy@plt+0x4c0>
+    1590:	e594101c 	ldr	r1, [r4, #28]
+    1594:	e1a00003 	mov	r0, r3
+    1598:	e58d3010 	str	r3, [sp, #16]
+    159c:	e2811001 	add	r1, r1, #1
+    15a0:	e0811009 	add	r1, r1, r9
+    15a4:	ebfffefc 	bl	119c <realloc@plt>
+    15a8:	e3500000 	cmp	r0, #0
+    15ac:	e1a0b000 	mov	fp, r0
+    15b0:	e5840018 	str	r0, [r4, #24]
+    15b4:	e59d3010 	ldr	r3, [sp, #16]
+    15b8:	0a0000b0 	beq	1880 <lws_context_destroy@plt+0x588>
+    15bc:	e594001c 	ldr	r0, [r4, #28]
+    15c0:	e1a02009 	mov	r2, r9
+    15c4:	e1a0100a 	mov	r1, sl
+    15c8:	e08b0000 	add	r0, fp, r0
+    15cc:	ebfffee0 	bl	1154 <memcpy@plt>
+    15d0:	e594301c 	ldr	r3, [r4, #28]
+    15d4:	e0839009 	add	r9, r3, r9
+    15d8:	e584901c 	str	r9, [r4, #28]
+    15dc:	e59530fc 	ldr	r3, [r5, #252]	@ 0xfc
+    15e0:	e3530000 	cmp	r3, #0
+    15e4:	0affffa4 	beq	147c <lws_context_destroy@plt+0x184>
+    15e8:	e3570000 	cmp	r7, #0
+    15ec:	1affffa2 	bne	147c <lws_context_destroy@plt+0x184>
+    15f0:	e1a00008 	mov	r0, r8
+    15f4:	ebfffeb8 	bl	10dc <lws_is_final_fragment@plt>
+    15f8:	e3500000 	cmp	r0, #0
+    15fc:	0affff9e 	beq	147c <lws_context_destroy@plt+0x184>
+    1600:	e5942018 	ldr	r2, [r4, #24]
+    1604:	e28d802c 	add	r8, sp, #44	@ 0x2c
+    1608:	e594301c 	ldr	r3, [r4, #28]
+    160c:	e1a00008 	mov	r0, r8
+    1610:	e7c27003 	strb	r7, [r2, r3]
+    1614:	e5941018 	ldr	r1, [r4, #24]
+    1618:	ebfffee5 	bl	11b4 <cson_jsonrpc_parse@plt>
+    161c:	e3500000 	cmp	r0, #0
+    1620:	e5940018 	ldr	r0, [r4, #24]
+    1624:	ba00009e 	blt	18a4 <lws_context_destroy@plt+0x5ac>
+    1628:	ebfffec0 	bl	1130 <free@plt>
+    162c:	e5847018 	str	r7, [r4, #24]
+    1630:	e1a00008 	mov	r0, r8
+    1634:	ebfffea5 	bl	10d0 <cson_jsonrpc_get_size@plt>
+    1638:	e2509000 	subs	r9, r0, #0
+    163c:	0a000068 	beq	17e4 <lws_context_destroy@plt+0x4ec>
+    1640:	e28dc024 	add	ip, sp, #36	@ 0x24
+    1644:	e1a0a007 	mov	sl, r7
+    1648:	e58d601c 	str	r6, [sp, #28]
+    164c:	e58dc014 	str	ip, [sp, #20]
+    1650:	e28dc028 	add	ip, sp, #40	@ 0x28
+    1654:	e58dc018 	str	ip, [sp, #24]
+    1658:	ea000002 	b	1668 <lws_context_destroy@plt+0x370>
+    165c:	e2877001 	add	r7, r7, #1
+    1660:	e1570009 	cmp	r7, r9
+    1664:	0a00005d 	beq	17e0 <lws_context_destroy@plt+0x4e8>
+    1668:	e1a00008 	mov	r0, r8
+    166c:	e1a01007 	mov	r1, r7
+    1670:	ebfffe90 	bl	10b8 <cson_jsonrpc_get_status@plt>
+    1674:	e3500001 	cmp	r0, #1
+    1678:	1afffff7 	bne	165c <lws_context_destroy@plt+0x364>
+    167c:	e1a01007 	mov	r1, r7
+    1680:	e1a00008 	mov	r0, r8
+    1684:	e58da024 	str	sl, [sp, #36]	@ 0x24
+    1688:	e58da028 	str	sl, [sp, #40]	@ 0x28
+    168c:	ebfffe9b 	bl	1100 <cson_jsonrpc_get_params@plt>
+    1690:	e1a06000 	mov	r6, r0
+    1694:	e1a01007 	mov	r1, r7
+    1698:	e595b0fc 	ldr	fp, [r5, #252]	@ 0xfc
+    169c:	e1a00008 	mov	r0, r8
+    16a0:	ebfffeba 	bl	1190 <cson_jsonrpc_get_method@plt>
+    16a4:	e1a02000 	mov	r2, r0
+    16a8:	e1a01007 	mov	r1, r7
+    16ac:	e1a00008 	mov	r0, r8
+    16b0:	e58d2010 	str	r2, [sp, #16]
+    16b4:	ebfffee8 	bl	125c <cson_jsonrpc_get_id@plt>
+    16b8:	e28d1024 	add	r1, sp, #36	@ 0x24
+    16bc:	e28dc028 	add	ip, sp, #40	@ 0x28
+    16c0:	e58d0000 	str	r0, [sp]
+    16c4:	e59d2010 	ldr	r2, [sp, #16]
+    16c8:	e1a03006 	mov	r3, r6
+    16cc:	e1a00005 	mov	r0, r5
+    16d0:	e58d1004 	str	r1, [sp, #4]
+    16d4:	e1a01004 	mov	r1, r4
+    16d8:	e58dc008 	str	ip, [sp, #8]
+    16dc:	e12fff3b 	blx	fp
+    16e0:	e2502000 	subs	r2, r0, #0
+    16e4:	1a000069 	bne	1890 <lws_context_destroy@plt+0x598>
+    16e8:	e59d2024 	ldr	r2, [sp, #36]	@ 0x24
+    16ec:	e3520000 	cmp	r2, #0
+    16f0:	0affffd9 	beq	165c <lws_context_destroy@plt+0x364>
+    16f4:	e1a00008 	mov	r0, r8
+    16f8:	e1a01007 	mov	r1, r7
+    16fc:	ebfffeca 	bl	122c <cson_jsonrpc_attach_result@plt>
+    1700:	eaffffd5 	b	165c <lws_context_destroy@plt+0x364>
+    1704:	ebfffe8f 	bl	1148 <pthread_mutex_lock@plt>
+    1708:	e594300c 	ldr	r3, [r4, #12]
+    170c:	e3530000 	cmp	r3, #0
+    1710:	1a000001 	bne	171c <lws_context_destroy@plt+0x424>
+    1714:	ea000008 	b	173c <lws_context_destroy@plt+0x444>
+    1718:	e1a03007 	mov	r3, r7
+    171c:	e5937000 	ldr	r7, [r3]
+    1720:	e5930004 	ldr	r0, [r3, #4]
+    1724:	ebfffe81 	bl	1130 <free@plt>
+    1728:	e594000c 	ldr	r0, [r4, #12]
+    172c:	ebfffe7f 	bl	1130 <free@plt>
+    1730:	e3570000 	cmp	r7, #0
+    1734:	e584700c 	str	r7, [r4, #12]
+    1738:	1afffff6 	bne	1718 <lws_context_destroy@plt+0x420>
+    173c:	e5940018 	ldr	r0, [r4, #24]
+    1740:	ebfffe7a 	bl	1130 <free@plt>
+    1744:	e5953108 	ldr	r3, [r5, #264]	@ 0x108
+    1748:	e3530000 	cmp	r3, #0
+    174c:	0a000002 	beq	175c <lws_context_destroy@plt+0x464>
+    1750:	e1a00005 	mov	r0, r5
+    1754:	e1a01004 	mov	r1, r4
+    1758:	e12fff33 	blx	r3
+    175c:	e5953114 	ldr	r3, [r5, #276]	@ 0x114
+    1760:	e1540003 	cmp	r4, r3
+    1764:	0a00000e 	beq	17a4 <lws_context_destroy@plt+0x4ac>
+    1768:	e1c420d0 	ldrd	r2, [r4]
+    176c:	e5823004 	str	r3, [r2, #4]
+    1770:	e5943004 	ldr	r3, [r4, #4]
+    1774:	e3530000 	cmp	r3, #0
+    1778:	15832000 	strne	r2, [r3]
+    177c:	eaffff7a 	b	156c <lws_context_destroy@plt+0x274>
+    1780:	e5973000 	ldr	r3, [r7]
+    1784:	e5970004 	ldr	r0, [r7, #4]
+    1788:	e3530000 	cmp	r3, #0
+    178c:	e584300c 	str	r3, [r4, #12]
+    1790:	05843010 	streq	r3, [r4, #16]
+    1794:	ebfffe65 	bl	1130 <free@plt>
+    1798:	e1a00007 	mov	r0, r7
+    179c:	ebfffe63 	bl	1130 <free@plt>
+    17a0:	eaffff6c 	b	1558 <lws_context_destroy@plt+0x260>
+    17a4:	e5942004 	ldr	r2, [r4, #4]
+    17a8:	e3a03000 	mov	r3, #0
+    17ac:	e5852114 	str	r2, [r5, #276]	@ 0x114
+    17b0:	e5843000 	str	r3, [r4]
+    17b4:	eaffff6c 	b	156c <lws_context_destroy@plt+0x274>
+    17b8:	e2890001 	add	r0, r9, #1
+    17bc:	ebfffe8b 	bl	11f0 <malloc@plt>
+    17c0:	e3500000 	cmp	r0, #0
+    17c4:	e5840018 	str	r0, [r4, #24]
+    17c8:	0affff2b 	beq	147c <lws_context_destroy@plt+0x184>
+    17cc:	e1a0100a 	mov	r1, sl
+    17d0:	e1a02009 	mov	r2, r9
+    17d4:	ebfffe5e 	bl	1154 <memcpy@plt>
+    17d8:	e584901c 	str	r9, [r4, #28]
+    17dc:	eaffff7e 	b	15dc <lws_context_destroy@plt+0x2e4>
+    17e0:	e59d601c 	ldr	r6, [sp, #28]
+    17e4:	e1a00008 	mov	r0, r8
+    17e8:	ebfffe47 	bl	110c <cson_jsonrpc_print_response@plt>
+    17ec:	e1a09000 	mov	r9, r0
+    17f0:	e1a00008 	mov	r0, r8
+    17f4:	ebfffead 	bl	12b0 <cson_jsonrpc_delete@plt>
+    17f8:	e59d0028 	ldr	r0, [sp, #40]	@ 0x28
+    17fc:	e3500000 	cmp	r0, #0
+    1800:	0a000000 	beq	1808 <lws_context_destroy@plt+0x510>
+    1804:	ebfffe49 	bl	1130 <free@plt>
+    1808:	e3590000 	cmp	r9, #0
+    180c:	0affff1a 	beq	147c <lws_context_destroy@plt+0x184>
+    1810:	e3a01010 	mov	r1, #16
+    1814:	e3a00001 	mov	r0, #1
+    1818:	ebfffe23 	bl	10ac <calloc@plt>
+    181c:	e1a07000 	mov	r7, r0
+    1820:	e1a00009 	mov	r0, r9
+    1824:	ebfffe7d 	bl	1220 <strlen@plt>
+    1828:	e2800011 	add	r0, r0, #17
+    182c:	ebfffe6f 	bl	11f0 <malloc@plt>
+    1830:	e59f1084 	ldr	r1, [pc, #132]	@ 18bc <lws_context_destroy@plt+0x5c4>
+    1834:	e2803010 	add	r3, r0, #16
+    1838:	e1a0c000 	mov	ip, r0
+    183c:	e1a02009 	mov	r2, r9
+    1840:	e1a00003 	mov	r0, r3
+    1844:	e5873008 	str	r3, [r7, #8]
+    1848:	e587c004 	str	ip, [r7, #4]
+    184c:	e08f1001 	add	r1, pc, r1
+    1850:	ebfffe9c 	bl	12c8 <sprintf@plt>
+    1854:	e587000c 	str	r0, [r7, #12]
+    1858:	e1a00009 	mov	r0, r9
+    185c:	ebfffe33 	bl	1130 <free@plt>
+    1860:	e1a00005 	mov	r0, r5
+    1864:	ebfffe37 	bl	1148 <pthread_mutex_lock@plt>
+    1868:	e5943010 	ldr	r3, [r4, #16]
+    186c:	e3530000 	cmp	r3, #0
+    1870:	15837000 	strne	r7, [r3]
+    1874:	0584700c 	streq	r7, [r4, #12]
+    1878:	e5847010 	str	r7, [r4, #16]
+    187c:	eaffff3a 	b	156c <lws_context_destroy@plt+0x274>
+    1880:	e1a00003 	mov	r0, r3
+    1884:	ebfffe29 	bl	1130 <free@plt>
+    1888:	e584b01c 	str	fp, [r4, #28]
+    188c:	eafffefa 	b	147c <lws_context_destroy@plt+0x184>
+    1890:	e1a00008 	mov	r0, r8
+    1894:	e59d3028 	ldr	r3, [sp, #40]	@ 0x28
+    1898:	e1a01007 	mov	r1, r7
+    189c:	ebfffe4a 	bl	11cc <cson_jsonrpc_set_error@plt>
+    18a0:	eaffff6d 	b	165c <lws_context_destroy@plt+0x364>
+    18a4:	ebfffe21 	bl	1130 <free@plt>
+    18a8:	e5847018 	str	r7, [r4, #24]
+    18ac:	eafffef2 	b	147c <lws_context_destroy@plt+0x184>
+    18b0:	ebfffe33 	bl	1184 <__stack_chk_fail@plt>
+    18b4:	00011ae8 	andeq	r1, r1, r8, ror #21
+    18b8:	000000e0 	andeq	r0, r0, r0, ror #1
+    18bc:	00000ffc 	strdeq	r0, [r0], -ip
+    18c0:	e59fc350 	ldr	ip, [pc, #848]	@ 1c18 <lws_context_destroy@plt+0x920>
+    18c4:	e16d42f0 	strd	r4, [sp, #-32]!	@ 0xffffffe0
+    18c8:	e1a05002 	mov	r5, r2
+    18cc:	e58da018 	str	sl, [sp, #24]
+    18d0:	e1a0a001 	mov	sl, r1
+    18d4:	e59f1340 	ldr	r1, [pc, #832]	@ 1c1c <lws_context_destroy@plt+0x924>
+    18d8:	e1cd60f8 	strd	r6, [sp, #8]
+    18dc:	e1a04000 	mov	r4, r0
+    18e0:	e1cd81f0 	strd	r8, [sp, #16]
+    18e4:	e1a08003 	mov	r8, r3
+    18e8:	e08fc00c 	add	ip, pc, ip
+    18ec:	e58de01c 	str	lr, [sp, #28]
+    18f0:	e24dd010 	sub	sp, sp, #16
+    18f4:	e79c7001 	ldr	r7, [ip, r1]
+    18f8:	e1a0200c 	mov	r2, ip
+    18fc:	e59d9030 	ldr	r9, [sp, #48]	@ 0x30
+    1900:	e5973000 	ldr	r3, [r7]
+    1904:	e58d300c 	str	r3, [sp, #12]
+    1908:	ebfffded 	bl	10c4 <lws_get_context@plt>
+    190c:	ebfffe49 	bl	1238 <lws_context_user@plt>
+    1910:	e24a2001 	sub	r2, sl, #1
+    1914:	e1a06000 	mov	r6, r0
+    1918:	e3520009 	cmp	r2, #9
+    191c:	908ff102 	addls	pc, pc, r2, lsl #2
+    1920:	ea000021 	b	19ac <lws_context_destroy@plt+0x6b4>
+    1924:	ea00002c 	b	19dc <lws_context_destroy@plt+0x6e4>
+    1928:	ea00001f 	b	19ac <lws_context_destroy@plt+0x6b4>
+    192c:	ea000030 	b	19f4 <lws_context_destroy@plt+0x6fc>
+    1930:	ea000041 	b	1a3c <lws_context_destroy@plt+0x744>
+    1934:	ea00001c 	b	19ac <lws_context_destroy@plt+0x6b4>
+    1938:	ea00001b 	b	19ac <lws_context_destroy@plt+0x6b4>
+    193c:	ea00001a 	b	19ac <lws_context_destroy@plt+0x6b4>
+    1940:	ea000059 	b	1aac <lws_context_destroy@plt+0x7b4>
+    1944:	ea000018 	b	19ac <lws_context_destroy@plt+0x6b4>
+    1948:	eaffffff 	b	194c <lws_context_destroy@plt+0x654>
+    194c:	ebfffdfd 	bl	1148 <pthread_mutex_lock@plt>
+    1950:	e595800c 	ldr	r8, [r5, #12]
+    1954:	e3580000 	cmp	r8, #0
+    1958:	0a000011 	beq	19a4 <lws_context_destroy@plt+0x6ac>
+    195c:	e598900c 	ldr	r9, [r8, #12]
+    1960:	e1a00004 	mov	r0, r4
+    1964:	e3a03000 	mov	r3, #0
+    1968:	e5981008 	ldr	r1, [r8, #8]
+    196c:	e1a02009 	mov	r2, r9
+    1970:	ebfffe57 	bl	12d4 <lws_write@plt>
+    1974:	e1500009 	cmp	r0, r9
+    1978:	0a000094 	beq	1bd0 <lws_context_destroy@plt+0x8d8>
+    197c:	e1c820d8 	ldrd	r2, [r8, #8]
+    1980:	e0603003 	rsb	r3, r0, r3
+    1984:	e0820000 	add	r0, r2, r0
+    1988:	e588300c 	str	r3, [r8, #12]
+    198c:	e5880008 	str	r0, [r8, #8]
+    1990:	e595300c 	ldr	r3, [r5, #12]
+    1994:	e3530000 	cmp	r3, #0
+    1998:	0a000001 	beq	19a4 <lws_context_destroy@plt+0x6ac>
+    199c:	e1a00004 	mov	r0, r4
+    19a0:	ebfffdee 	bl	1160 <lws_callback_on_writable@plt>
+    19a4:	e1a00006 	mov	r0, r6
+    19a8:	ebfffdbc 	bl	10a0 <pthread_mutex_unlock@plt>
+    19ac:	e59d200c 	ldr	r2, [sp, #12]
+    19b0:	e3a00000 	mov	r0, #0
+    19b4:	e5973000 	ldr	r3, [r7]
+    19b8:	e1520003 	cmp	r2, r3
+    19bc:	1a000094 	bne	1c14 <lws_context_destroy@plt+0x91c>
+    19c0:	e28dd010 	add	sp, sp, #16
+    19c4:	e1cd40d0 	ldrd	r4, [sp]
+    19c8:	e1cd60d8 	ldrd	r6, [sp, #8]
+    19cc:	e1cd81d0 	ldrd	r8, [sp, #16]
+    19d0:	e59da018 	ldr	sl, [sp, #24]
+    19d4:	e28dd01c 	add	sp, sp, #28
+    19d8:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+    19dc:	e590310c 	ldr	r3, [r0, #268]	@ 0x10c
+    19e0:	e3530000 	cmp	r3, #0
+    19e4:	0afffff0 	beq	19ac <lws_context_destroy@plt+0x6b4>
+    19e8:	e1a00006 	mov	r0, r6
+    19ec:	e12fff33 	blx	r3
+    19f0:	eaffffed 	b	19ac <lws_context_destroy@plt+0x6b4>
+    19f4:	e3a01000 	mov	r1, #0
+    19f8:	e3a02020 	mov	r2, #32
+    19fc:	e1a00005 	mov	r0, r5
+    1a00:	ebfffe12 	bl	1250 <memset@plt>
+    1a04:	e5854008 	str	r4, [r5, #8]
+    1a08:	e1a00006 	mov	r0, r6
+    1a0c:	ebfffdcd 	bl	1148 <pthread_mutex_lock@plt>
+    1a10:	e5963114 	ldr	r3, [r6, #276]	@ 0x114
+    1a14:	e1a00006 	mov	r0, r6
+    1a18:	e3530000 	cmp	r3, #0
+    1a1c:	15853004 	strne	r3, [r5, #4]
+    1a20:	15835000 	strne	r5, [r3]
+    1a24:	e5865114 	str	r5, [r6, #276]	@ 0x114
+    1a28:	ebfffd9c 	bl	10a0 <pthread_mutex_unlock@plt>
+    1a2c:	e59630f8 	ldr	r3, [r6, #248]	@ 0xf8
+    1a30:	e3530000 	cmp	r3, #0
+    1a34:	1affffeb 	bne	19e8 <lws_context_destroy@plt+0x6f0>
+    1a38:	eaffffdb 	b	19ac <lws_context_destroy@plt+0x6b4>
+    1a3c:	e590310c 	ldr	r3, [r0, #268]	@ 0x10c
+    1a40:	e3530000 	cmp	r3, #0
+    1a44:	0a000000 	beq	1a4c <lws_context_destroy@plt+0x754>
+    1a48:	e12fff33 	blx	r3
+    1a4c:	e1a00006 	mov	r0, r6
+    1a50:	ebfffdbc 	bl	1148 <pthread_mutex_lock@plt>
+    1a54:	e595300c 	ldr	r3, [r5, #12]
+    1a58:	e3530000 	cmp	r3, #0
+    1a5c:	1a000001 	bne	1a68 <lws_context_destroy@plt+0x770>
+    1a60:	ea000008 	b	1a88 <lws_context_destroy@plt+0x790>
+    1a64:	e1a03004 	mov	r3, r4
+    1a68:	e5934000 	ldr	r4, [r3]
+    1a6c:	e5930004 	ldr	r0, [r3, #4]
+    1a70:	ebfffdae 	bl	1130 <free@plt>
+    1a74:	e595000c 	ldr	r0, [r5, #12]
+    1a78:	ebfffdac 	bl	1130 <free@plt>
+    1a7c:	e3540000 	cmp	r4, #0
+    1a80:	e585400c 	str	r4, [r5, #12]
+    1a84:	1afffff6 	bne	1a64 <lws_context_destroy@plt+0x76c>
+    1a88:	e5963114 	ldr	r3, [r6, #276]	@ 0x114
+    1a8c:	e1550003 	cmp	r5, r3
+    1a90:	0a00005a 	beq	1c00 <lws_context_destroy@plt+0x908>
+    1a94:	e1c520d0 	ldrd	r2, [r5]
+    1a98:	e5823004 	str	r3, [r2, #4]
+    1a9c:	e5953004 	ldr	r3, [r5, #4]
+    1aa0:	e3530000 	cmp	r3, #0
+    1aa4:	15832000 	strne	r2, [r3]
+    1aa8:	eaffffbd 	b	19a4 <lws_context_destroy@plt+0x6ac>
+    1aac:	e1a00004 	mov	r0, r4
+    1ab0:	ebfffdbc 	bl	11a8 <lws_remaining_packet_payload@plt>
+    1ab4:	e3500000 	cmp	r0, #0
+    1ab8:	1affffbb 	bne	19ac <lws_context_destroy@plt+0x6b4>
+    1abc:	e7c80009 	strb	r0, [r8, r9]
+    1ac0:	e5963104 	ldr	r3, [r6, #260]	@ 0x104
+    1ac4:	e3530000 	cmp	r3, #0
+    1ac8:	0a00000e 	beq	1b08 <lws_context_destroy@plt+0x810>
+    1acc:	e1a00008 	mov	r0, r8
+    1ad0:	ebfffdea 	bl	1280 <cson_jsonrpc_is_notification@plt>
+    1ad4:	e2504000 	subs	r4, r0, #0
+    1ad8:	0a00000a 	beq	1b08 <lws_context_destroy@plt+0x810>
+    1adc:	e5963104 	ldr	r3, [r6, #260]	@ 0x104
+    1ae0:	e1a00006 	mov	r0, r6
+    1ae4:	e8940006 	ldm	r4, {r1, r2}
+    1ae8:	e12fff33 	blx	r3
+    1aec:	e5940004 	ldr	r0, [r4, #4]
+    1af0:	e3500000 	cmp	r0, #0
+    1af4:	0a000000 	beq	1afc <lws_context_destroy@plt+0x804>
+    1af8:	ebfffdc5 	bl	1214 <cson_value_free@plt>
+    1afc:	e1a00004 	mov	r0, r4
+    1b00:	ebfffd8a 	bl	1130 <free@plt>
+    1b04:	eaffffa8 	b	19ac <lws_context_destroy@plt+0x6b4>
+    1b08:	e5963100 	ldr	r3, [r6, #256]	@ 0x100
+    1b0c:	e3530000 	cmp	r3, #0
+    1b10:	0affffa5 	beq	19ac <lws_context_destroy@plt+0x6b4>
+    1b14:	e28d5004 	add	r5, sp, #4
+    1b18:	e1a01008 	mov	r1, r8
+    1b1c:	e1a00005 	mov	r0, r5
+    1b20:	ebfffdd0 	bl	1268 <cson_jsonrpc_response_parse@plt>
+    1b24:	e3500000 	cmp	r0, #0
+    1b28:	baffff9f 	blt	19ac <lws_context_destroy@plt+0x6b4>
+    1b2c:	e1a00005 	mov	r0, r5
+    1b30:	ebfffd78 	bl	1118 <cson_jsonrpc_response_get_size@plt>
+    1b34:	e250a000 	subs	sl, r0, #0
+    1b38:	13a04000 	movne	r4, #0
+    1b3c:	1a00000d 	bne	1b78 <lws_context_destroy@plt+0x880>
+    1b40:	ea00002b 	b	1bf4 <lws_context_destroy@plt+0x8fc>
+    1b44:	ebfffda6 	bl	11e4 <cson_jsonrpc_response_get_result@plt>
+    1b48:	e1a09000 	mov	r9, r0
+    1b4c:	e1a01004 	mov	r1, r4
+    1b50:	e1a00005 	mov	r0, r5
+    1b54:	e5968100 	ldr	r8, [r6, #256]	@ 0x100
+    1b58:	ebfffd9e 	bl	11d8 <cson_jsonrpc_response_get_id@plt>
+    1b5c:	e1a02000 	mov	r2, r0
+    1b60:	e2844001 	add	r4, r4, #1
+    1b64:	e1a00006 	mov	r0, r6
+    1b68:	e1a01009 	mov	r1, r9
+    1b6c:	e12fff38 	blx	r8
+    1b70:	e154000a 	cmp	r4, sl
+    1b74:	0a00001e 	beq	1bf4 <lws_context_destroy@plt+0x8fc>
+    1b78:	e1a01004 	mov	r1, r4
+    1b7c:	e1a00005 	mov	r0, r5
+    1b80:	ebfffd9d 	bl	11fc <cson_jsonrpc_response_get_status@plt>
+    1b84:	e3500000 	cmp	r0, #0
+    1b88:	e1a01004 	mov	r1, r4
+    1b8c:	e1a00005 	mov	r0, r5
+    1b90:	0affffeb 	beq	1b44 <lws_context_destroy@plt+0x84c>
+    1b94:	ebfffdc2 	bl	12a4 <cson_jsonrpc_response_get_error_code@plt>
+    1b98:	e1a09000 	mov	r9, r0
+    1b9c:	e1a01004 	mov	r1, r4
+    1ba0:	e1a00005 	mov	r0, r5
+    1ba4:	ebfffdb8 	bl	128c <cson_jsonrpc_response_get_error_message@plt>
+    1ba8:	e1a08000 	mov	r8, r0
+    1bac:	e1a01004 	mov	r1, r4
+    1bb0:	e1a00005 	mov	r0, r5
+    1bb4:	ebfffd87 	bl	11d8 <cson_jsonrpc_response_get_id@plt>
+    1bb8:	e1a02000 	mov	r2, r0
+    1bbc:	e1a01008 	mov	r1, r8
+    1bc0:	e1a00009 	mov	r0, r9
+    1bc4:	ebfffd7d 	bl	11c0 <cson_jsonrpc_build_error@plt>
+    1bc8:	e1a09000 	mov	r9, r0
+    1bcc:	eaffffde 	b	1b4c <lws_context_destroy@plt+0x854>
+    1bd0:	e5983000 	ldr	r3, [r8]
+    1bd4:	e5980004 	ldr	r0, [r8, #4]
+    1bd8:	e3530000 	cmp	r3, #0
+    1bdc:	e585300c 	str	r3, [r5, #12]
+    1be0:	05853010 	streq	r3, [r5, #16]
+    1be4:	ebfffd51 	bl	1130 <free@plt>
+    1be8:	e1a00008 	mov	r0, r8
+    1bec:	ebfffd4f 	bl	1130 <free@plt>
+    1bf0:	eaffff66 	b	1990 <lws_context_destroy@plt+0x698>
+    1bf4:	e1a00005 	mov	r0, r5
+    1bf8:	ebfffdb8 	bl	12e0 <cson_jsonrpc_response_delete@plt>
+    1bfc:	eaffff6a 	b	19ac <lws_context_destroy@plt+0x6b4>
+    1c00:	e5952004 	ldr	r2, [r5, #4]
+    1c04:	e3a03000 	mov	r3, #0
+    1c08:	e5862114 	str	r2, [r6, #276]	@ 0x114
+    1c0c:	e5853000 	str	r3, [r5]
+    1c10:	eaffff63 	b	19a4 <lws_context_destroy@plt+0x6ac>
+    1c14:	ebfffd5a 	bl	1184 <__stack_chk_fail@plt>
+    1c18:	00011620 	andeq	r1, r1, r0, lsr #12
+    1c1c:	000000e0 	andeq	r0, r0, r0, ror #1
+    1c20:	e59f3084 	ldr	r3, [pc, #132]	@ 1cac <lws_context_destroy@plt+0x9b4>
+    1c24:	e16d40fc 	strd	r4, [sp, #-12]!
+    1c28:	e1a04000 	mov	r4, r0
+    1c2c:	e59fc07c 	ldr	ip, [pc, #124]	@ 1cb0 <lws_context_destroy@plt+0x9b8>
+    1c30:	e58de008 	str	lr, [sp, #8]
+    1c34:	e24dd00c 	sub	sp, sp, #12
+    1c38:	e59f1074 	ldr	r1, [pc, #116]	@ 1cb4 <lws_context_destroy@plt+0x9bc>
+    1c3c:	e3a00001 	mov	r0, #1
+    1c40:	e594201c 	ldr	r2, [r4, #28]
+    1c44:	e08f3003 	add	r3, pc, r3
+    1c48:	e793500c 	ldr	r5, [r3, ip]
+    1c4c:	e08f1001 	add	r1, pc, r1
+    1c50:	e5953000 	ldr	r3, [r5]
+    1c54:	e58d3004 	str	r3, [sp, #4]
+    1c58:	ebfffd85 	bl	1274 <__printf_chk@plt>
+    1c5c:	e594001c 	ldr	r0, [r4, #28]
+    1c60:	e3500000 	cmp	r0, #0
+    1c64:	0a000000 	beq	1c6c <lws_context_destroy@plt+0x974>
+    1c68:	ebfffd30 	bl	1130 <free@plt>
+    1c6c:	e5940020 	ldr	r0, [r4, #32]
+    1c70:	ebfffd2e 	bl	1130 <free@plt>
+    1c74:	e1a00004 	mov	r0, r4
+    1c78:	ebfffd29 	bl	1124 <pthread_mutex_destroy@plt>
+    1c7c:	e1a00004 	mov	r0, r4
+    1c80:	ebfffd2a 	bl	1130 <free@plt>
+    1c84:	e59d2004 	ldr	r2, [sp, #4]
+    1c88:	e3e00000 	mvn	r0, #0
+    1c8c:	e5953000 	ldr	r3, [r5]
+    1c90:	e1520003 	cmp	r2, r3
+    1c94:	1a000003 	bne	1ca8 <lws_context_destroy@plt+0x9b0>
+    1c98:	e28dd00c 	add	sp, sp, #12
+    1c9c:	e1cd40d0 	ldrd	r4, [sp]
+    1ca0:	e28dd008 	add	sp, sp, #8
+    1ca4:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+    1ca8:	ebfffd35 	bl	1184 <__stack_chk_fail@plt>
+    1cac:	000112c4 	andeq	r1, r1, r4, asr #5
+    1cb0:	000000e0 	andeq	r0, r0, r0, ror #1
+    1cb4:	00000c00 	andeq	r0, r0, r0, lsl #24
+    1cb8:	e16d42f4 	strd	r4, [sp, #-36]!	@ 0xffffffdc
+    1cbc:	e59fc268 	ldr	ip, [pc, #616]	@ 1f2c <lws_context_destroy@plt+0xc34>
+    1cc0:	e1cd60f8 	strd	r6, [sp, #8]
+    1cc4:	e1cd81f0 	strd	r8, [sp, #16]
+    1cc8:	e1a09002 	mov	r9, r2
+    1ccc:	e1a08003 	mov	r8, r3
+    1cd0:	e1cda1f8 	strd	sl, [sp, #24]
+    1cd4:	e58de020 	str	lr, [sp, #32]
+    1cd8:	e24dd07c 	sub	sp, sp, #124	@ 0x7c
+    1cdc:	e59fe24c 	ldr	lr, [pc, #588]	@ 1f30 <lws_context_destroy@plt+0xc38>
+    1ce0:	e59d20a4 	ldr	r2, [sp, #164]	@ 0xa4
+    1ce4:	e1cd01f0 	strd	r0, [sp, #16]
+    1ce8:	e3a00001 	mov	r0, #1
+    1cec:	e3a01f46 	mov	r1, #280	@ 0x118
+    1cf0:	e59db0a0 	ldr	fp, [sp, #160]	@ 0xa0
+    1cf4:	e08fe00e 	add	lr, pc, lr
+    1cf8:	e59da0a8 	ldr	sl, [sp, #168]	@ 0xa8
+    1cfc:	e58d2008 	str	r2, [sp, #8]
+    1d00:	e79ec00c 	ldr	ip, [lr, ip]
+    1d04:	e1a0300e 	mov	r3, lr
+    1d08:	e59d50ac 	ldr	r5, [sp, #172]	@ 0xac
+    1d0c:	e59d70b0 	ldr	r7, [sp, #176]	@ 0xb0
+    1d10:	e59d60b4 	ldr	r6, [sp, #180]	@ 0xb4
+    1d14:	e59c3000 	ldr	r3, [ip]
+    1d18:	e58dc00c 	str	ip, [sp, #12]
+    1d1c:	e58d3074 	str	r3, [sp, #116]	@ 0x74
+    1d20:	ebfffce1 	bl	10ac <calloc@plt>
+    1d24:	e2504000 	subs	r4, r0, #0
+    1d28:	0a000070 	beq	1ef0 <lws_context_destroy@plt+0xbf8>
+    1d2c:	e3a00002 	mov	r0, #2
+    1d30:	e3a01018 	mov	r1, #24
+    1d34:	ebfffcdc 	bl	10ac <calloc@plt>
+    1d38:	e2503000 	subs	r3, r0, #0
+    1d3c:	0a00006d 	beq	1ef8 <lws_context_destroy@plt+0xc00>
+    1d40:	e59fc1ec 	ldr	ip, [pc, #492]	@ 1f34 <lws_context_destroy@plt+0xc3c>
+    1d44:	e3a01020 	mov	r1, #32
+    1d48:	e3550000 	cmp	r5, #0
+    1d4c:	e59fe1e4 	ldr	lr, [pc, #484]	@ 1f38 <lws_context_destroy@plt+0xc40>
+    1d50:	e5843020 	str	r3, [r4, #32]
+    1d54:	e3e02000 	mvn	r2, #0
+    1d58:	e59f01dc 	ldr	r0, [pc, #476]	@ 1f3c <lws_context_destroy@plt+0xc44>
+    1d5c:	e5831008 	str	r1, [r3, #8]
+    1d60:	15845030 	strne	r5, [r4, #48]	@ 0x30
+    1d64:	e3570000 	cmp	r7, #0
+    1d68:	e08fc00c 	add	ip, pc, ip
+    1d6c:	e5842018 	str	r2, [r4, #24]
+    1d70:	e08fe00e 	add	lr, pc, lr
+    1d74:	15847034 	strne	r7, [r4, #52]	@ 0x34
+    1d78:	e3560000 	cmp	r6, #0
+    1d7c:	e583c004 	str	ip, [r3, #4]
+    1d80:	e3a0c802 	mov	ip, #131072	@ 0x20000
+    1d84:	e08f0000 	add	r0, pc, r0
+    1d88:	e583e000 	str	lr, [r3]
+    1d8c:	e28d701c 	add	r7, sp, #28
+    1d90:	e583c00c 	str	ip, [r3, #12]
+    1d94:	e59d3008 	ldr	r3, [sp, #8]
+    1d98:	15846038 	strne	r6, [r4, #56]	@ 0x38
+    1d9c:	e5842048 	str	r2, [r4, #72]	@ 0x48
+    1da0:	e584204c 	str	r2, [r4, #76]	@ 0x4c
+    1da4:	e584310c 	str	r3, [r4, #268]	@ 0x10c
+    1da8:	e5840024 	str	r0, [r4, #36]	@ 0x24
+    1dac:	e1a00007 	mov	r0, r7
+    1db0:	e5841050 	str	r1, [r4, #80]	@ 0x50
+    1db4:	e5844054 	str	r4, [r4, #84]	@ 0x54
+    1db8:	e58490f8 	str	r9, [r4, #248]	@ 0xf8
+    1dbc:	e5848100 	str	r8, [r4, #256]	@ 0x100
+    1dc0:	e584b104 	str	fp, [r4, #260]	@ 0x104
+    1dc4:	e584a110 	str	sl, [r4, #272]	@ 0x110
+    1dc8:	ebfffd3b 	bl	12bc <pthread_mutexattr_init@plt>
+    1dcc:	e1a00007 	mov	r0, r7
+    1dd0:	e3a01001 	mov	r1, #1
+    1dd4:	ebfffcc3 	bl	10e8 <pthread_mutexattr_settype@plt>
+    1dd8:	e1a01007 	mov	r1, r7
+    1ddc:	e1a00004 	mov	r0, r4
+    1de0:	ebfffce1 	bl	116c <pthread_mutex_init@plt>
+    1de4:	e2840018 	add	r0, r4, #24
+    1de8:	ebfffd3f 	bl	12ec <lws_create_context@plt>
+    1dec:	e3500000 	cmp	r0, #0
+    1df0:	11a07000 	movne	r7, r0
+    1df4:	158400f0 	strne	r0, [r4, #240]	@ 0xf0
+    1df8:	0a000044 	beq	1f10 <lws_context_destroy@plt+0xc18>
+    1dfc:	e3550000 	cmp	r5, #0
+    1e00:	0a000002 	beq	1e10 <lws_context_destroy@plt+0xb18>
+    1e04:	e3560000 	cmp	r6, #0
+    1e08:	03a05002 	moveq	r5, #2
+    1e0c:	13a05001 	movne	r5, #1
+    1e10:	e28d8020 	add	r8, sp, #32
+    1e14:	e3a01000 	mov	r1, #0
+    1e18:	e3a02054 	mov	r2, #84	@ 0x54
+    1e1c:	e1a00008 	mov	r0, r8
+    1e20:	ebfffd0a 	bl	1250 <memset@plt>
+    1e24:	e59dc010 	ldr	ip, [sp, #16]
+    1e28:	e3e02000 	mvn	r2, #0
+    1e2c:	e1a00007 	mov	r0, r7
+    1e30:	e5943020 	ldr	r3, [r4, #32]
+    1e34:	e58d7020 	str	r7, [sp, #32]
+    1e38:	e59f1100 	ldr	r1, [pc, #256]	@ 1f40 <lws_context_destroy@plt+0xc48>
+    1e3c:	e58dc024 	str	ip, [sp, #36]	@ 0x24
+    1e40:	e59dc014 	ldr	ip, [sp, #20]
+    1e44:	e5933000 	ldr	r3, [r3]
+    1e48:	e58d2040 	str	r2, [sp, #64]	@ 0x40
+    1e4c:	e08f1001 	add	r1, pc, r1
+    1e50:	e58d502c 	str	r5, [sp, #44]	@ 0x2c
+    1e54:	e58dc028 	str	ip, [sp, #40]	@ 0x28
+    1e58:	e58d1030 	str	r1, [sp, #48]	@ 0x30
+    1e5c:	e58d303c 	str	r3, [sp, #60]	@ 0x3c
+    1e60:	ebfffcc4 	bl	1178 <lws_canonical_hostname@plt>
+    1e64:	e1a03000 	mov	r3, r0
+    1e68:	e1a00008 	mov	r0, r8
+    1e6c:	e58d3038 	str	r3, [sp, #56]	@ 0x38
+    1e70:	e58d3034 	str	r3, [sp, #52]	@ 0x34
+    1e74:	ebfffcb0 	bl	113c <lws_client_connect_via_info@plt>
+    1e78:	e3500000 	cmp	r0, #0
+    1e7c:	11a00004 	movne	r0, r4
+    1e80:	0a00000b 	beq	1eb4 <lws_context_destroy@plt+0xbbc>
+    1e84:	e59dc00c 	ldr	ip, [sp, #12]
+    1e88:	e59d2074 	ldr	r2, [sp, #116]	@ 0x74
+    1e8c:	e59c3000 	ldr	r3, [ip]
+    1e90:	e1520003 	cmp	r2, r3
+    1e94:	1a000023 	bne	1f28 <lws_context_destroy@plt+0xc30>
+    1e98:	e28dd07c 	add	sp, sp, #124	@ 0x7c
+    1e9c:	e1cd40d0 	ldrd	r4, [sp]
+    1ea0:	e1cd60d8 	ldrd	r6, [sp, #8]
+    1ea4:	e1cd81d0 	ldrd	r8, [sp, #16]
+    1ea8:	e1cda1d8 	ldrd	sl, [sp, #24]
+    1eac:	e28dd020 	add	sp, sp, #32
+    1eb0:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+    1eb4:	e59f1088 	ldr	r1, [pc, #136]	@ 1f44 <lws_context_destroy@plt+0xc4c>
+    1eb8:	e3a00001 	mov	r0, #1
+    1ebc:	e1cd21d0 	ldrd	r2, [sp, #16]
+    1ec0:	e08f1001 	add	r1, pc, r1
+    1ec4:	ebfffcea 	bl	1274 <__printf_chk@plt>
+    1ec8:	e594001c 	ldr	r0, [r4, #28]
+    1ecc:	e3500000 	cmp	r0, #0
+    1ed0:	0a000000 	beq	1ed8 <lws_context_destroy@plt+0xbe0>
+    1ed4:	ebfffc95 	bl	1130 <free@plt>
+    1ed8:	e5940020 	ldr	r0, [r4, #32]
+    1edc:	ebfffc93 	bl	1130 <free@plt>
+    1ee0:	e1a00004 	mov	r0, r4
+    1ee4:	ebfffc8e 	bl	1124 <pthread_mutex_destroy@plt>
+    1ee8:	e1a00004 	mov	r0, r4
+    1eec:	ebfffc8f 	bl	1130 <free@plt>
+    1ef0:	e3a00000 	mov	r0, #0
+    1ef4:	eaffffe2 	b	1e84 <lws_context_destroy@plt+0xb8c>
+    1ef8:	e1a00004 	mov	r0, r4
+    1efc:	e58d3004 	str	r3, [sp, #4]
+    1f00:	ebfffc8a 	bl	1130 <free@plt>
+    1f04:	e59d3004 	ldr	r3, [sp, #4]
+    1f08:	e1a00003 	mov	r0, r3
+    1f0c:	eaffffdc 	b	1e84 <lws_context_destroy@plt+0xb8c>
+    1f10:	e1a00004 	mov	r0, r4
+    1f14:	ebffff41 	bl	1c20 <lws_context_destroy@plt+0x928>
+    1f18:	e3500000 	cmp	r0, #0
+    1f1c:	a59470f0 	ldrge	r7, [r4, #240]	@ 0xf0
+    1f20:	bafffff2 	blt	1ef0 <lws_context_destroy@plt+0xbf8>
+    1f24:	eaffffb4 	b	1dfc <lws_context_destroy@plt+0xb04>
+    1f28:	ebfffc95 	bl	1184 <__stack_chk_fail@plt>
+    1f2c:	000000e0 	andeq	r0, r0, r0, ror #1
+    1f30:	00011214 	andeq	r1, r1, r4, lsl r2
+    1f34:	fffffb50 			@ <UNDEFINED> instruction: 0xfffffb50
+    1f38:	00000b04 	andeq	r0, r0, r4, lsl #22
+    1f3c:	00000ab8 			@ <UNDEFINED> instruction: 0x00000ab8
+    1f40:	00000a44 	andeq	r0, r0, r4, asr #20
+    1f44:	000009d4 	ldrdeq	r0, [r0], -r4
+
+00001f48 <ws_json_service_init_secure@@Base>:
+    1f48:	e16d42f4 	strd	r4, [sp, #-36]!	@ 0xffffffdc
+    1f4c:	e59fc1ac 	ldr	ip, [pc, #428]	@ 2100 <ws_json_service_init_secure@@Base+0x1b8>
+    1f50:	e1cd60f8 	strd	r6, [sp, #8]
+    1f54:	e1a07000 	mov	r7, r0
+    1f58:	e3a00001 	mov	r0, #1
+    1f5c:	e1cd81f0 	strd	r8, [sp, #16]
+    1f60:	e1a09003 	mov	r9, r3
+    1f64:	e1cda1f8 	strd	sl, [sp, #24]
+    1f68:	e1a0a002 	mov	sl, r2
+    1f6c:	e1a0b001 	mov	fp, r1
+    1f70:	e58de020 	str	lr, [sp, #32]
+    1f74:	e24dd01c 	sub	sp, sp, #28
+    1f78:	e59fe184 	ldr	lr, [pc, #388]	@ 2104 <ws_json_service_init_secure@@Base+0x1bc>
+    1f7c:	e59d2040 	ldr	r2, [sp, #64]	@ 0x40
+    1f80:	e3a01f46 	mov	r1, #280	@ 0x118
+    1f84:	e59d6044 	ldr	r6, [sp, #68]	@ 0x44
+    1f88:	e59d5048 	ldr	r5, [sp, #72]	@ 0x48
+    1f8c:	e08fe00e 	add	lr, pc, lr
+    1f90:	e59d404c 	ldr	r4, [sp, #76]	@ 0x4c
+    1f94:	e58d200c 	str	r2, [sp, #12]
+    1f98:	e79ec00c 	ldr	ip, [lr, ip]
+    1f9c:	e1a0300e 	mov	r3, lr
+    1fa0:	e59c3000 	ldr	r3, [ip]
+    1fa4:	e58dc008 	str	ip, [sp, #8]
+    1fa8:	e58d3014 	str	r3, [sp, #20]
+    1fac:	ebfffc3e 	bl	10ac <calloc@plt>
+    1fb0:	e2508000 	subs	r8, r0, #0
+    1fb4:	0a000048 	beq	20dc <ws_json_service_init_secure@@Base+0x194>
+    1fb8:	e3a00002 	mov	r0, #2
+    1fbc:	e3a01018 	mov	r1, #24
+    1fc0:	ebfffc39 	bl	10ac <calloc@plt>
+    1fc4:	e2502000 	subs	r2, r0, #0
+    1fc8:	0a000045 	beq	20e4 <ws_json_service_init_secure@@Base+0x19c>
+    1fcc:	e3570000 	cmp	r7, #0
+    1fd0:	0a000004 	beq	1fe8 <ws_json_service_init_secure@@Base+0xa0>
+    1fd4:	e1a00007 	mov	r0, r7
+    1fd8:	e58d2004 	str	r2, [sp, #4]
+    1fdc:	ebfffc98 	bl	1244 <__strdup@plt>
+    1fe0:	e59d2004 	ldr	r2, [sp, #4]
+    1fe4:	e588001c 	str	r0, [r8, #28]
+    1fe8:	e3560000 	cmp	r6, #0
+    1fec:	e3a03802 	mov	r3, #131072	@ 0x20000
+    1ff0:	e588b018 	str	fp, [r8, #24]
+    1ff4:	e59f710c 	ldr	r7, [pc, #268]	@ 2108 <ws_json_service_init_secure@@Base+0x1c0>
+    1ff8:	e3a0c020 	mov	ip, #32
+    1ffc:	e3e01000 	mvn	r1, #0
+    2000:	e59fe104 	ldr	lr, [pc, #260]	@ 210c <ws_json_service_init_secure@@Base+0x1c4>
+    2004:	15886030 	strne	r6, [r8, #48]	@ 0x30
+    2008:	e3550000 	cmp	r5, #0
+    200c:	e59fb0fc 	ldr	fp, [pc, #252]	@ 2110 <ws_json_service_init_secure@@Base+0x1c8>
+    2010:	e582300c 	str	r3, [r2, #12]
+    2014:	e3010020 	movw	r0, #4128	@ 0x1020
+    2018:	e59d300c 	ldr	r3, [sp, #12]
+    201c:	15885034 	strne	r5, [r8, #52]	@ 0x34
+    2020:	e3540000 	cmp	r4, #0
+    2024:	e08f7007 	add	r7, pc, r7
+    2028:	e5882020 	str	r2, [r8, #32]
+    202c:	e08fe00e 	add	lr, pc, lr
+    2030:	15884038 	strne	r4, [r8, #56]	@ 0x38
+    2034:	e28d4010 	add	r4, sp, #16
+    2038:	e08fb00b 	add	fp, pc, fp
+    203c:	e582c008 	str	ip, [r2, #8]
+    2040:	e8824080 	stm	r2, {r7, lr}
+    2044:	e5883108 	str	r3, [r8, #264]	@ 0x108
+    2048:	e5881048 	str	r1, [r8, #72]	@ 0x48
+    204c:	e588104c 	str	r1, [r8, #76]	@ 0x4c
+    2050:	e5880050 	str	r0, [r8, #80]	@ 0x50
+    2054:	e1a00004 	mov	r0, r4
+    2058:	e5888054 	str	r8, [r8, #84]	@ 0x54
+    205c:	e588b024 	str	fp, [r8, #36]	@ 0x24
+    2060:	e588a0f4 	str	sl, [r8, #244]	@ 0xf4
+    2064:	e58890fc 	str	r9, [r8, #252]	@ 0xfc
+    2068:	ebfffc93 	bl	12bc <pthread_mutexattr_init@plt>
+    206c:	e3a01001 	mov	r1, #1
+    2070:	e1a00004 	mov	r0, r4
+    2074:	ebfffc1b 	bl	10e8 <pthread_mutexattr_settype@plt>
+    2078:	e1a01004 	mov	r1, r4
+    207c:	e1a00008 	mov	r0, r8
+    2080:	ebfffc39 	bl	116c <pthread_mutex_init@plt>
+    2084:	e2880018 	add	r0, r8, #24
+    2088:	ebfffc97 	bl	12ec <lws_create_context@plt>
+    208c:	e3500000 	cmp	r0, #0
+    2090:	158800f0 	strne	r0, [r8, #240]	@ 0xf0
+    2094:	0a00000c 	beq	20cc <ws_json_service_init_secure@@Base+0x184>
+    2098:	e1a00008 	mov	r0, r8
+    209c:	e59d2008 	ldr	r2, [sp, #8]
+    20a0:	e59d1014 	ldr	r1, [sp, #20]
+    20a4:	e5923000 	ldr	r3, [r2]
+    20a8:	e1510003 	cmp	r1, r3
+    20ac:	1a000012 	bne	20fc <ws_json_service_init_secure@@Base+0x1b4>
+    20b0:	e28dd01c 	add	sp, sp, #28
+    20b4:	e1cd40d0 	ldrd	r4, [sp]
+    20b8:	e1cd60d8 	ldrd	r6, [sp, #8]
+    20bc:	e1cd81d0 	ldrd	r8, [sp, #16]
+    20c0:	e1cda1d8 	ldrd	sl, [sp, #24]
+    20c4:	e28dd020 	add	sp, sp, #32
+    20c8:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+    20cc:	e1a00008 	mov	r0, r8
+    20d0:	ebfffed2 	bl	1c20 <lws_context_destroy@plt+0x928>
+    20d4:	e3500000 	cmp	r0, #0
+    20d8:	aaffffee 	bge	2098 <ws_json_service_init_secure@@Base+0x150>
+    20dc:	e3a00000 	mov	r0, #0
+    20e0:	eaffffed 	b	209c <ws_json_service_init_secure@@Base+0x154>
+    20e4:	e1a00008 	mov	r0, r8
+    20e8:	e58d2004 	str	r2, [sp, #4]
+    20ec:	ebfffc0f 	bl	1130 <free@plt>
+    20f0:	e59d2004 	ldr	r2, [sp, #4]
+    20f4:	e1a00002 	mov	r0, r2
+    20f8:	eaffffe7 	b	209c <ws_json_service_init_secure@@Base+0x154>
+    20fc:	ebfffc20 	bl	1184 <__stack_chk_fail@plt>
+    2100:	000000e0 	andeq	r0, r0, r0, ror #1
+    2104:	00010f7c 	andeq	r0, r1, ip, ror pc
+    2108:	00000850 	andeq	r0, r0, r0, asr r8
+    210c:	fffff3c0 			@ <UNDEFINED> instruction: 0xfffff3c0
+    2110:	00000804 	andeq	r0, r0, r4, lsl #16
+
+00002114 <ws_json_service_init@@Base>:
+    2114:	e16d42f4 	strd	r4, [sp, #-36]!	@ 0xffffffdc
+    2118:	e59fc16c 	ldr	ip, [pc, #364]	@ 228c <ws_json_service_init@@Base+0x178>
+    211c:	e58de020 	str	lr, [sp, #32]
+    2120:	e59fe168 	ldr	lr, [pc, #360]	@ 2290 <ws_json_service_init@@Base+0x17c>
+    2124:	e1cd60f8 	strd	r6, [sp, #8]
+    2128:	e1a06002 	mov	r6, r2
+    212c:	e1cd81f0 	strd	r8, [sp, #16]
+    2130:	e1a08003 	mov	r8, r3
+    2134:	e1a09001 	mov	r9, r1
+    2138:	e1cda1f8 	strd	sl, [sp, #24]
+    213c:	e24dd014 	sub	sp, sp, #20
+    2140:	e1a0a000 	mov	sl, r0
+    2144:	e08fe00e 	add	lr, pc, lr
+    2148:	e3a00001 	mov	r0, #1
+    214c:	e59d7038 	ldr	r7, [sp, #56]	@ 0x38
+    2150:	e79ec00c 	ldr	ip, [lr, ip]
+    2154:	e1a0300e 	mov	r3, lr
+    2158:	e3a01f46 	mov	r1, #280	@ 0x118
+    215c:	e59c3000 	ldr	r3, [ip]
+    2160:	e58dc004 	str	ip, [sp, #4]
+    2164:	e58d300c 	str	r3, [sp, #12]
+    2168:	ebfffbcf 	bl	10ac <calloc@plt>
+    216c:	e2504000 	subs	r4, r0, #0
+    2170:	0a00003e 	beq	2270 <ws_json_service_init@@Base+0x15c>
+    2174:	e3a00002 	mov	r0, #2
+    2178:	e3a01018 	mov	r1, #24
+    217c:	ebfffbca 	bl	10ac <calloc@plt>
+    2180:	e2505000 	subs	r5, r0, #0
+    2184:	0a00003b 	beq	2278 <ws_json_service_init@@Base+0x164>
+    2188:	e35a0000 	cmp	sl, #0
+    218c:	0a000002 	beq	219c <ws_json_service_init@@Base+0x88>
+    2190:	e1a0000a 	mov	r0, sl
+    2194:	ebfffc2a 	bl	1244 <__strdup@plt>
+    2198:	e584001c 	str	r0, [r4, #28]
+    219c:	e59fa0f0 	ldr	sl, [pc, #240]	@ 2294 <ws_json_service_init@@Base+0x180>
+    21a0:	e3e0c000 	mvn	ip, #0
+    21a4:	e3a02020 	mov	r2, #32
+    21a8:	e59fe0e8 	ldr	lr, [pc, #232]	@ 2298 <ws_json_service_init@@Base+0x184>
+    21ac:	e3a03802 	mov	r3, #131072	@ 0x20000
+    21b0:	e301b020 	movw	fp, #4128	@ 0x1020
+    21b4:	e59f10e0 	ldr	r1, [pc, #224]	@ 229c <ws_json_service_init@@Base+0x188>
+    21b8:	e58460f4 	str	r6, [r4, #244]	@ 0xf4
+    21bc:	e28d6008 	add	r6, sp, #8
+    21c0:	e1c520f8 	strd	r2, [r5, #8]
+    21c4:	e1a00006 	mov	r0, r6
+    21c8:	e08fa00a 	add	sl, pc, sl
+    21cc:	e584c048 	str	ip, [r4, #72]	@ 0x48
+    21d0:	e08fe00e 	add	lr, pc, lr
+    21d4:	e584c04c 	str	ip, [r4, #76]	@ 0x4c
+    21d8:	e08f1001 	add	r1, pc, r1
+    21dc:	e5849018 	str	r9, [r4, #24]
+    21e0:	e8854400 	stm	r5, {sl, lr}
+    21e4:	e5841024 	str	r1, [r4, #36]	@ 0x24
+    21e8:	e5845020 	str	r5, [r4, #32]
+    21ec:	e5844054 	str	r4, [r4, #84]	@ 0x54
+    21f0:	e58480fc 	str	r8, [r4, #252]	@ 0xfc
+    21f4:	e5847108 	str	r7, [r4, #264]	@ 0x108
+    21f8:	e584b050 	str	fp, [r4, #80]	@ 0x50
+    21fc:	ebfffc2e 	bl	12bc <pthread_mutexattr_init@plt>
+    2200:	e3a01001 	mov	r1, #1
+    2204:	e1a00006 	mov	r0, r6
+    2208:	ebfffbb6 	bl	10e8 <pthread_mutexattr_settype@plt>
+    220c:	e1a01006 	mov	r1, r6
+    2210:	e1a00004 	mov	r0, r4
+    2214:	ebfffbd4 	bl	116c <pthread_mutex_init@plt>
+    2218:	e2840018 	add	r0, r4, #24
+    221c:	ebfffc32 	bl	12ec <lws_create_context@plt>
+    2220:	e3500000 	cmp	r0, #0
+    2224:	158400f0 	strne	r0, [r4, #240]	@ 0xf0
+    2228:	0a00000c 	beq	2260 <ws_json_service_init@@Base+0x14c>
+    222c:	e1a00004 	mov	r0, r4
+    2230:	e59d1004 	ldr	r1, [sp, #4]
+    2234:	e59d200c 	ldr	r2, [sp, #12]
+    2238:	e5913000 	ldr	r3, [r1]
+    223c:	e1520003 	cmp	r2, r3
+    2240:	1a000010 	bne	2288 <ws_json_service_init@@Base+0x174>
+    2244:	e28dd014 	add	sp, sp, #20
+    2248:	e1cd40d0 	ldrd	r4, [sp]
+    224c:	e1cd60d8 	ldrd	r6, [sp, #8]
+    2250:	e1cd81d0 	ldrd	r8, [sp, #16]
+    2254:	e1cda1d8 	ldrd	sl, [sp, #24]
+    2258:	e28dd020 	add	sp, sp, #32
+    225c:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+    2260:	e1a00004 	mov	r0, r4
+    2264:	ebfffe6d 	bl	1c20 <lws_context_destroy@plt+0x928>
+    2268:	e3500000 	cmp	r0, #0
+    226c:	aaffffee 	bge	222c <ws_json_service_init@@Base+0x118>
+    2270:	e3a00000 	mov	r0, #0
+    2274:	eaffffed 	b	2230 <ws_json_service_init@@Base+0x11c>
+    2278:	e1a00004 	mov	r0, r4
+    227c:	ebfffbab 	bl	1130 <free@plt>
+    2280:	e1a00005 	mov	r0, r5
+    2284:	eaffffe9 	b	2230 <ws_json_service_init@@Base+0x11c>
+    2288:	ebfffbbd 	bl	1184 <__stack_chk_fail@plt>
+    228c:	000000e0 	andeq	r0, r0, r0, ror #1
+    2290:	00010dc4 	andeq	r0, r1, r4, asr #27
+    2294:	000006ac 	andeq	r0, r0, ip, lsr #13
+    2298:	fffff21c 			@ <UNDEFINED> instruction: 0xfffff21c
+    229c:	00000664 	andeq	r0, r0, r4, ror #12
+
+000022a0 <ws_json_service_send@@Base>:
+    22a0:	e59f3150 	ldr	r3, [pc, #336]	@ 23f8 <ws_json_service_send@@Base+0x158>
+    22a4:	e16d41fc 	strd	r4, [sp, #-28]!	@ 0xffffffe4
+    22a8:	e2515000 	subs	r5, r1, #0
+    22ac:	e1cd60f8 	strd	r6, [sp, #8]
+    22b0:	e1a06002 	mov	r6, r2
+    22b4:	e59f2140 	ldr	r2, [pc, #320]	@ 23fc <ws_json_service_send@@Base+0x15c>
+    22b8:	e1cd81f0 	strd	r8, [sp, #16]
+    22bc:	e1a08000 	mov	r8, r0
+    22c0:	e58de018 	str	lr, [sp, #24]
+    22c4:	e24dd00c 	sub	sp, sp, #12
+    22c8:	e08f3003 	add	r3, pc, r3
+    22cc:	e7937002 	ldr	r7, [r3, r2]
+    22d0:	e5973000 	ldr	r3, [r7]
+    22d4:	e58d3004 	str	r3, [sp, #4]
+    22d8:	0a000025 	beq	2374 <ws_json_service_send@@Base+0xd4>
+    22dc:	e3a01010 	mov	r1, #16
+    22e0:	e3a00001 	mov	r0, #1
+    22e4:	ebfffb70 	bl	10ac <calloc@plt>
+    22e8:	e1a04000 	mov	r4, r0
+    22ec:	e1a00006 	mov	r0, r6
+    22f0:	ebfffbca 	bl	1220 <strlen@plt>
+    22f4:	e2800011 	add	r0, r0, #17
+    22f8:	ebfffbbc 	bl	11f0 <malloc@plt>
+    22fc:	e59f10fc 	ldr	r1, [pc, #252]	@ 2400 <ws_json_service_send@@Base+0x160>
+    2300:	e2803010 	add	r3, r0, #16
+    2304:	e1a0c000 	mov	ip, r0
+    2308:	e1a02006 	mov	r2, r6
+    230c:	e1a00003 	mov	r0, r3
+    2310:	e5843008 	str	r3, [r4, #8]
+    2314:	e584c004 	str	ip, [r4, #4]
+    2318:	e08f1001 	add	r1, pc, r1
+    231c:	ebfffbe9 	bl	12c8 <sprintf@plt>
+    2320:	e584000c 	str	r0, [r4, #12]
+    2324:	e1a00008 	mov	r0, r8
+    2328:	ebfffb86 	bl	1148 <pthread_mutex_lock@plt>
+    232c:	e5953010 	ldr	r3, [r5, #16]
+    2330:	e3530000 	cmp	r3, #0
+    2334:	15834000 	strne	r4, [r3]
+    2338:	0585400c 	streq	r4, [r5, #12]
+    233c:	e5854010 	str	r4, [r5, #16]
+    2340:	e1a00008 	mov	r0, r8
+    2344:	ebfffb55 	bl	10a0 <pthread_mutex_unlock@plt>
+    2348:	e59d2004 	ldr	r2, [sp, #4]
+    234c:	e3a00000 	mov	r0, #0
+    2350:	e5973000 	ldr	r3, [r7]
+    2354:	e1520003 	cmp	r2, r3
+    2358:	1a000025 	bne	23f4 <ws_json_service_send@@Base+0x154>
+    235c:	e28dd00c 	add	sp, sp, #12
+    2360:	e1cd40d0 	ldrd	r4, [sp]
+    2364:	e1cd60d8 	ldrd	r6, [sp, #8]
+    2368:	e1cd81d0 	ldrd	r8, [sp, #16]
+    236c:	e28dd018 	add	sp, sp, #24
+    2370:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+    2374:	ebfffb73 	bl	1148 <pthread_mutex_lock@plt>
+    2378:	e5985114 	ldr	r5, [r8, #276]	@ 0x114
+    237c:	e59f9080 	ldr	r9, [pc, #128]	@ 2404 <ws_json_service_send@@Base+0x164>
+    2380:	e3550000 	cmp	r5, #0
+    2384:	e08f9009 	add	r9, pc, r9
+    2388:	0affffec 	beq	2340 <ws_json_service_send@@Base+0xa0>
+    238c:	e3a01010 	mov	r1, #16
+    2390:	e3a00001 	mov	r0, #1
+    2394:	ebfffb44 	bl	10ac <calloc@plt>
+    2398:	e1a04000 	mov	r4, r0
+    239c:	e1a00006 	mov	r0, r6
+    23a0:	ebfffb9e 	bl	1220 <strlen@plt>
+    23a4:	e2800011 	add	r0, r0, #17
+    23a8:	ebfffb90 	bl	11f0 <malloc@plt>
+    23ac:	e2803010 	add	r3, r0, #16
+    23b0:	e1a0c000 	mov	ip, r0
+    23b4:	e1a01009 	mov	r1, r9
+    23b8:	e1a00003 	mov	r0, r3
+    23bc:	e5843008 	str	r3, [r4, #8]
+    23c0:	e1a02006 	mov	r2, r6
+    23c4:	e584c004 	str	ip, [r4, #4]
+    23c8:	ebfffbbe 	bl	12c8 <sprintf@plt>
+    23cc:	e5953010 	ldr	r3, [r5, #16]
+    23d0:	e584000c 	str	r0, [r4, #12]
+    23d4:	e3530000 	cmp	r3, #0
+    23d8:	15834000 	strne	r4, [r3]
+    23dc:	0585400c 	streq	r4, [r5, #12]
+    23e0:	e5854010 	str	r4, [r5, #16]
+    23e4:	e5955004 	ldr	r5, [r5, #4]
+    23e8:	e3550000 	cmp	r5, #0
+    23ec:	1affffe6 	bne	238c <ws_json_service_send@@Base+0xec>
+    23f0:	eaffffd2 	b	2340 <ws_json_service_send@@Base+0xa0>
+    23f4:	ebfffb62 	bl	1184 <__stack_chk_fail@plt>
+    23f8:	00010c40 	andeq	r0, r1, r0, asr #24
+    23fc:	000000e0 	andeq	r0, r0, r0, ror #1
+    2400:	00000530 	andeq	r0, r0, r0, lsr r5
+    2404:	000004c4 	andeq	r0, r0, r4, asr #9
+
+00002408 <ws_json_service@@Base>:
+    2408:	e59f3098 	ldr	r3, [pc, #152]	@ 24a8 <ws_json_service@@Base+0xa0>
+    240c:	e16d41f0 	strd	r4, [sp, #-16]!
+    2410:	e3a01000 	mov	r1, #0
+    2414:	e59f2090 	ldr	r2, [pc, #144]	@ 24ac <ws_json_service@@Base+0xa4>
+    2418:	e58de00c 	str	lr, [sp, #12]
+    241c:	e1a05000 	mov	r5, r0
+    2420:	e58d6008 	str	r6, [sp, #8]
+    2424:	e24dd008 	sub	sp, sp, #8
+    2428:	e59000f0 	ldr	r0, [r0, #240]	@ 0xf0
+    242c:	e08f3003 	add	r3, pc, r3
+    2430:	e7936002 	ldr	r6, [r3, r2]
+    2434:	e5963000 	ldr	r3, [r6]
+    2438:	e58d3004 	str	r3, [sp, #4]
+    243c:	ebfffb95 	bl	1298 <lws_service@plt>
+    2440:	e1a00005 	mov	r0, r5
+    2444:	ebfffb3f 	bl	1148 <pthread_mutex_lock@plt>
+    2448:	e5954114 	ldr	r4, [r5, #276]	@ 0x114
+    244c:	e3540000 	cmp	r4, #0
+    2450:	0a000007 	beq	2474 <ws_json_service@@Base+0x6c>
+    2454:	e594300c 	ldr	r3, [r4, #12]
+    2458:	e3530000 	cmp	r3, #0
+    245c:	0a000001 	beq	2468 <ws_json_service@@Base+0x60>
+    2460:	e5940008 	ldr	r0, [r4, #8]
+    2464:	ebfffb3d 	bl	1160 <lws_callback_on_writable@plt>
+    2468:	e5944004 	ldr	r4, [r4, #4]
+    246c:	e3540000 	cmp	r4, #0
+    2470:	1afffff7 	bne	2454 <ws_json_service@@Base+0x4c>
+    2474:	e1a00005 	mov	r0, r5
+    2478:	ebfffb08 	bl	10a0 <pthread_mutex_unlock@plt>
+    247c:	e59d2004 	ldr	r2, [sp, #4]
+    2480:	e3a00000 	mov	r0, #0
+    2484:	e5963000 	ldr	r3, [r6]
+    2488:	e1520003 	cmp	r2, r3
+    248c:	1a000004 	bne	24a4 <ws_json_service@@Base+0x9c>
+    2490:	e28dd008 	add	sp, sp, #8
+    2494:	e1cd40d0 	ldrd	r4, [sp]
+    2498:	e59d6008 	ldr	r6, [sp, #8]
+    249c:	e28dd00c 	add	sp, sp, #12
+    24a0:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+    24a4:	ebfffb36 	bl	1184 <__stack_chk_fail@plt>
+    24a8:	00010adc 	ldrdeq	r0, [r1], -ip
+    24ac:	000000e0 	andeq	r0, r0, r0, ror #1
+
+000024b0 <ws_json_service_term@@Base>:
+    24b0:	e59f30c0 	ldr	r3, [pc, #192]	@ 2578 <ws_json_service_term@@Base+0xc8>
+    24b4:	e16d41f0 	strd	r4, [sp, #-16]!
+    24b8:	e1a05000 	mov	r5, r0
+    24bc:	e59f20b8 	ldr	r2, [pc, #184]	@ 257c <ws_json_service_term@@Base+0xcc>
+    24c0:	e58d6008 	str	r6, [sp, #8]
+    24c4:	e58de00c 	str	lr, [sp, #12]
+    24c8:	e5904114 	ldr	r4, [r0, #276]	@ 0x114
+    24cc:	e24dd008 	sub	sp, sp, #8
+    24d0:	e08f3003 	add	r3, pc, r3
+    24d4:	e7936002 	ldr	r6, [r3, r2]
+    24d8:	e5963000 	ldr	r3, [r6]
+    24dc:	e58d3004 	str	r3, [sp, #4]
+    24e0:	ebfffb18 	bl	1148 <pthread_mutex_lock@plt>
+    24e4:	e3540000 	cmp	r4, #0
+    24e8:	1a000003 	bne	24fc <ws_json_service_term@@Base+0x4c>
+    24ec:	ea000008 	b	2514 <ws_json_service_term@@Base+0x64>
+    24f0:	e5903000 	ldr	r3, [r0]
+    24f4:	e584300c 	str	r3, [r4, #12]
+    24f8:	ebfffb0c 	bl	1130 <free@plt>
+    24fc:	e594000c 	ldr	r0, [r4, #12]
+    2500:	e3500000 	cmp	r0, #0
+    2504:	1afffff9 	bne	24f0 <ws_json_service_term@@Base+0x40>
+    2508:	e5944004 	ldr	r4, [r4, #4]
+    250c:	e3540000 	cmp	r4, #0
+    2510:	1afffff9 	bne	24fc <ws_json_service_term@@Base+0x4c>
+    2514:	e59500f0 	ldr	r0, [r5, #240]	@ 0xf0
+    2518:	e3500000 	cmp	r0, #0
+    251c:	0a000000 	beq	2524 <ws_json_service_term@@Base+0x74>
+    2520:	ebfffb74 	bl	12f8 <lws_context_destroy@plt>
+    2524:	e1a00005 	mov	r0, r5
+    2528:	ebfffafd 	bl	1124 <pthread_mutex_destroy@plt>
+    252c:	e595001c 	ldr	r0, [r5, #28]
+    2530:	e3500000 	cmp	r0, #0
+    2534:	0a000000 	beq	253c <ws_json_service_term@@Base+0x8c>
+    2538:	ebfffafc 	bl	1130 <free@plt>
+    253c:	e5950020 	ldr	r0, [r5, #32]
+    2540:	ebfffafa 	bl	1130 <free@plt>
+    2544:	e1a00005 	mov	r0, r5
+    2548:	ebfffaf8 	bl	1130 <free@plt>
+    254c:	e59d2004 	ldr	r2, [sp, #4]
+    2550:	e3a00000 	mov	r0, #0
+    2554:	e5963000 	ldr	r3, [r6]
+    2558:	e1520003 	cmp	r2, r3
+    255c:	1a000004 	bne	2574 <ws_json_service_term@@Base+0xc4>
+    2560:	e28dd008 	add	sp, sp, #8
+    2564:	e1cd40d0 	ldrd	r4, [sp]
+    2568:	e59d6008 	ldr	r6, [sp, #8]
+    256c:	e28dd00c 	add	sp, sp, #12
+    2570:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+    2574:	ebfffb02 	bl	1184 <__stack_chk_fail@plt>
+    2578:	00010a38 	andeq	r0, r1, r8, lsr sl
+    257c:	000000e0 	andeq	r0, r0, r0, ror #1
+
+00002580 <ws_json_get_user_data@@Base>:
+    2580:	e59f3038 	ldr	r3, [pc, #56]	@ 25c0 <ws_json_get_user_data@@Base+0x40>
+    2584:	e52de004 	push	{lr}		@ (str lr, [sp, #-4]!)
+    2588:	e24dd00c 	sub	sp, sp, #12
+    258c:	e59f2030 	ldr	r2, [pc, #48]	@ 25c4 <ws_json_get_user_data@@Base+0x44>
+    2590:	e5900110 	ldr	r0, [r0, #272]	@ 0x110
+    2594:	e08f3003 	add	r3, pc, r3
+    2598:	e7933002 	ldr	r3, [r3, r2]
+    259c:	e5932000 	ldr	r2, [r3]
+    25a0:	e58d2004 	str	r2, [sp, #4]
+    25a4:	e59d2004 	ldr	r2, [sp, #4]
+    25a8:	e5933000 	ldr	r3, [r3]
+    25ac:	e1520003 	cmp	r2, r3
+    25b0:	1a000001 	bne	25bc <ws_json_get_user_data@@Base+0x3c>
+    25b4:	e28dd00c 	add	sp, sp, #12
+    25b8:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+    25bc:	ebfffaf0 	bl	1184 <__stack_chk_fail@plt>
+    25c0:	00010974 	andeq	r0, r1, r4, ror r9
+    25c4:	000000e0 	andeq	r0, r0, r0, ror #1
+
+000025c8 <ws_json_client_init@@Base>:
+    25c8:	e16d40fc 	strd	r4, [sp, #-12]!
+    25cc:	e59f405c 	ldr	r4, [pc, #92]	@ 2630 <ws_json_client_init@@Base+0x68>
+    25d0:	e3a0c000 	mov	ip, #0
+    25d4:	e58de008 	str	lr, [sp, #8]
+    25d8:	e59fe054 	ldr	lr, [pc, #84]	@ 2634 <ws_json_client_init@@Base+0x6c>
+    25dc:	e24dd024 	sub	sp, sp, #36	@ 0x24
+    25e0:	e59d5030 	ldr	r5, [sp, #48]	@ 0x30
+    25e4:	e08fe00e 	add	lr, pc, lr
+    25e8:	e79e4004 	ldr	r4, [lr, r4]
+    25ec:	e58dc000 	str	ip, [sp]
+    25f0:	e98d1020 	stmib	sp, {r5, ip}
+    25f4:	e58dc00c 	str	ip, [sp, #12]
+    25f8:	e594e000 	ldr	lr, [r4]
+    25fc:	e58dc010 	str	ip, [sp, #16]
+    2600:	e58dc014 	str	ip, [sp, #20]
+    2604:	e58de01c 	str	lr, [sp, #28]
+    2608:	ebfffdaa 	bl	1cb8 <lws_context_destroy@plt+0x9c0>
+    260c:	e59d201c 	ldr	r2, [sp, #28]
+    2610:	e5943000 	ldr	r3, [r4]
+    2614:	e1520003 	cmp	r2, r3
+    2618:	1a000003 	bne	262c <ws_json_client_init@@Base+0x64>
+    261c:	e28dd024 	add	sp, sp, #36	@ 0x24
+    2620:	e1cd40d0 	ldrd	r4, [sp]
+    2624:	e28dd008 	add	sp, sp, #8
+    2628:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+    262c:	ebfffad4 	bl	1184 <__stack_chk_fail@plt>
+    2630:	000000e0 	andeq	r0, r0, r0, ror #1
+    2634:	00010924 	andeq	r0, r1, r4, lsr #18
+
+00002638 <ws_json_client_init2@@Base>:
+    2638:	e16d41f4 	strd	r4, [sp, #-20]!	@ 0xffffffec
+    263c:	e59f406c 	ldr	r4, [pc, #108]	@ 26b0 <ws_json_client_init2@@Base+0x78>
+    2640:	e3a0c000 	mov	ip, #0
+    2644:	e58de010 	str	lr, [sp, #16]
+    2648:	e59fe064 	ldr	lr, [pc, #100]	@ 26b4 <ws_json_client_init2@@Base+0x7c>
+    264c:	e1cd60f8 	strd	r6, [sp, #8]
+    2650:	e24dd024 	sub	sp, sp, #36	@ 0x24
+    2654:	e59d7038 	ldr	r7, [sp, #56]	@ 0x38
+    2658:	e59d603c 	ldr	r6, [sp, #60]	@ 0x3c
+    265c:	e08fe00e 	add	lr, pc, lr
+    2660:	e59d5040 	ldr	r5, [sp, #64]	@ 0x40
+    2664:	e79e4004 	ldr	r4, [lr, r4]
+    2668:	e58dc00c 	str	ip, [sp, #12]
+    266c:	e1cd60f0 	strd	r6, [sp]
+    2670:	e58d5008 	str	r5, [sp, #8]
+    2674:	e594e000 	ldr	lr, [r4]
+    2678:	e58dc010 	str	ip, [sp, #16]
+    267c:	e58dc014 	str	ip, [sp, #20]
+    2680:	e58de01c 	str	lr, [sp, #28]
+    2684:	ebfffd8b 	bl	1cb8 <lws_context_destroy@plt+0x9c0>
+    2688:	e59d201c 	ldr	r2, [sp, #28]
+    268c:	e5943000 	ldr	r3, [r4]
+    2690:	e1520003 	cmp	r2, r3
+    2694:	1a000004 	bne	26ac <ws_json_client_init2@@Base+0x74>
+    2698:	e28dd024 	add	sp, sp, #36	@ 0x24
+    269c:	e1cd40d0 	ldrd	r4, [sp]
+    26a0:	e1cd60d8 	ldrd	r6, [sp, #8]
+    26a4:	e28dd010 	add	sp, sp, #16
+    26a8:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+    26ac:	ebfffab4 	bl	1184 <__stack_chk_fail@plt>
+    26b0:	000000e0 	andeq	r0, r0, r0, ror #1
+    26b4:	000108ac 	andeq	r0, r1, ip, lsr #17
+
+000026b8 <ws_json_client_init2_secure@@Base>:
+    26b8:	e59fc084 	ldr	ip, [pc, #132]	@ 2744 <ws_json_client_init2_secure@@Base+0x8c>
+    26bc:	e16d41fc 	strd	r4, [sp, #-28]!	@ 0xffffffe4
+    26c0:	e58de018 	str	lr, [sp, #24]
+    26c4:	e59fe07c 	ldr	lr, [pc, #124]	@ 2748 <ws_json_client_init2_secure@@Base+0x90>
+    26c8:	e1cd60f8 	strd	r6, [sp, #8]
+    26cc:	e1cd81f0 	strd	r8, [sp, #16]
+    26d0:	e24dd00c 	sub	sp, sp, #12
+    26d4:	e08fc00c 	add	ip, pc, ip
+    26d8:	e59d5028 	ldr	r5, [sp, #40]	@ 0x28
+    26dc:	e79cc00e 	ldr	ip, [ip, lr]
+    26e0:	e59d602c 	ldr	r6, [sp, #44]	@ 0x2c
+    26e4:	e59d4030 	ldr	r4, [sp, #48]	@ 0x30
+    26e8:	e59d8034 	ldr	r8, [sp, #52]	@ 0x34
+    26ec:	e59ce000 	ldr	lr, [ip]
+    26f0:	e59d7038 	ldr	r7, [sp, #56]	@ 0x38
+    26f4:	e59d903c 	ldr	r9, [sp, #60]	@ 0x3c
+    26f8:	e58de004 	str	lr, [sp, #4]
+    26fc:	e59de004 	ldr	lr, [sp, #4]
+    2700:	e59cc000 	ldr	ip, [ip]
+    2704:	e15e000c 	cmp	lr, ip
+    2708:	1a00000c 	bne	2740 <ws_json_client_init2_secure@@Base+0x88>
+    270c:	e58d6028 	str	r6, [sp, #40]	@ 0x28
+    2710:	e58d502c 	str	r5, [sp, #44]	@ 0x2c
+    2714:	e58d9030 	str	r9, [sp, #48]	@ 0x30
+    2718:	e58d4034 	str	r4, [sp, #52]	@ 0x34
+    271c:	e58d8038 	str	r8, [sp, #56]	@ 0x38
+    2720:	e58d703c 	str	r7, [sp, #60]	@ 0x3c
+    2724:	e28dd00c 	add	sp, sp, #12
+    2728:	e1cd40d0 	ldrd	r4, [sp]
+    272c:	e1cd60d8 	ldrd	r6, [sp, #8]
+    2730:	e1cd81d0 	ldrd	r8, [sp, #16]
+    2734:	e59de018 	ldr	lr, [sp, #24]
+    2738:	e28dd01c 	add	sp, sp, #28
+    273c:	eafffd5d 	b	1cb8 <lws_context_destroy@plt+0x9c0>
+    2740:	ebfffa8f 	bl	1184 <__stack_chk_fail@plt>
+    2744:	00010834 	andeq	r0, r1, r4, lsr r8
+    2748:	000000e0 	andeq	r0, r0, r0, ror #1
+
+0000274c <ws_json_client_send@@Base>:
+    274c:	e59f30dc 	ldr	r3, [pc, #220]	@ 2830 <ws_json_client_send@@Base+0xe4>
+    2750:	e16d41f4 	strd	r4, [sp, #-20]!	@ 0xffffffec
+    2754:	e1a05000 	mov	r5, r0
+    2758:	e59f20d4 	ldr	r2, [pc, #212]	@ 2834 <ws_json_client_send@@Base+0xe8>
+    275c:	e1cd60f8 	strd	r6, [sp, #8]
+    2760:	e1a07001 	mov	r7, r1
+    2764:	e58de010 	str	lr, [sp, #16]
+    2768:	e24dd00c 	sub	sp, sp, #12
+    276c:	e08f3003 	add	r3, pc, r3
+    2770:	e7936002 	ldr	r6, [r3, r2]
+    2774:	e5963000 	ldr	r3, [r6]
+    2778:	e58d3004 	str	r3, [sp, #4]
+    277c:	ebfffa71 	bl	1148 <pthread_mutex_lock@plt>
+    2780:	e5953114 	ldr	r3, [r5, #276]	@ 0x114
+    2784:	e3530000 	cmp	r3, #0
+    2788:	0a000023 	beq	281c <ws_json_client_send@@Base+0xd0>
+    278c:	e3a01010 	mov	r1, #16
+    2790:	e3a00001 	mov	r0, #1
+    2794:	ebfffa44 	bl	10ac <calloc@plt>
+    2798:	e1a04000 	mov	r4, r0
+    279c:	e1a00007 	mov	r0, r7
+    27a0:	ebfffa9e 	bl	1220 <strlen@plt>
+    27a4:	e2800011 	add	r0, r0, #17
+    27a8:	ebfffa90 	bl	11f0 <malloc@plt>
+    27ac:	e59f1084 	ldr	r1, [pc, #132]	@ 2838 <ws_json_client_send@@Base+0xec>
+    27b0:	e1a0c000 	mov	ip, r0
+    27b4:	e2803010 	add	r3, r0, #16
+    27b8:	e1a02007 	mov	r2, r7
+    27bc:	e1a00003 	mov	r0, r3
+    27c0:	e584c004 	str	ip, [r4, #4]
+    27c4:	e5843008 	str	r3, [r4, #8]
+    27c8:	e08f1001 	add	r1, pc, r1
+    27cc:	ebfffabd 	bl	12c8 <sprintf@plt>
+    27d0:	e5953114 	ldr	r3, [r5, #276]	@ 0x114
+    27d4:	e584000c 	str	r0, [r4, #12]
+    27d8:	e1a00005 	mov	r0, r5
+    27dc:	e5932010 	ldr	r2, [r3, #16]
+    27e0:	e3520000 	cmp	r2, #0
+    27e4:	15824000 	strne	r4, [r2]
+    27e8:	0583400c 	streq	r4, [r3, #12]
+    27ec:	e5834010 	str	r4, [r3, #16]
+    27f0:	ebfffa2a 	bl	10a0 <pthread_mutex_unlock@plt>
+    27f4:	e3a00000 	mov	r0, #0
+    27f8:	e59d2004 	ldr	r2, [sp, #4]
+    27fc:	e5963000 	ldr	r3, [r6]
+    2800:	e1520003 	cmp	r2, r3
+    2804:	1a000008 	bne	282c <ws_json_client_send@@Base+0xe0>
+    2808:	e28dd00c 	add	sp, sp, #12
+    280c:	e1cd40d0 	ldrd	r4, [sp]
+    2810:	e1cd60d8 	ldrd	r6, [sp, #8]
+    2814:	e28dd010 	add	sp, sp, #16
+    2818:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+    281c:	e1a00005 	mov	r0, r5
+    2820:	ebfffa1e 	bl	10a0 <pthread_mutex_unlock@plt>
+    2824:	e3e00000 	mvn	r0, #0
+    2828:	eafffff2 	b	27f8 <ws_json_client_send@@Base+0xac>
+    282c:	ebfffa54 	bl	1184 <__stack_chk_fail@plt>
+    2830:	0001079c 	muleq	r1, ip, r7
+    2834:	000000e0 	andeq	r0, r0, r0, ror #1
+    2838:	00000080 	andeq	r0, r0, r0, lsl #1
+
+Disassembly of section .fini:
+
+0000283c <_fini@@Base>:
+    283c:	e92d4008 	push	{r3, lr}
+    2840:	e8bd8008 	pop	{r3, pc}

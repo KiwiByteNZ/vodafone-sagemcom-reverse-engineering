@@ -1,0 +1,91 @@
+
+Symbol table '.dynsym' contains 88 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00001264     0 SECTION LOCAL  DEFAULT    8 .init
+     2: 00013e1c     0 SECTION LOCAL  DEFAULT   16 .jcr
+     3: 00000000     0 FUNC    GLOBAL DEFAULT  UND calloc@GLIBC_2.4 (2)
+     4: 00002afc   120 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_get_status
+     5: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_array_append
+     6: 000028d4    76 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_get_size
+     7: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_add_reference
+     8: 00002144    88 FUNC    GLOBAL DEFAULT   10 rpc_batch_length_get
+     9: 00000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.4 (2)
+    10: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+    11: 00002a0c   120 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_get_params
+    12: 00002d48   540 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_print_response
+    13: 00003238    76 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_response_get_size
+    14: 00001b4c    96 FUNC    GLOBAL DEFAULT   10 rpc_batch_append
+    15: 00001bf4   168 FUNC    GLOBAL DEFAULT   10 rpc_object_is_valid
+    16: 00014004     0 NOTYPE  GLOBAL DEFAULT   20 __bss_start__
+    17: 00000000     0 FUNC    GLOBAL DEFAULT  UND free@GLIBC_2.4 (2)
+    18: 00000000     0 OBJECT  GLOBAL DEFAULT  UND __stack_chk_guard@GLIBC_2.4 (3)
+    19: 00014008     0 NOTYPE  GLOBAL DEFAULT   20 _bss_end__
+    20: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_is_array
+    21: 00014004     0 NOTYPE  GLOBAL DEFAULT   19 _edata
+    22: 00001e94   152 FUNC    GLOBAL DEFAULT   10 rpc_object_get_params
+    23: 00001aec    96 FUNC    GLOBAL DEFAULT   10 rpc_batch_new
+    24: 00003760     0 FUNC    GLOBAL DEFAULT   11 _fini
+    25: 00014008     0 NOTYPE  GLOBAL DEFAULT   20 __bss_end__
+    26: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_get_object
+    27: 00000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (2)
+    28: 00002a84   120 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_get_result
+    29: 00002920   116 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_get_method
+    30: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_get_cstr
+    31: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_new_object
+    32: 00001f2c   172 FUNC    GLOBAL DEFAULT   10 rpc_object_get_id
+    33: 0000262c   428 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_parse
+    34: 00002c0c   316 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_build_error
+    35: 00002b74   152 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_set_error
+    36: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_get_array
+    37: 00002f64   364 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_request_print
+    38: 000032fc   120 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_response_get_id
+    39: 00003374   116 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_response_get_result
+    40: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_new_string
+    41: 00003284   120 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_response_get_status
+    42: 00000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    43: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_is_number
+    44: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_is_string
+    45: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_output_opt_empty
+    46: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_free
+    47: 00000000     0 FUNC    GLOBAL DEFAULT  UND strlen@GLIBC_2.4 (2)
+    48: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_new_integer
+    49: 000033e8   196 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_attach_result
+    50: 0000219c    96 FUNC    GLOBAL DEFAULT   10 rpc_batch_item_get
+    51: 000015a8   308 FUNC    GLOBAL DEFAULT   10 rpc_object_build_request
+    52: 00000000     0 FUNC    GLOBAL DEFAULT  UND memset@GLIBC_2.4 (2)
+    53: 00014008     0 NOTYPE  GLOBAL DEFAULT   20 _end
+    54: 00002994   120 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_get_id
+    55: 000030d0   360 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_response_parse
+    56: 000017e0   240 FUNC    GLOBAL DEFAULT   10 rpc_object_build_result
+    57: 000018d0   468 FUNC    GLOBAL DEFAULT   10 rpc_object_build_error
+    58: 00001dec   168 FUNC    GLOBAL DEFAULT   10 rpc_object_get_method
+    59: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_parse_string
+    60: 00001aa4    72 FUNC    GLOBAL DEFAULT   10 rpc_object_free
+    61: 00001fd8   168 FUNC    GLOBAL DEFAULT   10 rpc_object_get_error_code
+    62: 00014008     0 NOTYPE  GLOBAL DEFAULT   20 __end__
+    63: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_object_set
+    64: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_array_length_get
+    65: 00003688   216 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_is_notification
+    66: 00014004     0 NOTYPE  GLOBAL DEFAULT   20 __bss_start
+    67: 00003610   120 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_response_get_error_message
+    68: 0000359c   116 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_response_get_error_code
+    69: 000027d8   252 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_delete
+    70: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _Jv_RegisterClasses
+    71: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_null
+    72: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_buffer_empty
+    73: 000016dc   260 FUNC    GLOBAL DEFAULT   10 rpc_object_build_notification
+    74: 00001c9c   336 FUNC    GLOBAL DEFAULT   10 rpc_object_get_type
+    75: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_is_integer
+    76: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_array_get
+    77: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_is_object
+    78: 00001bac    72 FUNC    GLOBAL DEFAULT   10 rpc_batch_free
+    79: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    80: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_object_get
+    81: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_output_buffer
+    82: 000034ac   240 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_response_delete
+    83: 00002080   196 FUNC    GLOBAL DEFAULT   10 rpc_object_get_error_message
+    84: 00001264     0 FUNC    GLOBAL DEFAULT    8 _init
+    85: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_new_array
+    86: 00002570   188 FUNC    GLOBAL DEFAULT   10 cson_jsonrpc_buf_display
+    87: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND cson_value_get_integer

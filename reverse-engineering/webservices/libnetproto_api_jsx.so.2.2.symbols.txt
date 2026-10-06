@@ -1,0 +1,30 @@
+
+Symbol table '.dynsym' contains 27 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 000005cc     0 SECTION LOCAL  DEFAULT    8 .init
+     2: 00010eb0     0 SECTION LOCAL  DEFAULT   16 .jcr
+     3: 00000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.4 (2)
+     4: 00000000     0 FUNC    GLOBAL DEFAULT  UND strtol@GLIBC_2.4 (2)
+     5: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+     6: 00011004     0 NOTYPE  GLOBAL DEFAULT   20 __bss_start__
+     7: 00000000     0 OBJECT  GLOBAL DEFAULT  UND __stack_chk_guard@GLIBC_2.4 (3)
+     8: 00011008     0 NOTYPE  GLOBAL DEFAULT   20 _bss_end__
+     9: 00011004     0 NOTYPE  GLOBAL DEFAULT   19 _edata
+    10: 00000ac8     0 FUNC    GLOBAL DEFAULT   11 _fini
+    11: 00011008     0 NOTYPE  GLOBAL DEFAULT   20 __bss_end__
+    12: 00000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (2)
+    13: 00000000     0 FUNC    GLOBAL DEFAULT  UND strcasecmp@GLIBC_2.4 (2)
+    14: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND HLS_LimitBandwidth
+    15: 00000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    16: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND HTTP_SetDebug
+    17: 00000000     0 FUNC    GLOBAL DEFAULT  UND __sprintf_chk@GLIBC_2.4 (2)
+    18: 00011008     0 NOTYPE  GLOBAL DEFAULT   20 _end
+    19: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND HLS_AvgBandwidth
+    20: 00011008     0 NOTYPE  GLOBAL DEFAULT   20 __end__
+    21: 00011004     0 NOTYPE  GLOBAL DEFAULT   20 __bss_start
+    22: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _Jv_RegisterClasses
+    23: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND JSX_Add
+    24: 00000988   320 FUNC    GLOBAL DEFAULT   10 netproto_api_jsx_init
+    25: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    26: 000005cc     0 FUNC    GLOBAL DEFAULT    8 _init

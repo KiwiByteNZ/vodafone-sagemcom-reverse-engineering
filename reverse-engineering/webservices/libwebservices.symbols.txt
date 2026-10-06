@@ -1,0 +1,464 @@
+
+Symbol table '.dynsym' contains 461 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00005eb4     0 SECTION LOCAL  DEFAULT    8 .init
+     2: 00031854     0 SECTION LOCAL  DEFAULT   16 .jcr
+     3: 00009308    84 FUNC    GLOBAL DEFAULT   10 wctl_control_set_rcu_key_table
+     4: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_column_text
+     5: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND FE_Close
+     6: 0000a5d8   240 FUNC    GLOBAL DEFAULT   10 wctl_events_init
+     7: 0001c40c   252 FUNC    GLOBAL DEFAULT   10 wctl_restart_instance
+     8: 00000000     0 FUNC    GLOBAL DEFAULT  UND evbuffer_drain
+     9: 0001bb58   272 FUNC    GLOBAL DEFAULT   10 wctl_iconv_to_utf8
+    10: 0000a710   120 FUNC    GLOBAL DEFAULT   10 wctl_send_notification
+    11: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_close
+    12: 0001e82c    72 FUNC    GLOBAL DEFAULT   10 wctl_set_ssdp_port
+    13: 00000000     0 FUNC    GLOBAL DEFAULT  UND inet_ntop@GLIBC_2.4 (2)
+    14: 00000000     0 FUNC    GLOBAL DEFAULT  UND mkdir@GLIBC_2.4 (2)
+    15: 00009ff8    76 FUNC    GLOBAL DEFAULT   10 wctl_eit_epgdb_cb
+    16: 000197d8    72 FUNC    GLOBAL DEFAULT   10 wctl_media_is_valid
+    17: 0001b3fc    84 FUNC    GLOBAL DEFAULT   10 log_debug_enable
+    18: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_column_int
+    19: 00000000     0 FUNC    GLOBAL DEFAULT  UND localtime_r@GLIBC_2.4 (2)
+    20: 0001e9e8   124 FUNC    GLOBAL DEFAULT   10 wctl_set_ssdp_urn
+    21: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND csdGetStbCaSn
+    22: 00000000     0 FUNC    GLOBAL DEFAULT  UND random@GLIBC_2.4 (2)
+    23: 00000000     0 FUNC    GLOBAL DEFAULT  UND evbuffer_new
+    24: 0001a5a8   524 FUNC    GLOBAL DEFAULT   10 wctl_records_delete_item
+    25: 0000f958    88 FUNC    GLOBAL DEFAULT   10 wctl_system_init
+    26: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND BRWEVENT_RegisterNotification
+    27: 0001b494   276 FUNC    GLOBAL DEFAULT   10 wctl_generate_uid
+    28: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_kvp_key
+    29: 0000acfc   208 FUNC    GLOBAL DEFAULT   10 wctl_events_hook_error_cb
+    30: 000170bc    68 FUNC    GLOBAL DEFAULT   10 wctl_user_notify_db_change
+    31: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_buffer_reserve
+    32: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_object_iter_next
+    33: 000126dc   532 FUNC    GLOBAL DEFAULT   10 wctl_swoosh_currentmedia_cb
+    34: 00012eb0   132 FUNC    GLOBAL DEFAULT   10 wctl_cas_get_sc_sn
+    35: 00007b54   184 FUNC    GLOBAL DEFAULT   10 wctl_async_create
+    36: 0001303c   132 FUNC    GLOBAL DEFAULT   10 wctl_cas_get_stb_sn
+    37: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_bind_int
+    38: 00000000     0 FUNC    GLOBAL DEFAULT  UND event_base_free
+    39: 0001e6dc    72 FUNC    GLOBAL DEFAULT   10 wctl_get_userdata
+    40: 00017148   116 FUNC    GLOBAL DEFAULT   10 SI_BDU_get_svc_uid
+    41: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_ssl_init
+    42: 00009a5c    68 FUNC    GLOBAL DEFAULT   10 wctl_debug_uninit
+    43: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_GetCurrentMode
+    44: 0001b2e8    72 FUNC    GLOBAL DEFAULT   10 wctl_wrapper_init
+    45: 00014e58   180 FUNC    GLOBAL DEFAULT   10 wctl_output_get_context
+    46: 0001bef0   112 FUNC    GLOBAL DEFAULT   10 wctl_netlink_destroy_socket
+    47: 0000b01c    68 FUNC    GLOBAL DEFAULT   10 wctl_media_uninit
+    48: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Epg_GetEitPfStartDate
+    49: 000120fc   680 FUNC    GLOBAL DEFAULT   10 wctl_user_db_reload_list
+    50: 00019b90  2148 FUNC    GLOBAL DEFAULT   10 wctl_get_records_list
+    51: 00000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    52: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _Jv_RegisterClasses
+    53: 0001af20   968 FUNC    GLOBAL DEFAULT   10 wctl_media_get_info
+    54: 00013ba8    72 FUNC    GLOBAL DEFAULT   10 lpl_take_session
+    55: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_FreeSessionsListStruct
+    56: 0000c718    68 FUNC    GLOBAL DEFAULT   10 wctl_schedules_init
+    57: 00000000     0 FUNC    GLOBAL DEFAULT  UND evbuffer_read
+    58: 0001396c    68 FUNC    GLOBAL DEFAULT   10 wctl_hls_player_pause
+    59: 00013c80    72 FUNC    GLOBAL DEFAULT   10 lpl_free_session
+    60: 00000000     0 FUNC    GLOBAL DEFAULT  UND bufferevent_free
+    61: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_parse_filename
+    62: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_value_get_array
+    63: 00000000     0 FUNC    GLOBAL DEFAULT  UND inet_addr@GLIBC_2.4 (2)
+    64: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_request_get_connection
+    65: 0000ec38   204 FUNC    GLOBAL DEFAULT   10 wctl_streaming_session_set_timer
+    66: 00008274   192 FUNC    GLOBAL DEFAULT   10 wctl_authorization_get_user
+    67: 00000000     0 FUNC    GLOBAL DEFAULT  UND bufferevent_enable
+    68: 0000d188    68 FUNC    GLOBAL DEFAULT   10 wctl_signal_uninit
+    69: 00000000     0 FUNC    GLOBAL DEFAULT  UND strncpy@GLIBC_2.4 (2)
+    70: 00000000     0 FUNC    GLOBAL DEFAULT  UND fclose@GLIBC_2.4 (2)
+    71: 00000000     0 FUNC    GLOBAL DEFAULT  UND bufferevent_setcb
+    72: 0001ed00     0 FUNC    GLOBAL DEFAULT   11 _fini
+    73: 0000811c   260 FUNC    GLOBAL DEFAULT   10 wctl_authorization_user_autoclean
+    74: 0001c208   312 FUNC    GLOBAL DEFAULT   10 wctl_start_instance
+    75: 00000000     0 FUNC    GLOBAL DEFAULT  UND MD5_Init
+    76: 00000000     0 FUNC    GLOBAL DEFAULT  UND strchr@GLIBC_2.4 (2)
+    77: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_GetInfo
+    78: 00000000     0 OBJECT  GLOBAL DEFAULT  UND cson_buffer_empty
+    79: 00000000     0 FUNC    GLOBAL DEFAULT  UND dirname@GLIBC_2.4 (2)
+    80: 00000000     0 FUNC    GLOBAL DEFAULT  UND bufferevent_socket_new
+    81: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_exec
+    82: 00013730   132 FUNC    GLOBAL DEFAULT   10 wctl_system_dvbcontent_play
+    83: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_value_new_bool
+    84: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Epg_GetEitPfParentalRating
+    85: 00012568   372 FUNC    GLOBAL DEFAULT   10 wctl_desc_xml_cb
+    86: 00000000     0 FUNC    GLOBAL DEFAULT  UND calloc@GLIBC_2.4 (2)
+    87: 00018894   544 FUNC    GLOBAL DEFAULT   10 wctl_schedules_alarms_update_item
+    88: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND NVMCFG_Set_Value
+    89: 000164a4   256 FUNC    GLOBAL DEFAULT   10 wctl_get_ca_sn
+    90: 00000000     0 FUNC    GLOBAL DEFAULT  UND MD5_Final
+    91: 0001b450    68 FUNC    GLOBAL DEFAULT   10 log_syslog_enable
+    92: 0001eb70    76 FUNC    GLOBAL DEFAULT   10 wctl_ssdp_set_callback
+    93: 000092c4    68 FUNC    GLOBAL DEFAULT   10 wctl_control_uninit
+    94: 00000000     0 FUNC    GLOBAL DEFAULT  UND sendto@GLIBC_2.4 (2)
+    95: 0000df7c  1076 FUNC    GLOBAL DEFAULT   10 wctl_streaming_create_session
+    96: 00011068   284 FUNC    GLOBAL DEFAULT   10 wctl_user_create
+    97: 00008334   300 FUNC    GLOBAL DEFAULT   10 wctl_authorization_check
+    98: 00008220    84 FUNC    GLOBAL DEFAULT   10 wctl_authorization_control_set
+    99: 00000000     0 FUNC    GLOBAL DEFAULT  UND memset@GLIBC_2.4 (2)
+   100: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_GetInputURL
+   101: 00016004   720 FUNC    GLOBAL DEFAULT   10 wctl_portal_deviceudid_cb
+   102: 00012e2c   132 FUNC    GLOBAL DEFAULT   10 wctl_cas_get_cs_sn
+   103: 000321d0     4 OBJECT  GLOBAL DEFAULT   20 avio_service
+   104: 0000f510   944 FUNC    GLOBAL DEFAULT   10 wctl_streaming_dump_info
+   105: 00000000     0 FUNC    GLOBAL DEFAULT  UND strrchr@GLIBC_2.4 (2)
+   106: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_value_fetch_object
+   107: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_value_new_array
+   108: 00013884   100 FUNC    GLOBAL DEFAULT   10 wctl_system_dvbcontent_get_signal_info
+   109: 000153ac  1160 FUNC    GLOBAL DEFAULT   10 wctl_get_active_session_list
+   110: 0000a1ac   360 FUNC    GLOBAL DEFAULT   10 wctl_eit_follow_cb
+   111: 0000aa80   636 FUNC    GLOBAL DEFAULT   10 wctl_events_cb
+   112: 00000000     0 FUNC    GLOBAL DEFAULT  UND perror@GLIBC_2.4 (2)
+   113: 00015f74    72 FUNC    GLOBAL DEFAULT   10 wctl_portal_call_url
+   114: 00000000     0 FUNC    GLOBAL DEFAULT  UND iconv@GLIBC_2.4 (2)
+   115: 00016a5c    72 FUNC    GLOBAL DEFAULT   10 wctl_pairing_is_ready
+   116: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_free
+   117: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Ver_GetSoftwareVersion
+   118: 00009fb4    68 FUNC    GLOBAL DEFAULT   10 wctl_eit_uninit
+   119: 00014dfc    92 FUNC    GLOBAL DEFAULT   10 wctl_active_session_listen_event
+   120: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Epg_GetEitPfId
+   121: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND STBINFO_Open
+   122: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_string_cstr
+   123: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND NVMCFG_Get_Value
+   124: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND SI_BDU_get_svc_lcn
+   125: 00000000     0 FUNC    GLOBAL DEFAULT  UND __fxstat64@GLIBC_2.4 (2)
+   126: 00008000    88 FUNC    GLOBAL DEFAULT   10 wctl_authorization_init
+   127: 0001e578   140 FUNC    GLOBAL DEFAULT   10 wctl_close_ssdp_listener
+   128: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+   129: 0000dda4   472 FUNC    GLOBAL DEFAULT   10 wctl_streaming_build_uri
+   130: 00014f88  1060 FUNC    GLOBAL DEFAULT   10 wctl_init_active_session_list
+   131: 0000afd8    68 FUNC    GLOBAL DEFAULT   10 wctl_media_init
+   132: 00000000     0 FUNC    GLOBAL DEFAULT  UND evbuffer_get_length
+   133: 000137b4   132 FUNC    GLOBAL DEFAULT   10 wctl_system_dvbcontent_clone
+   134: 0001aa70   264 FUNC    GLOBAL DEFAULT   10 wctl_get_pushvods_list
+   135: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_FreeSubtitleStruct
+   136: 00000000     0 FUNC    GLOBAL DEFAULT  UND evbuffer_free
+   137: 00011b00   212 FUNC    GLOBAL DEFAULT   10 wctl_user_delete
+   138: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND csdInitialize
+   139: 0000935c   592 FUNC    GLOBAL DEFAULT   10 wctl_control_rcu_cb
+   140: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_GetSubtitleList
+   141: 00012fb8   132 FUNC    GLOBAL DEFAULT   10 wctl_cas_get_cs_ad
+   142: 0000f8c0   152 FUNC    GLOBAL DEFAULT   10 wctl_streaming_session_abort_async
+   143: 00015a1c   164 FUNC    GLOBAL DEFAULT   10 wctl_output_volume_set
+   144: 00000000     0 FUNC    GLOBAL DEFAULT  UND free@GLIBC_2.4 (2)
+   145: 000136e8    72 FUNC    GLOBAL DEFAULT   10 wctl_system_get_diseqc_port_from_orbital
+   146: 00000000     0 FUNC    GLOBAL DEFAULT  UND sendmsg@GLIBC_2.4 (2)
+   147: 000321d4     4 OBJECT  GLOBAL DEFAULT   20 epg_is_opened
+   148: 00000000     0 FUNC    GLOBAL DEFAULT  UND read@GLIBC_2.4 (2)
+   149: 00013c38    72 FUNC    GLOBAL DEFAULT   10 lpl_process_od_handshake
+   150: 00007928   176 FUNC    GLOBAL DEFAULT   10 webservice_init
+   151: 00000000     0 FUNC    GLOBAL DEFAULT  UND write@GLIBC_2.4 (2)
+   152: 000165a4   252 FUNC    GLOBAL DEFAULT   10 wctl_get_uuid
+   153: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND STBINFO_GetCapability
+   154: 0000b4a0   580 FUNC    GLOBAL DEFAULT   10 wctl_media_records_cb
+   155: 0001e604   144 FUNC    GLOBAL DEFAULT   10 wctl_create
+   156: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_value_get_cstr
+   157: 00000000     0 FUNC    GLOBAL DEFAULT  UND access@GLIBC_2.4 (2)
+   158: 00016368   156 FUNC    GLOBAL DEFAULT   10 wctl_settings_get_morality_level
+   159: 00008460  1920 FUNC    GLOBAL DEFAULT   10 wctl_authorization_token_cb
+   160: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+   161: 0001b3b8    68 FUNC    GLOBAL DEFAULT   10 log_setup
+   162: 00000000     0 FUNC    GLOBAL DEFAULT  UND inet_pton@GLIBC_2.4 (2)
+   163: 0001bf60   548 FUNC    GLOBAL DEFAULT   10 wctl_netlink_get_event
+   164: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_column_int64
+   165: 00000000     0 FUNC    GLOBAL DEFAULT  UND __strtok_r@GLIBC_2.4 (2)
+   166: 0001c340   204 FUNC    GLOBAL DEFAULT   10 wctl_stop_instance
+   167: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_bind_int64
+   168: 000186d0   452 FUNC    GLOBAL DEFAULT   10 wctl_schedules_alarms_create_item
+   169: 000119f0   272 FUNC    GLOBAL DEFAULT   10 wctl_user_db_delete_user
+   170: 0000bdf8    68 FUNC    GLOBAL DEFAULT   10 wctl_portal_init
+   171: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND SI_BDU_get_nb_svc
+   172: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_connection_free
+   173: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_set_glob_cb
+   174: 0001d4a0  2024 FUNC    GLOBAL DEFAULT   10 wctl_send_notify_package
+   175: 00032100     0 NOTYPE  GLOBAL DEFAULT   20 __bss_start__
+   176: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_send_reply
+   177: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_bind_socket
+   178: 00000000     0 FUNC    GLOBAL DEFAULT  UND socket@GLIBC_2.4 (2)
+   179: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_FreeString
+   180: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_free
+   181: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND FE_GetStatistics
+   182: 0000a8a0    72 FUNC    GLOBAL DEFAULT   10 wctl_events_destroy
+   183: 0000ff5c   736 FUNC    GLOBAL DEFAULT   10 wctl_system_logo_cb
+   184: 0001dc88  1200 FUNC    GLOBAL DEFAULT   10 wctl_send_byebye_package
+   185: 0001e8f0   124 FUNC    GLOBAL DEFAULT   10 wctl_set_ssdp_name
+   186: 000095ac  1132 FUNC    GLOBAL DEFAULT   10 wctl_control_volume_cb
+   187: 00016784   140 FUNC    GLOBAL DEFAULT   10 wctl_get_manufacturer
+   188: 0001e96c   124 FUNC    GLOBAL DEFAULT   10 wctl_set_ssdp_description
+   189: 00000000     0 FUNC    GLOBAL DEFAULT  UND ioctl@GLIBC_2.4 (2)
+   190: 0000a044   360 FUNC    GLOBAL DEFAULT   10 wctl_eit_present_cb
+   191: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_value_clone
+   192: 00013838    76 FUNC    GLOBAL DEFAULT   10 wctl_system_dvbcontent_stop
+   193: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_finalize
+   194: 000134bc   216 FUNC    GLOBAL DEFAULT   10 wctl_data_watch_init
+   195: 00000000     0 FUNC    GLOBAL DEFAULT  UND iconv_close@GLIBC_2.4 (2)
+   196: 00009f70    68 FUNC    GLOBAL DEFAULT   10 wctl_eit_init
+   197: 0000eb3c   252 FUNC    GLOBAL DEFAULT   10 wctl_streaming_session_abort
+   198: 00000000     0 FUNC    GLOBAL DEFAULT  UND strlen@GLIBC_2.4 (2)
+   199: 00000000     0 FUNC    GLOBAL DEFAULT  UND sscanf@GLIBC_2.4 (2)
+   200: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND si_database_api_get_channel_info_by_uid
+   201: 00012f34   132 FUNC    GLOBAL DEFAULT   10 wctl_cas_get_ca_sn
+   202: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_unbind_socket
+   203: 000185cc   260 FUNC    GLOBAL DEFAULT   10 wctl_schedules_alarms_get_list
+   204: 0000faf4  1128 FUNC    GLOBAL DEFAULT   10 wctl_system_parentalcode_cb
+   205: 000183e4   488 FUNC    GLOBAL DEFAULT   10 wctl_schedules_recordings_delete_item
+   206: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND SI_BDU_get_svc_type
+   207: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_set_cb
+   208: 00000000     0 FUNC    GLOBAL DEFAULT  UND unlink@GLIBC_2.4 (2)
+   209: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND sc_bus_declare_name
+   210: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND PVRDb_GetInfo
+   211: 000320fc     4 OBJECT  GLOBAL DEFAULT   19 UPNP_NOTIFY
+   212: 00000000     0 FUNC    GLOBAL DEFAULT  UND strtoul@GLIBC_2.4 (2)
+   213: 00013bf0    72 FUNC    GLOBAL DEFAULT   10 lpl_set_session_uri
+   214: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_object_get
+   215: 0001689c   172 FUNC    GLOBAL DEFAULT   10 wctl_get_friendly_name
+   216: 00000000     0 FUNC    GLOBAL DEFAULT  UND memcpy@GLIBC_2.4 (2)
+   217: 00009a18    68 FUNC    GLOBAL DEFAULT   10 wctl_debug_init
+   218: 0001ba88   208 FUNC    GLOBAL DEFAULT   10 wctl_http_move_arbo
+   219: 0001ea64   124 FUNC    GLOBAL DEFAULT   10 wctl_set_ssdp_uuid
+   220: 00000000     0 FUNC    GLOBAL DEFAULT  UND fopen64@GLIBC_2.4 (2)
+   221: 0000c7a0   572 FUNC    GLOBAL DEFAULT   10 wctl_schedules_recordings_cb
+   222: 00007a94    72 FUNC    GLOBAL DEFAULT   10 wctl_async_uninit
+   223: 0001b374    68 FUNC    GLOBAL DEFAULT   10 wctl_user_notify_change_info
+   224: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND pthread_create
+   225: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND SI_BDU_Get_Service_Lock_State
+   226: 000181a4   576 FUNC    GLOBAL DEFAULT   10 wctl_schedules_recordings_update_item
+   227: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND SI_BDU_get_svc_info
+   228: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND si_database_api_open
+   229: 0000b060   568 FUNC    GLOBAL DEFAULT   10 wctl_media_live_cb
+   230: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_GetCurrentSubtitle
+   231: 0000b6e4    68 FUNC    GLOBAL DEFAULT   10 wctl_network_init
+   232: 0000dc04   108 FUNC    GLOBAL DEFAULT   10 wctl_streaming_init
+   233: 0001eb28    72 FUNC    GLOBAL DEFAULT   10 wctl_ssdp_enable
+   234: 0000caa0   184 FUNC    GLOBAL DEFAULT   10 wctl_services_uninit
+   235: 000139b0    76 FUNC    GLOBAL DEFAULT   10 wctl_hls_player_stop
+   236: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND si_database_api_get_uid_from_triplet
+   237: 00000000     0 FUNC    GLOBAL DEFAULT  UND event_del
+   238: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND PVRDb_GetUniqFromRecId
+   239: 0000dd50    84 FUNC    GLOBAL DEFAULT   10 wctl_streaming_get_list
+   240: 0000cbe0   796 FUNC    GLOBAL DEFAULT   10 wctl_settings_me_cb
+   241: 00000000     0 FUNC    GLOBAL DEFAULT  UND evbuffer_add_file
+   242: 00015b50   972 FUNC    GLOBAL DEFAULT   10 wctl_system_output_get_signal_info
+   243: 0000c9dc   196 FUNC    GLOBAL DEFAULT   10 wctl_services_init
+   244: 00000000     0 FUNC    GLOBAL DEFAULT  UND strtol@GLIBC_2.4 (2)
+   245: 00017840  1656 FUNC    GLOBAL DEFAULT   10 wctl_eit_get_follow
+   246: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_bind_text
+   247: 0000f498   120 FUNC    GLOBAL DEFAULT   10 wctl_streaming_session_refresh_timer
+   248: 00032200     0 NOTYPE  GLOBAL DEFAULT   20 __end__
+   249: 00000000     0 FUNC    GLOBAL DEFAULT  UND strncat@GLIBC_2.4 (2)
+   250: 00000000     0 FUNC    GLOBAL DEFAULT  UND bufferevent_read
+   251: 00000000     0 FUNC    GLOBAL DEFAULT  UND evutil_make_socket_nonblocking
+   252: 0001bc68   576 FUNC    GLOBAL DEFAULT   10 wctl_netlink_create_socket
+   253: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_value_get_integer
+   254: 00032200     0 NOTYPE  GLOBAL DEFAULT   20 __bss_end__
+   255: 00000000     0 FUNC    GLOBAL DEFAULT  UND open64@GLIBC_2.4 (2)
+   256: 000123a4   164 FUNC    GLOBAL DEFAULT   10 wctl_user_reload
+   257: 0001ab78   436 FUNC    GLOBAL DEFAULT   10 wctl_get_pushvod_info
+   258: 00000000     0 OBJECT  GLOBAL DEFAULT  UND __stack_chk_guard@GLIBC_2.4 (3)
+   259: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_step
+   260: 00000000     0 FUNC    GLOBAL DEFAULT  UND event_add
+   261: 0000cb9c    68 FUNC    GLOBAL DEFAULT   10 wctl_settings_uninit
+   262: 00019820   880 FUNC    GLOBAL DEFAULT   10 PVRDb_GetInfoFull
+   263: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_FreeAudioStruct
+   264: 0001e138  1088 FUNC    GLOBAL DEFAULT   10 wctl_open_ssdp_listener
+   265: 00015ac0    72 FUNC    GLOBAL DEFAULT   10 wctl_output_status_media
+   266: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_kv_find
+   267: 00018ab4   488 FUNC    GLOBAL DEFAULT   10 wctl_schedules_alarms_delete_item
+   268: 0001b778   248 FUNC    GLOBAL DEFAULT   10 wctl_md5sum_file
+   269: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_kvs_add_kv
+   270: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Epg_GetEitPfDuration
+   271: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_request_resume
+   272: 00016404   160 FUNC    GLOBAL DEFAULT   10 wctl_get_software_version
+   273: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND STBINFO_GetField
+   274: 0000a788   280 FUNC    GLOBAL DEFAULT   10 wctl_events_create
+   275: 0001314c   356 FUNC    GLOBAL DEFAULT   10 wctl_cas_check_parental_pincode
+   276: 00000000     0 FUNC    GLOBAL DEFAULT  UND __snprintf_chk@GLIBC_2.4 (2)
+   277: 0000dcb4   156 FUNC    GLOBAL DEFAULT   10 wctl_register_streaming_service
+   278: 000117bc   564 FUNC    GLOBAL DEFAULT   10 wctl_user_db_update_user
+   279: 00000000     0 FUNC    GLOBAL DEFAULT  UND bind@GLIBC_2.4 (2)
+   280: 00000000     0 FUNC    GLOBAL DEFAULT  UND strstr@GLIBC_2.4 (2)
+   281: 00011360   416 FUNC    GLOBAL DEFAULT   10 wctl_user_db_init
+   282: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Epg_GetEitPfLongSummary
+   283: 0001eae0    72 FUNC    GLOBAL DEFAULT   10 wctl_set_ssdp_maxage
+   284: 00011d10   704 FUNC    GLOBAL DEFAULT   10 wctl_user_db_load_list
+   285: 00007c0c   108 FUNC    GLOBAL DEFAULT   10 wctl_async_destroy
+   286: 00000000     0 FUNC    GLOBAL DEFAULT  UND close@GLIBC_2.4 (2)
+   287: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_send_reply_body
+   288: 0000d144    68 FUNC    GLOBAL DEFAULT   10 wctl_signal_init
+   289: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_send_reply_start
+   290: 00000000     0 FUNC    GLOBAL DEFAULT  UND strncasecmp@GLIBC_2.4 (2)
+   291: 0001366c   124 FUNC    GLOBAL DEFAULT   10 wctl_dvb_listen_event
+   292: 00011c5c   180 FUNC    GLOBAL DEFAULT   10 wctl_user_save
+   293: 00009c48   400 FUNC    GLOBAL DEFAULT   10 wctl_debug_streaming_cb
+   294: 0001ad2c   500 FUNC    GLOBAL DEFAULT   10 wctl_get_categories_list
+   295: 00000000     0 FUNC    GLOBAL DEFAULT  UND time@GLIBC_2.4 (2)
+   296: 000320f8     4 OBJECT  GLOBAL DEFAULT   19 UPNP_BYEBYE
+   297: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_object_set
+   298: 00000000     0 FUNC    GLOBAL DEFAULT  UND MD5_Update
+   299: 0000f9f4   256 FUNC    GLOBAL DEFAULT   10 wctl_system_version_cb
+   300: 0001e874   124 FUNC    GLOBAL DEFAULT   10 wctl_set_ssdp_path
+   301: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_value_new_object
+   302: 0000be3c    68 FUNC    GLOBAL DEFAULT   10 wctl_portal_uninit
+   303: 00015f1c    88 FUNC    GLOBAL DEFAULT   10 wctl_output_set_epg_status
+   304: 00000000     0 FUNC    GLOBAL DEFAULT  UND __xstat64@GLIBC_2.4 (2)
+   305: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_kvp_value
+   306: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND SI_BDU_Search_service_indice_bdu
+   307: 00032100     0 NOTYPE  GLOBAL DEFAULT   20 __bss_start
+   308: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_GetSessionState
+   309: 00008058    68 FUNC    GLOBAL DEFAULT   10 wctl_authorization_uninit
+   310: 00000000     0 FUNC    GLOBAL DEFAULT  UND malloc@GLIBC_2.4 (2)
+   311: 0001b940   328 FUNC    GLOBAL DEFAULT   10 wctl_replace_string
+   312: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_output_buffer
+   313: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_value_add_reference
+   314: 00032200     0 NOTYPE  GLOBAL DEFAULT   20 _bss_end__
+   315: 00000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (2)
+   316: 00016948   276 FUNC    GLOBAL DEFAULT   10 wctl_get_logo_filename
+   317: 0000c75c    68 FUNC    GLOBAL DEFAULT   10 wctl_schedules_uninit
+   318: 00000000     0 FUNC    GLOBAL DEFAULT  UND gmtime_r@GLIBC_2.4 (2)
+   319: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_object_iter_init
+   320: 000138e8   132 FUNC    GLOBAL DEFAULT   10 wctl_hls_player_play
+   321: 0000b728    68 FUNC    GLOBAL DEFAULT   10 wctl_network_uninit
+   322: 00000000     0 FUNC    GLOBAL DEFAULT  UND pthread_attr_init@GLIBC_2.4 (2)
+   323: 00012da8   132 FUNC    GLOBAL DEFAULT   10 wctl_cas_get_nuid
+   324: 00000000     0 FUNC    GLOBAL DEFAULT  UND evbuffer_add_printf
+   325: 0000dc70    68 FUNC    GLOBAL DEFAULT   10 wctl_streaming_uninit
+   326: 0001a3f4   436 FUNC    GLOBAL DEFAULT   10 wctl_get_record_info
+   327: 00000000     0 FUNC    GLOBAL DEFAULT  UND inotify_rm_watch@GLIBC_2.4 (2)
+   328: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_GetCurrentAudio
+   329: 0000b298   520 FUNC    GLOBAL DEFAULT   10 wctl_media_category_cb
+   330: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND si_database_api_close
+   331: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_value_new_string
+   332: 00007adc   120 FUNC    GLOBAL DEFAULT   10 wctl_async_operation
+   333: 00000000     0 FUNC    GLOBAL DEFAULT  UND event_free
+   334: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_kv_new
+   335: 00000000     0 FUNC    GLOBAL DEFAULT  UND rmdir@GLIBC_2.4 (2)
+   336: 00017fc0   484 FUNC    GLOBAL DEFAULT   10 wctl_schedules_recordings_create_item
+   337: 000111d4   172 FUNC    GLOBAL DEFAULT   10 wctl_user_get_by_id
+   338: 00011500   168 FUNC    GLOBAL DEFAULT   10 wctl_user_db_create
+   339: 00013b44   100 FUNC    GLOBAL DEFAULT   10 wctl_system_hls_get_signal_info
+   340: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_value_get_object
+   341: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_GetSessionsList
+   342: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND PVRDb_GetIdList
+   343: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND sc_bus_exit
+   344: 00000000     0 FUNC    GLOBAL DEFAULT  UND event_base_new
+   345: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND sc_bus_init
+   346: 0000a6c8    72 FUNC    GLOBAL DEFAULT   10 wctl_events_uninit
+   347: 0000cefc   584 FUNC    GLOBAL DEFAULT   10 wctl_settings_parental_cb
+   348: 00000000     0 FUNC    GLOBAL DEFAULT  UND getifaddrs@GLIBC_2.4 (2)
+   349: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND sc_bus_get_service
+   350: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_value_free
+   351: 00015b08    72 FUNC    GLOBAL DEFAULT   10 wctl_output_play_media
+   352: 00010564   856 FUNC    GLOBAL DEFAULT   10 wctl_system_time_cb
+   353: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND FE_OpenEx
+   354: 00013a44   256 FUNC    GLOBAL DEFAULT   10 wctl_hls_player_status
+   355: 0001a8bc   436 FUNC    GLOBAL DEFAULT   10 wctl_get_autorecord_info
+   356: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_GetAudioList
+   357: 00000000     0 FUNC    GLOBAL DEFAULT  UND puts@GLIBC_2.4 (2)
+   358: 00000000     0 FUNC    GLOBAL DEFAULT  UND strftime@GLIBC_2.4 (2)
+   359: 000192d0  1288 FUNC    GLOBAL DEFAULT   10 wctl_get_channel_info
+   360: 00010b78  1264 FUNC    GLOBAL DEFAULT   10 wctl_system_status_cb
+   361: 0001b6a0   216 FUNC    GLOBAL DEFAULT   10 wctl_convert_netmask6_to_cidr
+   362: 000128f0   612 FUNC    GLOBAL DEFAULT   10 wctl_swoosh_pair_cb
+   363: 00032200     0 NOTYPE  GLOBAL DEFAULT   20 _end
+   364: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_new
+   365: 00000000     0 FUNC    GLOBAL DEFAULT  UND getpid@GLIBC_2.4 (2)
+   366: 00000000     0 FUNC    GLOBAL DEFAULT  UND evutil_closesocket
+   367: 000108bc   700 FUNC    GLOBAL DEFAULT   10 wctl_system_requests_cb
+   368: 00011bd4   136 FUNC    GLOBAL DEFAULT   10 wctl_user_db_save_user
+   369: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_value_new_integer
+   370: 00015834   488 FUNC    GLOBAL DEFAULT   10 wctl_output_volume_get
+   371: 0000f9b0    68 FUNC    GLOBAL DEFAULT   10 wctl_system_uninit
+   372: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Epg_GetEitPfTitle
+   373: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND PVRDb_CountRecord
+   374: 00000000     0 FUNC    GLOBAL DEFAULT  UND inotify_add_watch@GLIBC_2.4 (2)
+   375: 00016318    80 FUNC    GLOBAL DEFAULT   10 wctl_settings_get_parental_control_status
+   376: 00000000     0 FUNC    GLOBAL DEFAULT  UND fcntl@GLIBC_2.4 (2)
+   377: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_GetPlaybackState
+   378: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND SI_BDU_get_svc_def
+   379: 0001e694    72 FUNC    GLOBAL DEFAULT   10 wctl_set_userdata
+   380: 000139fc    72 FUNC    GLOBAL DEFAULT   10 wctl_hls_player_set_audio
+   381: 0000e71c   736 FUNC    GLOBAL DEFAULT   10 wctl_streaming_destroy_session
+   382: 0000809c   128 FUNC    GLOBAL DEFAULT   10 wctl_authorization_user_reload_async
+   383: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_parse_string
+   384: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_send_reply_chunk
+   385: 00000000     0 FUNC    GLOBAL DEFAULT  UND pthread_attr_destroy@GLIBC_2.4 (2)
+   386: 00000000     0 FUNC    GLOBAL DEFAULT  UND recvmsg@GLIBC_2.4 (2)
+   387: 00000000     0 FUNC    GLOBAL DEFAULT  UND event_base_loop
+   388: 000079d8   188 FUNC    GLOBAL DEFAULT   10 wctl_async_init
+   389: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Epg_GetEventExtendedDescFromEIT
+   390: 00017eb8   264 FUNC    GLOBAL DEFAULT   10 wctl_schedules_recordings_get_list
+   391: 0001b5a8   248 FUNC    GLOBAL DEFAULT   10 wctl_get_interface_ipv4addr
+   392: 0001a7b4   264 FUNC    GLOBAL DEFAULT   10 wctl_get_autorecords_list
+   393: 00000000     0 FUNC    GLOBAL DEFAULT  UND evbuffer_copyout
+   394: 000162d4    68 FUNC    GLOBAL DEFAULT   10 wctl_control_send_key
+   395: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_array_append
+   396: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_request_pause
+   397: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Avplayer_RegisterCallback
+   398: 00012b54   596 FUNC    GLOBAL DEFAULT   10 wctl_system_version_send
+   399: 00011184    80 FUNC    GLOBAL DEFAULT   10 wctl_user_get_list
+   400: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_array_get
+   401: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_prepare_v2
+   402: 000115a8   532 FUNC    GLOBAL DEFAULT   10 wctl_user_db_insert_user
+   403: 000166a0   228 FUNC    GLOBAL DEFAULT   10 wctl_get_serial_number
+   404: 00000000     0 FUNC    GLOBAL DEFAULT  UND __sprintf_chk@GLIBC_2.4 (2)
+   405: 00000000     0 FUNC    GLOBAL DEFAULT  UND event_new
+   406: 00000000     0 FUNC    GLOBAL DEFAULT  UND fread@GLIBC_2.4 (2)
+   407: 0001c508    88 FUNC    GLOBAL DEFAULT   10 wctl_set_instance_port
+   408: 0000e504   160 FUNC    GLOBAL DEFAULT   10 wctl_streaming_retrieve_session
+   409: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_send_reply_end
+   410: 00000000     0 FUNC    GLOBAL DEFAULT  UND timegm@GLIBC_2.4 (2)
+   411: 00032100     0 NOTYPE  GLOBAL DEFAULT   19 _edata
+   412: 00000000     0 FUNC    GLOBAL DEFAULT  UND strncmp@GLIBC_2.4 (2)
+   413: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_array_set
+   414: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_send_reply_chunk_start
+   415: 00014f0c   124 FUNC    GLOBAL DEFAULT   10 wctl_output_retrieve_session
+   416: 00000000     0 FUNC    GLOBAL DEFAULT  UND realloc@GLIBC_2.4 (2)
+   417: 0000cb58    68 FUNC    GLOBAL DEFAULT   10 wctl_settings_init
+   418: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_busy_timeout
+   419: 00000000     0 FUNC    GLOBAL DEFAULT  UND iconv_open@GLIBC_2.4 (2)
+   420: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Epg_UnregisterCallbackChangeEITWithTags
+   421: 0001bea8    72 FUNC    GLOBAL DEFAULT   10 wctl_netlink_get_file_descriptor
+   422: 00000000     0 FUNC    GLOBAL DEFAULT  UND pipe@GLIBC_2.4 (2)
+   423: 00000000     0 FUNC    GLOBAL DEFAULT  UND __strdup@GLIBC_2.4 (2)
+   424: 0000e3b0   340 FUNC    GLOBAL DEFAULT   10 wctl_streaming_find_session
+   425: 00011318    72 FUNC    GLOBAL DEFAULT   10 wctl_user_db_close
+   426: 00000000     0 FUNC    GLOBAL DEFAULT  UND setsockopt@GLIBC_2.4 (2)
+   427: 0001b870   208 FUNC    GLOBAL DEFAULT   10 wctl_md5sum_to_string
+   428: 00015fbc    72 FUNC    GLOBAL DEFAULT   10 wctl_portal_send_to_ui
+   429: 000130c0   140 FUNC    GLOBAL DEFAULT   10 wctl_cas_get_parental_pincode_left
+   430: 000171bc  1668 FUNC    GLOBAL DEFAULT   10 wctl_eit_get_present
+   431: 00000000     0 FUNC    GLOBAL DEFAULT  UND evhtp_set_hook
+   432: 00011280   152 FUNC    GLOBAL DEFAULT   10 wctl_user_db_open
+   433: 00009280    68 FUNC    GLOBAL DEFAULT   10 wctl_control_init
+   434: 00000000     0 FUNC    GLOBAL DEFAULT  UND inotify_init@GLIBC_2.4 (2)
+   435: 00017100    72 FUNC    GLOBAL DEFAULT   10 wctl_user_listen_database_change
+   436: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND csdTerminate
+   437: 00008be0  1696 FUNC    GLOBAL DEFAULT   10 wctl_authorization_users_cb
+   438: 0001ec8c    72 FUNC    GLOBAL DEFAULT   10 wctl_destroy
+   439: 000320f4     4 OBJECT  GLOBAL DEFAULT   19 UPNP_REPLY
+   440: 0001c560   452 FUNC    GLOBAL DEFAULT   10 wctl_http_send_file_async
+   441: 0001023c   808 FUNC    GLOBAL DEFAULT   10 wctl_system_download_cb
+   442: 000321fc     4 OBJECT  GLOBAL DEFAULT   20 wctl_log_debug_enabled
+   443: 00000000     0 FUNC    GLOBAL DEFAULT  UND strcmp@GLIBC_2.4 (2)
+   444: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Epg_RegisterCallbackChangeEIT
+   445: 0001b330    68 FUNC    GLOBAL DEFAULT   10 wctl_wrapper_uninit
+   446: 00011fd0   300 FUNC    GLOBAL DEFAULT   10 wctl_user_init
+   447: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_open
+   448: 00016810   140 FUNC    GLOBAL DEFAULT   10 wctl_get_model_name
+   449: 0000d1cc   888 FUNC    GLOBAL DEFAULT   10 wctl_signal_info_cb
+   450: 0001e724   264 FUNC    GLOBAL DEFAULT   10 wctl_create_instance
+   451: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND SI_BDU_get_svc_ch_list
+   452: 00018c9c  1588 FUNC    GLOBAL DEFAULT   10 wctl_get_channels_list
+   453: 00009aa0   424 FUNC    GLOBAL DEFAULT   10 wctl_debug_debug_cb
+   454: 00000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.4 (2)
+   455: 00005eb4     0 FUNC    GLOBAL DEFAULT    8 _init
+   456: 00000000     0 FUNC    GLOBAL DEFAULT  UND cson_array_length_get
+   457: 0000b76c  1676 FUNC    GLOBAL DEFAULT   10 wctl_network_interfaces_cb
+   458: 00000000     0 FUNC    GLOBAL DEFAULT  UND mkdtemp@GLIBC_2.4 (2)
+   459: 0001ebbc   208 FUNC    GLOBAL DEFAULT   10 wctl_destroy_instance
+   460: 00000000     0 FUNC    GLOBAL DEFAULT  UND sqlite3_last_insert_rowid

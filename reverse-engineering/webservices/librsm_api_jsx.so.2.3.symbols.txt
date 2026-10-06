@@ -1,0 +1,30 @@
+
+Symbol table '.dynsym' contains 27 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 000005b8     0 SECTION LOCAL  DEFAULT    8 .init
+     2: 00011eb0     0 SECTION LOCAL  DEFAULT   16 .jcr
+     3: 00000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.4 (2)
+     4: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+     5: 00012004     0 NOTYPE  GLOBAL DEFAULT   20 __bss_start__
+     6: 00000000     0 OBJECT  GLOBAL DEFAULT  UND __stack_chk_guard@GLIBC_2.4 (3)
+     7: 00012008     0 NOTYPE  GLOBAL DEFAULT   20 _bss_end__
+     8: 00012004     0 NOTYPE  GLOBAL DEFAULT   19 _edata
+     9: 00000dac     0 FUNC    GLOBAL DEFAULT   11 _fini
+    10: 00012008     0 NOTYPE  GLOBAL DEFAULT   20 __bss_end__
+    11: 00000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (2)
+    12: 00000000     0 FUNC    GLOBAL DEFAULT  UND puts@GLIBC_2.4 (2)
+    13: 00000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    14: 00000000     0 FUNC    GLOBAL DEFAULT  UND strlen@GLIBC_2.4 (2)
+    15: 00000d28   132 FUNC    GLOBAL DEFAULT   10 rsm_api_jsx_init
+    16: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Rsm_FreeSessionInfo
+    17: 00012008     0 NOTYPE  GLOBAL DEFAULT   20 _end
+    18: 00000000     0 FUNC    GLOBAL DEFAULT  UND putchar@GLIBC_2.4 (2)
+    19: 00000000     0 FUNC    GLOBAL DEFAULT  UND __printf_chk@GLIBC_2.4 (2)
+    20: 00012008     0 NOTYPE  GLOBAL DEFAULT   20 __end__
+    21: 00012004     0 NOTYPE  GLOBAL DEFAULT   20 __bss_start
+    22: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND Rsm_GetSessionInfo
+    23: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _Jv_RegisterClasses
+    24: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND JSX_Add
+    25: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    26: 000005b8     0 FUNC    GLOBAL DEFAULT    8 _init

