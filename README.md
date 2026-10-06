@@ -1,7 +1,8 @@
-# Vodafone TV reverse-engineering research
+# Vodafone TV / Sagemcom reverse-engineering
 
-Research notes, source code, scripts, and selected static-analysis output for
-the legacy Vodafone TV set-top-box platform.
+Research notes, source code, scripts, activation tooling, and selected
+static-analysis output for the legacy Vodafone TV Sagemcom set-top-box
+platform.
 
 ## Repository layout
 
