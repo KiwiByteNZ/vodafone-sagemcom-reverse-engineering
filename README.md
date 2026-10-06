@@ -4,6 +4,52 @@ Research notes, source code, scripts, activation tooling, and selected
 static-analysis output for the legacy Vodafone TV Sagemcom set-top-box
 platform.
 
+## How this research started
+
+After several years of trying to understand these Vodafone TV boxes, I still
+could not get past the network activation screen. I dumped the boot ROM and
+eMMC, but that did not immediately provide a way forward because much of the
+firmware appeared to be encrypted or otherwise protected.
+
+I kept watching Facebook Marketplace, second-hand dealers, and Trade Me—the
+New Zealand equivalent of eBay—for more hardware. I must have bought at least
+ten Vodafone TV boxes, but every one I tried was stuck at activation. Recently,
+I finally obtained a box that had already been activated. Its applications no
+longer worked, but it could get past the network setup screen and reach the
+main interface. That made it much more useful for comparing behaviour and
+studying what a successfully activated box retained.
+
+I ran an Nmap scan and noticed TCP port `9536` was open. Connecting to it with
+Netcat exposed a JavaScript-based command console. After a great deal of trial
+and error, I found the `/help` menu. It listed commands including `/cat`,
+`/env`, `/text`, and `/screen`, along with controls for screen resolution and
+other functions.
+
+The `/cat` command was the breakthrough. I tried:
+
+```text
+/cat /etc/passwd
+```
+
+The console returned the contents of the file. I then began testing the limits
+of the restricted command environment and discovered that the `/cat` command
+could be followed by a shell pipe. The command-injection pattern was:
+
+```sh
+/cat /dev/null | /bin/sh -c 'COMMAND'
+```
+
+I was able to turn this command-injection primitive into an interactive shell.
+It was not root—the process inherited the Netflix/Gibbon user identity, UID
+`1007`—but it was finally a foot in the door.
+
+After a few more long nights of tracing services and testing the boundaries
+between UID 1007 and the privileged system components, I managed to turn that
+initial access into a root Telnet shell. That was roughly where my active work
+on the boxes stopped. I am releasing my notes, scripts, and research in the
+hope that they help someone else continue the work and find new ways to
+repurpose this discontinued hardware instead of letting it become e-waste.
+
 ## How to use a Vodafone TV box after decommissioning
 
 Vodafone TV service in New Zealand has been decommissioned, but the hardware
