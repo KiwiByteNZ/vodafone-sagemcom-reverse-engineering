@@ -5,7 +5,7 @@ Saved: 2026-10-05 UTC
 ## Network
 
 - Emulator PC: `192.168.0.163:8080`
-- Mercku router: `192.168.0.2`, routing `192.168.100.0/24`
+- Lab router: `192.168.0.2`, routing `192.168.100.0/24`
 - Activated box: `192.168.100.11`
 - Target box: `192.168.100.180`
 - Target MAC: `<TARGET_MAC>`
@@ -35,7 +35,7 @@ Activation and the Apps rail now work. `GetChannelMultiFilter` for channel
 The target's lab address was `192.168.50.180`. Its device-specific MAC address
 has been replaced with `<TARGET_MAC>` in the shared repository.
 
-Live Mercku rules were added for the target, but these are runtime iptables
+Live lab-router rules were added for the target, but these are runtime iptables
 rules and may be lost when the router reboots. The router's FORWARD policy is
 DROP. Its older explicit rules cover only the activated box at
 `192.168.100.11`.

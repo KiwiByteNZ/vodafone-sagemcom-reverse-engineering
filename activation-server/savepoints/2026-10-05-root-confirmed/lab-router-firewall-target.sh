@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-#  These rules permit the lab workstation to reach
+# Run on the lab router. These rules permit the lab workstation to reach
 # the second Vodafone box and permit traffic sourced by that box.
 WORKSTATION_IP=${WORKSTATION_IP:-192.168.0.163}
 VODAFONE_IP=${VODAFONE_IP:-192.168.50.180}

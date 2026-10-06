@@ -34,7 +34,7 @@ Activation and the Apps rail now work. `GetChannelMultiFilter` for channel
 The target's lab address was `192.168.50.180`. Its device-specific MAC address
 has been replaced with `<TARGET_MAC>` in the shared repository.
 
-The Mercku configuration is now persistent and was verified with a full
+The lab-router configuration is now persistent and was verified with a full
 firewall restart on 2026-10-06:
 
 - DHCP reservation: `<TARGET_MAC>` -> `192.168.50.180`
