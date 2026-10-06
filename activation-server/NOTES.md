@@ -5,7 +5,6 @@ Saved: 2026-10-05 UTC
 ## Network
 
 - Emulator PC: `192.168.0.163:8080`
-- Mercku router: `192.168.0.2`, routing `192.168.100.0/24`
 - Activated box: `192.168.100.11`
 - Target box: `192.168.100.180`
 - Target MAC: `<TARGET_MAC>`
