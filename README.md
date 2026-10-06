@@ -30,18 +30,6 @@ does not guarantee that discontinued or externally hosted applications will
 work. Sanitized results are welcome under the process in
 [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-## Sagemcom DTIW384 UART Pinout and Serial Bootlogs
-
-The target hardware is the Sagemcom DIW/DTIW384 Vodafone TV UHD set-top box.
-The public repository currently focuses on software, provisioning-flash, and
-network research; an independently verified UART pinout and sanitized serial
-bootlog have not yet been published here. Contributions are welcome if they
-identify voltage, ground, transmit, and receive pins safely and remove device
-identifiers or credentials from boot output.
-
-Do not connect an unknown header directly to an RS-232 port. Confirm the logic
-voltage and pin functions with appropriate test equipment first.
-
 ## Repository layout
 
 - `notes/` — checkpoints, protocol notes, and audit reports
