@@ -8,7 +8,6 @@ Last verified: 2026-10-04. Target: `192.168.100.11`. Gibbon console: TCP
 Wait until TCP 9536 is accepting connections, then run from this directory:
 
 ```sh
-cd /home/user/Documents/codex
 ./vodafone-root-shell-setup.sh 192.168.100.11 9536
 ./vodafone-root-shell.sh 192.168.100.11 9536
 ```
