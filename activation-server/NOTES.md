@@ -10,8 +10,9 @@ Saved: 2026-10-05 UTC
 - Target MAC: `<TARGET_MAC>`
 - Target UDID: `<TARGET_UDID>`
 
-The target reaches the emulator successfully and downloads `/dms/apps.json`.
-This proves the PC firewall and route are not blocking activation traffic.
+The target reaches the emulator successfully and downloads `
+/dms/apps.json`
+
 
 ## Implemented responses
 
@@ -33,27 +34,6 @@ Activation and the Apps rail now work. `GetChannelMultiFilter` for channel
 
 The target's lab address was `192.168.50.180`. Its device-specific MAC address
 has been replaced with `<TARGET_MAC>` in the shared repository.
-
-The lab-router configuration is now persistent and was verified with a full
-firewall restart on 2026-10-06:
-
-- DHCP reservation: `<TARGET_MAC>` -> `192.168.50.180`
-- Allow `192.168.0.163` -> `192.168.50.180`
-- Allow traffic sourced by `192.168.50.180` with MAC `<TARGET_MAC>`
-
-The persistent rules are in `/etc/firewall.user`; the reservation is in UCI
-section `dhcp.vodafone_box`. Router backups are:
-
-```text
-/etc/firewall.user.backup-20261006-011758
-/etc/config/dhcp.backup-20261006-011758
-```
-
-After the firewall reload, both rules returned with increasing packet counters,
-and TCP `9080` and `9536` remained reachable.
-
-On the target, TCP `3030` and `9536` are open. TCP `9080` is closed and `9222`
-is filtered.
 
 The root workflow succeeded through port `9536`. Final verification returned:
 
